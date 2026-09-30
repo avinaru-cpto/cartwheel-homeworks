@@ -14,6 +14,7 @@ Assignments are released incrementally. More will appear here as the course prog
 
 - [Homework 4](module-2/hw4.md): Review traces and define failure modes.
 - [Homework 5](module-2/hw5.md): Develop and test one LLM judge. Build two more as optional extensions.
+- [Your HW5 status and checklist](../analysis/report/hw5_status_and_checklist.md): Plain-English requirements, completed work, remaining human decisions, and submission artifacts.
 
 ## Module 3
 
