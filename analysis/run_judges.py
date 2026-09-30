@@ -181,6 +181,9 @@ def split_data(mode: str = MODE) -> dict[str, list[str]]:
 
 def run_development(mode: str, prompt_path: str | Path) -> dict[str, Any]:
     """Register one prompt version, run only development traces, and save metrics."""
+    os.environ.setdefault(
+        "CARTWHEEL_JUDGE_TRACE_SOURCE", str(STATE / "hw5_trace_inputs.json")
+    )
     prompt = Path(prompt_path)
     record = register_judge(
         mode=mode,
@@ -196,6 +199,9 @@ def run_development(mode: str, prompt_path: str | Path) -> dict[str, Any]:
 
 def run_test(judge_id: str) -> dict[str, Any]:
     """Freeze the selected version, run held-out test once, and save metrics."""
+    os.environ.setdefault(
+        "CARTWHEEL_JUDGE_TRACE_SOURCE", str(STATE / "hw5_trace_inputs.json")
+    )
     freeze_judge(judge_id)
     run_judge(judge_id, split="test", batch_size=10)
     metrics = judge_alignment(judge_id, split="test")
@@ -212,6 +218,9 @@ def status(mode: str = MODE) -> dict[str, Any]:
 
 
 def main() -> None:
+    from observability.instrument import load_env
+
+    load_env()
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("export-labels")

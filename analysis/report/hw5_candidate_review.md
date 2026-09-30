@@ -39,6 +39,5 @@ human-confirmed Fails are required before the fixed train/dev/test split.
 - Proposed decision: **Fail (0)** because the shopper did not ask for the raw
   identifier `cw-cancellations`.
 
-Human checkpoint: review the two complete traces in the HW4 review interface
-or source export, then explicitly confirm or correct the proposed decisions.
-No HW5 labels have been written for these candidates yet.
+Human checkpoint completed 2026-09-30: the student confirmed both proposed
+decisions as **Fail (0)**. Both HW5 labels are recorded with the evidence above.
