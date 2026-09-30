@@ -1,0 +1,577 @@
+{
+  "version": 1,
+  "status": "awaiting_human_review",
+  "retrieved_at": "2026-09-25T04:56:25.979Z",
+  "source": {
+    "kind": "langfuse",
+    "description": "Live Langfuse · final HW3 scenarios",
+    "loaded_at": "2026-09-18T08:19:54.101797+00:00"
+  },
+  "scope": {
+    "distinct_traces_searched": 311,
+    "already_reviewed_excluded": 62,
+    "formal_breadth_traces": 60,
+    "eligible_unreviewed_traces": 249,
+    "selected": 25
+  },
+  "method": "Depth search over all 311 distinct traces in the review app's live-Langfuse snapshot (loaded 2026-09-18), excluding all 62 already-reviewed trace IDs (including the 60 formal breadth samples). Retrieval used status/price prompt patterns and currency fields, answer word counts plus topic neighbors of human clarity notes, and final-assistant-message presence plus historical diagnostics. Manually selected 25 IDs for role/topic and boundary coverage: unsolicited_status_price 10, answer_obscured_by_excess_detail 9, missing_usable_final_response 6; 12 possible matches and 13 possible close negatives. Length, price strings, and diagnostics are search signals, not labels. Includes completed/incomplete attempts of three scenarios; final-229 has a reworded prompt, not an identical retry. Full per-trace reasons: analysis/state/depth_search_plan.json. No model calls. Student must review and accept/reject suggestions.",
+  "method_details": {
+    "price_prompt_regex": "price|cost|total|amount|\\$\\s*\\d|exact product record|refund.*(?:much|how)|how.*refund",
+    "status_prompt_regex": "status|where.*order|when.*(?:ship|deliver)|track|has.*(?:ship|deliver)|arriv|what.*happen",
+    "reply_price_regex": "\\$\\s*\\d|\\b(?:USD|total_usd|price_usd)\\b",
+    "word_count": "Whitespace-separated words in the last assistant text with no later tool call/result in the individual trace.",
+    "completion_signal": "Presence of an assistant text message after the last tool activity; this is a retrieval heuristic, not a judgment of adequacy.",
+    "selection": "Purposeful contrast selection by role, topic, and request boundary from the filtered/ranked results; no random draw and no LLM classification."
+  },
+  "caveats": [
+    "All hypotheses and close-negative candidates require human review.",
+    "Word count is not a quality threshold.",
+    "A missing-reply flag or provider diagnostic does not establish a model-behavior failure.",
+    "Source is the app's existing live-Langfuse snapshot, not a newly fetched production population.",
+    "Scenario IDs can repeat across distinct traces. The final-229 complete/incomplete pair has different wording.",
+    "Source excerpts are proposed evidence, not human annotations."
+  ],
+  "counts": {
+    "by_mode": {
+      "unsolicited_status_price": 10,
+      "answer_obscured_by_excess_detail": 9,
+      "missing_usable_final_response": 6
+    },
+    "by_retrieval_group": {
+      "possible_match": 12,
+      "possible_close_negative": 13
+    },
+    "by_role": {
+      "shopper": 13,
+      "merchant": 7,
+      "support": 5
+    }
+  },
+  "selected": [
+    {
+      "trace_id": "fb0463b005703697636254c8ecdda50a",
+      "session_id": "f5e4e9d3-181d-4784-b4d9-ac65cf0fc653",
+      "scenario_id": "final-004",
+      "role": "shopper",
+      "mode": "unsolicited_status_price",
+      "retrieval_group": "possible_match",
+      "selection_reason": "Status-only prompt with a currency amount in the final reply.",
+      "signal": {
+        "reply_words": 28,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": true,
+        "prompt_status_signal": true,
+        "prompt_price_signal": false
+      },
+      "quote": "- **Total:** $5.25",
+      "idx": 4,
+      "start": 186,
+      "end": 204
+    },
+    {
+      "trace_id": "a9499256610ffd92842699e742670e3e",
+      "session_id": "583c5879-f75f-48c3-b50f-1c23384d9234",
+      "scenario_id": "final-013",
+      "role": "shopper",
+      "mode": "unsolicited_status_price",
+      "retrieval_group": "possible_match",
+      "selection_reason": "Status-only prompt with a currency amount in the final reply; shipped-order contrast.",
+      "signal": {
+        "reply_words": 34,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": true,
+        "prompt_status_signal": true,
+        "prompt_price_signal": false
+      },
+      "quote": "- **Total:** $23.50",
+      "idx": 4,
+      "start": 128,
+      "end": 147
+    },
+    {
+      "trace_id": "6f65ee6bb49301a524d3fe18fcbc3796",
+      "session_id": "59649bc3-e6b5-4668-9410-6443436d0622",
+      "scenario_id": "final-014",
+      "role": "merchant",
+      "mode": "unsolicited_status_price",
+      "retrieval_group": "possible_match",
+      "selection_reason": "Merchant asks for status and dates; the final reply also contains a total.",
+      "signal": {
+        "reply_words": 36,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": true,
+        "prompt_status_signal": true,
+        "prompt_price_signal": false
+      },
+      "quote": "- Total: $333.00",
+      "idx": 4,
+      "start": 189,
+      "end": 205
+    },
+    {
+      "trace_id": "a1797134c9f9c583f618d3faebf91758",
+      "session_id": "2aad6992-e364-4ca0-84dd-ec8ede2eeda2",
+      "scenario_id": "final-030",
+      "role": "support",
+      "mode": "unsolicited_status_price",
+      "retrieval_group": "possible_match",
+      "selection_reason": "Support status lookup with a total; check whether the requested record summary needs it.",
+      "signal": {
+        "reply_words": 45,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": true,
+        "prompt_status_signal": true,
+        "prompt_price_signal": false
+      },
+      "quote": "- Total: $163.25",
+      "idx": 7,
+      "start": 111,
+      "end": 127
+    },
+    {
+      "trace_id": "ec49e5ae195a7e2c451dd0fe786a8cb8",
+      "session_id": "b9d5636e-e182-4649-8603-66b7fc6db0b4",
+      "scenario_id": "final-035",
+      "role": "merchant",
+      "mode": "unsolicited_status_price",
+      "retrieval_group": "possible_match",
+      "selection_reason": "Merchant status-and-dates request with a total; refunded-order contrast.",
+      "signal": {
+        "reply_words": 49,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": true,
+        "prompt_status_signal": true,
+        "prompt_price_signal": false
+      },
+      "quote": "- Total: $202.75",
+      "idx": 4,
+      "start": 182,
+      "end": 198
+    },
+    {
+      "trace_id": "14cfcbe16173d641d9b1f02de56ecebb",
+      "session_id": "1edaa05f-0c23-46f9-8cf1-4c3c785ba9e5",
+      "scenario_id": "final-040",
+      "role": "shopper",
+      "mode": "unsolicited_status_price",
+      "retrieval_group": "possible_close_negative",
+      "selection_reason": "Currency match, but the shopper explicitly asks for the price and product ID.",
+      "signal": {
+        "reply_words": 54,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": true,
+        "prompt_status_signal": false,
+        "prompt_price_signal": true
+      },
+      "quote": "| Speckled Serving Bowl | 22 | $89.00 |",
+      "idx": 4,
+      "start": 104,
+      "end": 143
+    },
+    {
+      "trace_id": "cf11613678bb1cf4a222c176c4feeb1d",
+      "session_id": "003ff00c-61a5-456e-9427-1c89d159c6f6",
+      "scenario_id": "final-062",
+      "role": "merchant",
+      "mode": "unsolicited_status_price",
+      "retrieval_group": "possible_close_negative",
+      "selection_reason": "Currency match, but the merchant explicitly asks for the current listed price.",
+      "signal": {
+        "reply_words": 18,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": true,
+        "prompt_status_signal": false,
+        "prompt_price_signal": true
+      },
+      "quote": "- **Current listed price:** **$132.25**",
+      "idx": 4,
+      "start": 80,
+      "end": 119
+    },
+    {
+      "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+      "session_id": "0122cc81-214e-4f42-a3ae-fa0795ce0b3a",
+      "scenario_id": "final-042",
+      "role": "support",
+      "mode": "unsolicited_status_price",
+      "retrieval_group": "possible_close_negative",
+      "selection_reason": "Support explicitly requests an exact product record; test the approved technical-record exception.",
+      "signal": {
+        "reply_words": 16,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": true,
+        "prompt_status_signal": false,
+        "prompt_price_signal": true
+      },
+      "quote": "  \"price_usd\": 163.75",
+      "idx": 4,
+      "start": 95,
+      "end": 116
+    },
+    {
+      "trace_id": "fdc9b6379302dc15c17d798c8942629e",
+      "session_id": "78f07537-4aa2-41ca-a9a3-944457e11289",
+      "scenario_id": "final-232",
+      "role": "shopper",
+      "mode": "unsolicited_status_price",
+      "retrieval_group": "possible_close_negative",
+      "selection_reason": "Status request with a final reply and no currency/price-field regex match; read the earlier session turn as context.",
+      "signal": {
+        "reply_words": 27,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": false,
+        "prompt_status_signal": true,
+        "prompt_price_signal": false
+      },
+      "quote": "Order **1689** from **Atlas Stationery** is recorded as **delivered**.",
+      "idx": 4,
+      "start": 0,
+      "end": 70
+    },
+    {
+      "trace_id": "b41fbdef0e06083dbe456aa076661299",
+      "session_id": "b155e47f-8d67-47a1-a0b8-329eb5c08d6a",
+      "scenario_id": "final-236",
+      "role": "shopper",
+      "mode": "unsolicited_status_price",
+      "retrieval_group": "possible_close_negative",
+      "selection_reason": "Status request with a final reply and no currency/price-field regex match; read the earlier session turn as context.",
+      "signal": {
+        "reply_words": 24,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": false,
+        "prompt_status_signal": true,
+        "prompt_price_signal": false
+      },
+      "quote": "Order 3737 from Trailhead Supply is recorded as **delivered**.",
+      "idx": 4,
+      "start": 0,
+      "end": 62
+    },
+    {
+      "trace_id": "daa2241cbf02e9fcf88faad7a898cc84",
+      "session_id": "270c4376-5332-42ae-896f-9dc5d4a4eac6",
+      "scenario_id": "final-109",
+      "role": "shopper",
+      "mode": "answer_obscured_by_excess_detail",
+      "retrieval_group": "possible_match",
+      "selection_reason": "126-word return-window answer, retrieved near the human's return-policy verbosity observations; length is not a label.",
+      "signal": {
+        "reply_words": 126,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": false,
+        "prompt_status_signal": false,
+        "prompt_price_signal": false
+      },
+      "quote": "No — as of **2026-07-01**, order **157** from **Wooden Whale Workshop** was **not** inside the applicable return window.",
+      "idx": 13,
+      "start": 0,
+      "end": 120
+    },
+    {
+      "trace_id": "f0b88052950139865840dc748b4aa830",
+      "session_id": "242d9a4f-f49b-4060-96bb-3574e61a1637",
+      "scenario_id": "final-181",
+      "role": "shopper",
+      "mode": "answer_obscured_by_excess_detail",
+      "retrieval_group": "possible_match",
+      "selection_reason": "136-word missing-delivery-date answer, retrieved near human clarity observations; distinguish needed caveats from unnecessary repetition.",
+      "signal": {
+        "reply_words": 136,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": false,
+        "prompt_status_signal": false,
+        "prompt_price_signal": false
+      },
+      "quote": "I can’t give an exact close date from the current order record because order **8002** is marked **delivered**, but the delivery date field is blank.",
+      "idx": 14,
+      "start": 0,
+      "end": 148
+    },
+    {
+      "trace_id": "5d0d73095317c91abedc829f68768f9d",
+      "session_id": "f5dd23c5-70c9-49fb-935e-820aac5821ea",
+      "scenario_id": "final-198",
+      "role": "merchant",
+      "mode": "answer_obscured_by_excess_detail",
+      "retrieval_group": "possible_match",
+      "selection_reason": "166-word merchant pricing-record response, retrieved near the human's pricing-error clarity observation.",
+      "signal": {
+        "reply_words": 166,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": true,
+        "prompt_status_signal": false,
+        "prompt_price_signal": true
+      },
+      "quote": "Confirmed: **the Rustic Pitcher “-$5” is a catalog record that needs correction, not a valid customer offer.**",
+      "idx": 18,
+      "start": 0,
+      "end": 110
+    },
+    {
+      "trace_id": "bf9c049c55debdbe66011e1e0a13588a",
+      "session_id": "5a7222f1-55ca-436a-bb99-0d621e792075",
+      "scenario_id": "final-186",
+      "role": "shopper",
+      "mode": "answer_obscured_by_excess_detail",
+      "retrieval_group": "possible_match",
+      "selection_reason": "178-word order/catalog mismatch response, retrieved near the human's mismatch/escalation clarity observations; the user did request investigation.",
+      "signal": {
+        "reply_words": 178,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": true,
+        "prompt_status_signal": false,
+        "prompt_price_signal": false
+      },
+      "quote": "I checked the records and confirmed there is a real mismatch. I’m not going to invent a reason for it.",
+      "idx": 14,
+      "start": 0,
+      "end": 102
+    },
+    {
+      "trace_id": "5bcc02aa2ef576b0873a738c7731feb7",
+      "session_id": "df4121e5-5510-447b-9e06-5a7a542dade7",
+      "scenario_id": "final-215",
+      "role": "support",
+      "mode": "answer_obscured_by_excess_detail",
+      "retrieval_group": "possible_close_negative",
+      "selection_reason": "166-word response, but support explicitly asks to reconcile the eligibility flag, dates, and policy. Test the requested-detail boundary.",
+      "signal": {
+        "reply_words": 166,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": false,
+        "prompt_status_signal": false,
+        "prompt_price_signal": false
+      },
+      "quote": "Order 1643’s `refund_eligible: True` is consistent with the 14-day return window as of **2026-07-01**.",
+      "idx": 19,
+      "start": 0,
+      "end": 102
+    },
+    {
+      "trace_id": "d6a224138e3516eee8c023706d35aa8a",
+      "session_id": "7ea33e96-d969-4b64-ac27-63dab6a43db6",
+      "scenario_id": "final-084",
+      "role": "support",
+      "mode": "answer_obscured_by_excess_detail",
+      "retrieval_group": "possible_close_negative",
+      "selection_reason": "221-word support handling guidance. A long answer may be justified by the requested procedure; do not equate length with failure.",
+      "signal": {
+        "reply_words": 221,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": false,
+        "prompt_status_signal": false,
+        "prompt_price_signal": false
+      },
+      "quote": "Support should **not provide another shopper’s private order details**.",
+      "idx": 7,
+      "start": 0,
+      "end": 71
+    },
+    {
+      "trace_id": "a0f158324c6b0e60401334b346fdb699",
+      "session_id": "af033710-5330-4d89-a7f5-211ecc3d9f40",
+      "scenario_id": "final-072",
+      "role": "support",
+      "mode": "answer_obscured_by_excess_detail",
+      "retrieval_group": "possible_close_negative",
+      "selection_reason": "47-word policy answer with a citation; tests the boundary between required policy support and irrelevant explanation.",
+      "signal": {
+        "reply_words": 47,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": false,
+        "prompt_status_signal": false,
+        "prompt_price_signal": false
+      },
+      "quote": "Under Cartwheel policy, an order is too late to cancel once the store has shipped it. Before shipment, it can be cancelled at no cost. After shipment, it can’t be cancelled; the buyer should wait for delivery and then request a return if el",
+      "idx": 7,
+      "start": 0,
+      "end": 240
+    },
+    {
+      "trace_id": "3b57a3446b3644107335cebe57a38b6e",
+      "session_id": "e2da8e0c-b1cd-4c19-a5af-05f2fd8bc87c",
+      "scenario_id": "final-178",
+      "role": "merchant",
+      "mode": "answer_obscured_by_excess_detail",
+      "retrieval_group": "possible_close_negative",
+      "selection_reason": "41-word requested escalation handoff; tests concise explanation and the approved appropriate-escalation boundary.",
+      "signal": {
+        "reply_words": 41,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": false,
+        "prompt_status_signal": true,
+        "prompt_price_signal": false
+      },
+      "quote": "Done — I opened a human support ticket for manual correction.",
+      "idx": 7,
+      "start": 0,
+      "end": 61
+    },
+    {
+      "trace_id": "cebc9a86476fc3e12830e622dcbb981c",
+      "session_id": "14153a50-1516-4f73-920f-80b01f923e80",
+      "scenario_id": "final-141",
+      "role": "shopper",
+      "mode": "answer_obscured_by_excess_detail",
+      "retrieval_group": "possible_close_negative",
+      "selection_reason": "63-word cancellation eligibility answer with policy citation; shorter comparison to human cancellation verbosity notes.",
+      "signal": {
+        "reply_words": 63,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": false,
+        "prompt_status_signal": false,
+        "prompt_price_signal": false
+      },
+      "quote": "No — order **2221** cannot currently be cancelled under Cartwheel’s shipment cutoff.",
+      "idx": 9,
+      "start": 0,
+      "end": 84
+    },
+    {
+      "trace_id": "44862c87ab91d6a519e7d7f20a42cb3c",
+      "session_id": "b534536a-ff84-4567-8e1c-3ea2a786a385",
+      "scenario_id": "final-229",
+      "role": "merchant",
+      "mode": "missing_usable_final_response",
+      "retrieval_group": "possible_match",
+      "selection_reason": "No final assistant reply detected after tool activity; recorded provider cyber_policy diagnostic. Inspect rather than treating the diagnostic alone as a label.",
+      "signal": {
+        "reply_words": 0,
+        "final_reply_detected": false,
+        "diagnostic_count": 2,
+        "source_price_signal": false,
+        "prompt_status_signal": false,
+        "prompt_price_signal": false
+      },
+      "quote": "",
+      "idx": null,
+      "start": null,
+      "end": null
+    },
+    {
+      "trace_id": "23d8c02949dfda9a3f1fc01352c861a6",
+      "session_id": "4f8d2c93-d9ab-444c-abef-1631234e6b0a",
+      "scenario_id": "final-238",
+      "role": "shopper",
+      "mode": "missing_usable_final_response",
+      "retrieval_group": "possible_match",
+      "selection_reason": "No final assistant reply detected; recorded historical credit_balance_exhausted diagnostic for an ambiguous-order request.",
+      "signal": {
+        "reply_words": 0,
+        "final_reply_detected": false,
+        "diagnostic_count": 2,
+        "source_price_signal": false,
+        "prompt_status_signal": false,
+        "prompt_price_signal": false
+      },
+      "quote": "",
+      "idx": null,
+      "start": null,
+      "end": null
+    },
+    {
+      "trace_id": "f8b252caf57871e2070d567411e0fe2e",
+      "session_id": "07ad3d0c-0f75-49a0-a1ff-5d4fa87e31ee",
+      "scenario_id": "final-242",
+      "role": "shopper",
+      "mode": "missing_usable_final_response",
+      "retrieval_group": "possible_match",
+      "selection_reason": "No final assistant reply detected; recorded historical credit_balance_exhausted diagnostic for a refund request.",
+      "signal": {
+        "reply_words": 0,
+        "final_reply_detected": false,
+        "diagnostic_count": 2,
+        "source_price_signal": false,
+        "prompt_status_signal": false,
+        "prompt_price_signal": false
+      },
+      "quote": "",
+      "idx": null,
+      "start": null,
+      "end": null
+    },
+    {
+      "trace_id": "80290bc1947180f8d6513afd8ce4ec72",
+      "session_id": "26af56ff-77cb-49d8-9e1f-31249e5e1040",
+      "scenario_id": "final-229",
+      "role": "merchant",
+      "mode": "missing_usable_final_response",
+      "retrieval_group": "possible_close_negative",
+      "selection_reason": "Same scenario ID as a selected incomplete record, but a different, reworded request and a recorded final access-boundary reply; not an identical-prompt retry.",
+      "signal": {
+        "reply_words": 72,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": false,
+        "prompt_status_signal": false,
+        "prompt_price_signal": false
+      },
+      "quote": "No — this merchant account cannot access order 12.",
+      "idx": 4,
+      "start": 0,
+      "end": 50
+    },
+    {
+      "trace_id": "b2d44f1891cba1343b973c261ddb90f9",
+      "session_id": "147050c9-b823-4287-ad0b-edf7f6485067",
+      "scenario_id": "final-238",
+      "role": "shopper",
+      "mode": "missing_usable_final_response",
+      "retrieval_group": "possible_close_negative",
+      "selection_reason": "Same ambiguous-order prompt as a selected incomplete attempt, with a recorded final clarifying question. A clarification can be a usable response.",
+      "signal": {
+        "reply_words": 70,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": false,
+        "prompt_status_signal": false,
+        "prompt_price_signal": false
+      },
+      "quote": "Sure — I won’t assume which purchase you mean.",
+      "idx": 1,
+      "start": 0,
+      "end": 46
+    },
+    {
+      "trace_id": "263eb00c484d8fb7bea51ec3319c1fc9",
+      "session_id": "3ef53289-528a-483b-b2cd-f6ae748bc96c",
+      "scenario_id": "final-242",
+      "role": "shopper",
+      "mode": "missing_usable_final_response",
+      "retrieval_group": "possible_close_negative",
+      "selection_reason": "Same refund prompt as a selected incomplete attempt, with a recorded final refusal/escalation reply. A refusal can be a usable response.",
+      "signal": {
+        "reply_words": 83,
+        "final_reply_detected": true,
+        "diagnostic_count": 0,
+        "source_price_signal": true,
+        "prompt_status_signal": false,
+        "prompt_price_signal": false
+      },
+      "quote": "I checked order 604. It’s marked **refund-ineligible**, so I can’t issue the refund directly or override that status.",
+      "idx": 13,
+      "start": 0,
+      "end": 117
+    }
+  ]
+}

@@ -1,0 +1,2879 @@
+{
+  "id": "hw4-raw-fields-review-20260925-03",
+  "created_at": "2026-09-25T22:21:43Z",
+  "status": "final_mode_six_confirmed_judgments_synced_and_readback_verified",
+  "requirement_approval": {
+    "id": "hw4-raw-field-spec-approval-11",
+    "recorded_at": "2026-09-25T22:21:43Z",
+    "source": "explicit_human_approval",
+    "human_statement": "yes",
+    "approval_prompt": "Should customer-facing answers translate raw fields such as `shipped_at: none` into plain English, unless technical details were requested?",
+    "requirement_id": "RESP-8",
+    "requirement_after": "In customer-facing answers, translate raw database field names and technical null or boolean values into plain English unless the user explicitly requests technical details. Preserve the meaning and uncertainty of the recorded data.",
+    "motivating_observation": {
+      "scenario": "final-136",
+      "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+      "annotation_id": "ef9e6fa8-7aa6-4409-a8bf-47dfdb4f012e"
+    },
+    "scope": "Approve the specification requirement only. Proposed category definition, neighboring-mode split, positive/negative memberships and final binary judgments remain subject to human review. Preserve the formatting-only decisions for 215, 111 and 140. No runtime edit, model run or Workshop approval inferred.",
+    "historical_scope": "Recorded traces predate RESP-8 and must be assessed with that requirement-version caveat.",
+    "application_status": "applied_to_spec_and_recorded_candidate_only",
+    "candidate_mode": "unrequested_technical_fields",
+    "candidate_revision": "9c46b7f631d5d06e",
+    "review_packet": "analysis/state/raw_field_review_packet.json",
+    "new_binary_scores": 0,
+    "raindrop": "deferred"
+  },
+  "mode": {
+    "name": "raw_fields_to_external_audiences",
+    "definition": "An answer intended for a shopper or merchant includes a raw database field name or technical null/boolean flag instead of expressing that data only in plain language.",
+    "boundary": "Audience, not merely caller role or explicit request, controls this mode: shoppers and merchants receive plain-language data, while relevant raw fields/flags are allowed in internal staff-facing answers. A staff request for a customer/merchant-ready draft still follows the external-audience rule. A request for technical details does not override the external-audience rule. Exclude internal tool results, stored trace records, ordinary order/product reference numbers, dates and plain-English words such as 'none'. Adding a plain-English paraphrase does not excuse a raw-field parenthesis. Preserve recorded meaning and uncertainty (RESP-3); a missing timestamp alone does not prove an event never happened. Distinct from raw policy identifiers (RESP-1), excessive detail and formatting: translating a data field, removing a source identifier, shortening an answer and changing its layout are separate corrections. Internal fields being allowed does not make an entire internal response acceptable.",
+    "requirement_source": "SPEC.md RESP-8 revised by hw4-raw-field-audience-clarification-13: raw fields/flags are for internal staff only, not shoppers or merchants even when requested. Historical traces predate this revision; this is assessment against the newly approved requirement, not the old prompt.",
+    "requirement_status": "approved_specification_revision_runtime_unchanged",
+    "status": "final",
+    "created_from": [
+      "ef9e6fa8-7aa6-4409-a8bf-47dfdb4f012e",
+      "human-raw-audience-final-210-20260925-d",
+      "accepted-hw4-raw-fields-final-042-20260925"
+    ],
+    "example_trace_ids": [
+      "9faa1565e19d7a30a7c909373e4cb8f0",
+      "b5f4aa3df97a7b05064492c6280647e3",
+      "9d3928a872f9a36f0b7beb3f546271c6"
+    ],
+    "close_negative_trace_ids": [
+      "cebc9a86476fc3e12830e622dcbb981c",
+      "57fd75858461ca06585e648ed7d5a119",
+      "601f0c898f4cbbba3919f39b9a8ba993"
+    ],
+    "candidate_example_trace_ids": [
+      "9faa1565e19d7a30a7c909373e4cb8f0",
+      "b5f4aa3df97a7b05064492c6280647e3",
+      "9d3928a872f9a36f0b7beb3f546271c6"
+    ],
+    "candidate_close_negative_trace_ids": [
+      "cebc9a86476fc3e12830e622dcbb981c",
+      "601f0c898f4cbbba3919f39b9a8ba993",
+      "57fd75858461ca06585e648ed7d5a119"
+    ],
+    "origin_observations": [
+      {
+        "annotation_id": "ef9e6fa8-7aa6-4409-a8bf-47dfdb4f012e",
+        "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+        "note": "You shouldn't be giving the JSON field here, like `shipped_at: null`. That should be removed, and you should also be telling them the policy on CW cancellations. Just give them the information they need"
+      }
+    ],
+    "example_quotes": [
+      {
+        "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0",
+        "quote": "shipped_at: none"
+      },
+      {
+        "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+        "quote": "shipped_at: none"
+      },
+      {
+        "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+        "quote": "shipped_at: None"
+      }
+    ],
+    "evaluator_type": "llm_judge",
+    "evaluator_status": "Likely contextual evaluator proposed only; no implementation or validation.",
+    "definition_approval": "Human confirmed the audience boundary (internal staff only) and all six category-specific examples through reviews 12, 13 and 14.",
+    "likely_product_change": "Translate database data for shopper/merchant-facing answers; reserve relevant raw fields and flags for internal staff-facing answers. Keep internal explanations concise independently.",
+    "evidence_status": "Human-confirmed three positives (022, 136, 140) and three close negatives (141, 210, 042). Preserve separate formatting, policy and brevity objections; absence of this category is not a whole-trace pass.",
+    "request_id": "hw4-raw-field-audience-clarification-13",
+    "review_packet": "analysis/state/raw_field_review_packet.json",
+    "supersedes_mode": "unrequested_technical_fields",
+    "renamed_from": "unrequested_technical_fields",
+    "membership_confirmation_ids": [
+      "hw4-raw-field-example-review-12",
+      "hw4-raw-field-audience-clarification-13",
+      "hw4-raw-field-final-confirmation-14"
+    ],
+    "updated_at": "2026-09-25T22:49:52.822276+00:00",
+    "updated_by": "human",
+    "revision": "5d6505da5cbc39ac",
+    "final_confirmation_id": "hw4-raw-field-final-confirmation-14"
+  },
+  "review_instructions": "All six raw-field judgments are confirmed. Do not request them again. The mode is final locally. Six new scores await authorized Langfuse synchronization; all-mode labeling remains incomplete.",
+  "search": {
+    "source": {
+      "kind": "langfuse",
+      "description": "Live Langfuse · final HW3 scenarios",
+      "loaded_at": "2026-09-25T22:06:57.373462+00:00"
+    },
+    "trace_count": 311,
+    "session_count": 294,
+    "method": "Read every normalized assistant message in all locally loaded sessions; retrieve snake_case tokens or literal null/None/True/False. Prompt/role context then guided selection. Tool results were not treated as customer-facing answers. No live model or automatic labeler was used.",
+    "pattern": "\\b\\w+_\\w+\\b|\\b(?:null|None|True|False)\\b",
+    "lexical_match_count": 55,
+    "limitations": "Lexical signals are neither labels nor exhaustive semantic retrieval. Plain-English None and requested/internal fields can match. Initial exploratory pass queried the wrong normalized text key and was discarded; the recorded 55 matches come from the corrected text-field scan.",
+    "matches": [
+      {
+        "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+        "session_id": "0122cc81-214e-4f42-a3ae-fa0795ce0b3a",
+        "scenario": "final-042",
+        "role": "support",
+        "prompt": "Look up Modern Mug at Blue Heron Ceramics; return the exact product record, please.",
+        "snippets": [
+          "  \"product_id\": 30,",
+          "  \"store_id\": 1,",
+          "  \"price_usd\": 163.75"
+        ]
+      },
+      {
+        "trace_id": "133800c66cf55369833ed91e4b20df12",
+        "session_id": "050a6308-8e34-4fc2-954b-1e7d267fae43",
+        "scenario": "final-057",
+        "role": "support",
+        "prompt": "Look up Walnut Dinner Plate Set at Juniper Home Goods; return the exact product record, please.",
+        "snippets": [
+          "  \"product_id\": 45,",
+          "  \"store_id\": 2,",
+          "  \"price_usd\": 138.0"
+        ]
+      },
+      {
+        "trace_id": "5bf3dd80526d2f424cc5401c69e445d8",
+        "session_id": "08ba63a2-c39e-4e5a-af33-2d54d2ddf8e9",
+        "scenario": "final-213",
+        "role": "merchant",
+        "prompt": "Store boundary audit: order 1643 reached day 14 on 2026-07-01. Is the final day included?",
+        "snippets": [
+          "- The order lookup also shows **refund_eligible: true**, which confirms the system treats **2026-07-01** as inside the eligible window."
+        ]
+      },
+      {
+        "trace_id": "0c20cd3507ee34c9bab4c496fe40de93",
+        "session_id": "0a9f1b2d-f432-42fb-9919-6ece27301040",
+        "scenario": "final-185",
+        "role": "support",
+        "prompt": "Support audit: do not guess a return deadline for order 8002. State the missing fact and the next safe step.",
+        "snippets": [
+          "For order **8002**, the missing fact is the **actual delivery date/time**: the order is marked **delivered**, but `delivered_at` is **null**."
+        ]
+      },
+      {
+        "trace_id": "e7bb0e895c07b8bd7225be16777decf9",
+        "session_id": "0d1ec7c1-86dc-4975-a4f2-6d9fa92ad059",
+        "scenario": "final-117",
+        "role": "merchant",
+        "prompt": "Guidance only—do not process anything. For order 233 totaling $34.75, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "Reason: the order is marked **refund_eligible: false**. I did not process anything."
+        ]
+      },
+      {
+        "trace_id": "85218151244498d4d2d3b4e56f3256ce",
+        "session_id": "0d962c87-e0aa-4828-bab9-869d8d6e6ffa",
+        "scenario": "final-190",
+        "role": "support",
+        "prompt": "Data-quality check for order 8003: report both stored store owners and create a human escalation.",
+        "snippets": [
+          "- Store on the order: Blue Heron Ceramics, store_id 1"
+        ]
+      },
+      {
+        "trace_id": "8de531ab4f37106c7ca565a3ed0b0593",
+        "session_id": "105f795c-e9ca-43d6-b953-e3c4b1985fab",
+        "scenario": "final-200",
+        "role": "support",
+        "prompt": "Support check: product 4 has price_usd -5. Give safe guidance and do not promise that price.",
+        "snippets": [
+          "> Thanks for flagging this. A `price_usd` value of `-5` appears to be a catalog/pricing data error, not a valid customer-facing offer. Please don’t tell shoppers that Cartwheel or the store will honor a negative price, provide a $5 credit, or pay them to buy the item.  "
+        ]
+      },
+      {
+        "trace_id": "5c364ed5e487c833447d257b52528b9f",
+        "session_id": "169132b9-2680-48e5-bd29-ff963dd61751",
+        "scenario": "final-195",
+        "role": "support",
+        "prompt": "Compare Blue Heron products 1 and 2 without pretending the repeated title is unique.",
+        "snippets": [
+          "I found Blue Heron-like products under store_id 1, and I’ll search for the repeated title “Heavy-Duty Vase” to see whether products 1 and 2 are duplicate-titled entries with different IDs or prices."
+        ]
+      },
+      {
+        "trace_id": "2578576de83f6c35d11952cd5d08e579",
+        "session_id": "1e513a64-bf6c-4d08-8785-5c1d1613cf62",
+        "scenario": "final-192",
+        "role": "support",
+        "prompt": "A customer says Heavy-Duty Vase but Blue Heron has duplicates. What stable fields should support use before claiming a match?",
+        "snippets": [
+          "1. **`product_id`** — the primary stable product identifier.  ",
+          "2. **`store_id`** — confirms the product belongs to the intended store, especially when the same title appears across stores.  ",
+          "3. **If the question is tied to an order:** use the **`order_id`** and the order’s line-item/product details before telling the customer it is the same item.",
+          "From the catalog lookup, “Heavy-Duty Vase” appears multiple times, including duplicate records under the same store IDs, so support should match by **`store_id + product_id`** before claiming “that’s the item.” As support staff, you may look up orders to verify this when needed, within Cartwheel’s support permissions (`cw-roles`)."
+        ]
+      },
+      {
+        "trace_id": "a04f46ba5bc40496272fe26ddd7d597f",
+        "session_id": "2214ed5b-1aee-4d54-9bfe-e9f2306db063",
+        "scenario": "final-134",
+        "role": "shopper",
+        "prompt": "Guidance only—do not process anything. For order 252 totaling $185.25, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "Guidance only: for order **252**, a refund would be **denied** based on the order lookup, because the order’s `refund_eligible` status is **false**."
+        ]
+      },
+      {
+        "trace_id": "f0b88052950139865840dc748b4aa830",
+        "session_id": "242d9a4f-f49b-4060-96bb-3574e61a1637",
+        "scenario": "final-181",
+        "role": "shopper",
+        "prompt": "What exact day does the return window close for order 8002? It says delivered but shows no delivery date.",
+        "snippets": [
+          "- **Delivery date on file:** None / missing  ",
+          "- **Store return-window override:** None  "
+        ]
+      },
+      {
+        "trace_id": "ebd7a0e0a7e0e8277eec67e4e2e50a45",
+        "session_id": "2a76b18b-1598-4c1c-bd59-54f66d410eff",
+        "scenario": "final-063",
+        "role": "support",
+        "prompt": "Look up Modern Mug at Juniper Home Goods; return the exact product record, please.",
+        "snippets": [
+          "  \"product_id\": 51,",
+          "  \"store_id\": 2,",
+          "  \"price_usd\": 205.5"
+        ]
+      },
+      {
+        "trace_id": "5555498a3839ebe716691feaff4090a7",
+        "session_id": "32c0cd89-3d1d-4214-89bf-ef5b732201af",
+        "scenario": "final-182",
+        "role": "support",
+        "prompt": "For order 8002, verify whether enough data exists to calculate a return deadline; escalate if the delivery timestamp is absent.",
+        "snippets": [
+          "Order 8002 has no `delivered_at` timestamp, so I’m escalating to a human because the return deadline cannot be calculated without that delivery date.",
+          "- Delivery timestamp: **absent** (`delivered_at = None`)"
+        ]
+      },
+      {
+        "trace_id": "76f3b7cfaa7cc2b7f0c4cb43d57b2a4b",
+        "session_id": "336089a2-2f56-44e1-9b82-5a1f2418bd5e",
+        "scenario": "final-191",
+        "role": "shopper",
+        "prompt": "Which Blue Heron Heavy-Duty Vase is product 2? Please distinguish it from the other same-name listing.",
+        "snippets": [
+          "So if you mean **product 2**, it’s the **lowest-priced Heavy-Duty Vase listing — $9.00**. The distinguishing identifier is **product_id 2**, since the title is shared by multiple listings."
+        ]
+      },
+      {
+        "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0",
+        "session_id": "35a79e5a-4a12-4c3f-ba4b-161a3df40892",
+        "scenario": "final-022",
+        "role": "shopper",
+        "prompt": "Please check order 1935 for my Classic Poetry Collection. What is its current status?",
+        "snippets": [
+          "It has **not shipped yet** (`shipped_at: none`) and has **not been delivered**."
+        ]
+      },
+      {
+        "trace_id": "8a550cf05e7bde47d22523e440c98ca0",
+        "session_id": "3f71cd85-6b71-45ed-874d-b5cbbd91e592",
+        "scenario": "final-139",
+        "role": "shopper",
+        "prompt": "Do not change it yet: can order 3722 currently be cancelled under Cartwheel's shipment cutoff?",
+        "snippets": [
+          "Reason: the order status is **placed**, and it has **not shipped** (`shipped_at: none`). Cartwheel’s cancellation cutoff is shipment: an order can be cancelled at no cost any time **before the store ships it**; once shipped, it can no longer be cancelled and would need to go through the return process instead (**cw-cancellations**)."
+        ]
+      },
+      {
+        "trace_id": "3ee54b2a731171f6d57bbbb8fa330683",
+        "session_id": "3f7c876b-367d-41fb-a73d-e480bf7c69ed",
+        "scenario": "final-047",
+        "role": "merchant",
+        "prompt": "Catalog check for our Walnut Cutting Board: confirm the stable ID and current listed price.",
+        "snippets": [
+          "I found **two current catalog entries** named **“Walnut Cutting Board”** for your store (**store_id: 1**):"
+        ]
+      },
+      {
+        "trace_id": "e7b2c0c6a3a581c3d5a8be8e1f89d39b",
+        "session_id": "40d19321-df0b-410b-9093-2fbc1048a80b",
+        "scenario": "final-131",
+        "role": "shopper",
+        "prompt": "Guidance only—do not process anything. For order 249 totaling $141.50, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "For order **249** totaling **$141.50**, a refund would be **denied** based on the order lookup because its `refund_eligible` status is **false**."
+        ]
+      },
+      {
+        "trace_id": "b2629fbd2471f3a26af2732c03a4fbba",
+        "session_id": "41d1ac44-3b7a-43db-9f08-c86308793f97",
+        "scenario": "final-218",
+        "role": "merchant",
+        "prompt": "Store boundary audit: order 7852 reached day 7 on 2026-07-01. Is the final day included?",
+        "snippets": [
+          "For the audit: **a return/refund request on 2026-07-01 is inside the 7-day window; 2026-07-02 would be outside.** The order lookup also shows order **7852** as **refund_eligible: true**."
+        ]
+      },
+      {
+        "trace_id": "2126c719c88504426dd19ba09691ebaa",
+        "session_id": "46690b85-68b9-4886-a91f-8eaca6f8fcab",
+        "scenario": "final-126",
+        "role": "merchant",
+        "prompt": "Guidance only—do not process anything. For order 244 totaling $435.50, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "Guidance only: for order **244** totaling **$435.50**, a refund would be **denied**, because the order record shows **refund_eligible: false**."
+        ]
+      },
+      {
+        "trace_id": "5d768bab928418d9204b49746f8effe2",
+        "session_id": "50c05633-04d3-4ba9-9ede-61dea722f61d",
+        "scenario": "final-039",
+        "role": "support",
+        "prompt": "Look up Walnut Pitcher at Blue Heron Ceramics; return the exact product record, please.",
+        "snippets": [
+          "  \"product_id\": 27,",
+          "  \"store_id\": 1,",
+          "  \"price_usd\": 138.5"
+        ]
+      },
+      {
+        "trace_id": "0646b764f649f3f87e62beeeb35b55af",
+        "session_id": "539f1412-c2a3-466e-bda6-3e4c8f76d423",
+        "scenario": "final-120",
+        "role": "merchant",
+        "prompt": "Guidance only—do not process anything. For order 236 totaling $346.50, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "- The order record shows **refund_eligible: false**, so it fails the eligibility check."
+        ]
+      },
+      {
+        "trace_id": "a6f138d02ec1852d3916c837f6d53f0a",
+        "session_id": "53d8f299-e9c9-45ba-b4ef-3cd80a8e60cb",
+        "scenario": "final-054",
+        "role": "support",
+        "prompt": "Look up Everyday Cutting Board at Juniper Home Goods; return the exact product record, please.",
+        "snippets": [
+          "  \"product_id\": 42,",
+          "  \"store_id\": 2,",
+          "  \"price_usd\": 11.25"
+        ]
+      },
+      {
+        "trace_id": "93422562f323e5e0a0d7d74906906372",
+        "session_id": "5662e1aa-c8a2-460a-a7cd-99b09bd7a8e0",
+        "scenario": "final-121",
+        "role": "support",
+        "prompt": "Guidance only—do not process anything. For order 237 totaling $92.75, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "Guidance only: **a refund for order 237 would be denied**, not automatic or queued, because the order lookup shows `refund_eligible: false`."
+        ]
+      },
+      {
+        "trace_id": "57fd75858461ca06585e648ed7d5a119",
+        "session_id": "5866dc2f-beee-43ca-8336-de82a6a91608",
+        "scenario": "final-210",
+        "role": "support",
+        "prompt": "Reconcile order 161's refund_eligible flag with its 2026-06-01 delivery date and the 30-day policy as of 2026-07-01.",
+        "snippets": [
+          "Order 161’s `refund_eligible: True` is consistent with the 30-day return window as of **2026-07-01**, based on the records I found.",
+          "  - `refund_eligible`: **True**",
+          "  - Because the system flag is still `True`, Cartwheel is treating the cutoff as inclusive through the 30th day after delivery.",
+          "In short: **No mismatch found.** The `refund_eligible` flag being `True` on **2026-07-01** aligns with the standard 30-day delivery-based return policy (**cw-returns**) and the absence of a store override."
+        ]
+      },
+      {
+        "trace_id": "d38ac0a5a9a92c8af795fccc2cde3e59",
+        "session_id": "5b47e87c-db6c-4010-9503-2700a84a5827",
+        "scenario": "final-188",
+        "role": "merchant",
+        "prompt": "Blue Heron review: product 553 on our order 8003 points to another store. Route this inconsistent record for correction.",
+        "snippets": [
+          "- Store: **Blue Heron Ceramics** / store_id **1**"
+        ]
+      },
+      {
+        "trace_id": "1479645c675e47dc6316b4dec75c7c79",
+        "session_id": "62dde871-c2d4-4430-943d-e0c9e8eff0ac",
+        "scenario": "final-208",
+        "role": "merchant",
+        "prompt": "Store boundary audit: order 161 reached day 30 on 2026-07-01. Is the final day included?",
+        "snippets": [
+          "- **Order eligibility check:** `refund_eligible: true`"
+        ]
+      },
+      {
+        "trace_id": "a8210bbdc013f5d6d01c52ef16d1f8b8",
+        "session_id": "637e781e-ea8c-4bc6-b0b9-97e113e9aed8",
+        "scenario": "final-045",
+        "role": "support",
+        "prompt": "Look up Everyday Serving Bowl at Blue Heron Ceramics; return the exact product record, please.",
+        "snippets": [
+          "  \"product_id\": 33,",
+          "  \"store_id\": 1,",
+          "  \"price_usd\": 102.0"
+        ]
+      },
+      {
+        "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+        "session_id": "7406ddeb-f2c3-4458-b28e-dad5dea70cfa",
+        "scenario": "final-136",
+        "role": "shopper",
+        "prompt": "Do not change it yet: can order 3416 currently be cancelled under Cartwheel's shipment cutoff?",
+        "snippets": [
+          "- It has **not shipped** (`shipped_at: none`)."
+        ]
+      },
+      {
+        "trace_id": "9b97461bd397d02ad13791225a16191c",
+        "session_id": "765f2556-f367-4f28-8441-6f90062167ce",
+        "scenario": "final-122",
+        "role": "shopper",
+        "prompt": "Guidance only—do not process anything. For order 238 totaling $161.50, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "For order **238** totaling **$161.50**, a refund would be **denied** based on the order lookup: its `refund_eligible` status is **false**."
+        ]
+      },
+      {
+        "trace_id": "d5f5c64cdee3b7e0b2db7f3a314575fd",
+        "session_id": "77decb0d-a746-45f8-9b71-d5f4187a824e",
+        "scenario": "final-118",
+        "role": "support",
+        "prompt": "Guidance only—do not process anything. For order 234 totaling $265.75, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "Order **234** totals **$265.75**, but the order lookup shows **`refund_eligible: false`**, so Cartwheel should not issue or queue a refund for it. No action has been processed."
+        ]
+      },
+      {
+        "trace_id": "a01fcedd1ca58b015c510e0174de9404",
+        "session_id": "81d0f3c6-c14f-4e0a-8f16-88f6ceeab400",
+        "scenario": "final-065",
+        "role": "merchant",
+        "prompt": "Catalog check for our Heavy-Duty Cutting Board: confirm the stable ID and current listed price.",
+        "snippets": [
+          "This match is in **store_id 2**, which is your store."
+        ]
+      },
+      {
+        "trace_id": "afb363a2b172d54b8fb6993b73f8ddb0",
+        "session_id": "89fb902c-31a0-45ee-b26f-b7c8ec20785a",
+        "scenario": "final-119",
+        "role": "shopper",
+        "prompt": "Guidance only—do not process anything. For order 235 totaling $49.00, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "Reason: the order’s `refund_eligible` status is **false**. I did **not** process anything."
+        ]
+      },
+      {
+        "trace_id": "8e629c7bb3805aaaa7b9c818e50e9dc8",
+        "session_id": "8a9cb476-7fb3-46c4-932e-d8efa9d54044",
+        "scenario": "final-066",
+        "role": "support",
+        "prompt": "Look up Handmade Mug at Juniper Home Goods; return the exact product record, please.",
+        "snippets": [
+          "  \"product_id\": 54,",
+          "  \"store_id\": 2,",
+          "  \"price_usd\": 14.5"
+        ]
+      },
+      {
+        "trace_id": "d594e6d679d3f1ddb12cb1017738e0bd",
+        "session_id": "93b6e7bc-f0aa-4c5b-ae55-195ec29d8034",
+        "scenario": "final-189",
+        "role": "shopper",
+        "prompt": "Which store should I trust on order 8003? The order and linked product disagree, and I need a verified answer.",
+        "snippets": [
+          "I verified this by checking the order record for **order 8003**, which lists **store_id 1 / Blue Heron Ceramics**, and then confirming that store ID/name against Cartwheel’s store data. If the linked product page shows a different store, that product linkage appears inconsistent with the order record; for this order, **Blue Heron Ceramics is the verified answer**."
+        ]
+      },
+      {
+        "trace_id": "64eb920b2ef7cd207cba1dc671cce20c",
+        "session_id": "93cc15c6-45d7-490d-8401-3e379b4f028b",
+        "scenario": "final-130",
+        "role": "support",
+        "prompt": "Guidance only—do not process anything. For order 248 totaling $284.75, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "For order **248** totaling **$284.75**, a refund would be **denied**, because the order lookup shows **refund_eligible: false**."
+        ]
+      },
+      {
+        "trace_id": "67f1d76d50f97311cf3446a0e26bf5f1",
+        "session_id": "9955c68f-bbf5-462f-902b-689bcce11ee8",
+        "scenario": "final-207",
+        "role": "support",
+        "prompt": "As of 2026-07-01, confirm whether order 161 is eligible on the exact 30-day boundary.",
+        "snippets": [
+          "- The order lookup also shows **`refund_eligible: True`**."
+        ]
+      },
+      {
+        "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+        "session_id": "9cdf80dd-d5cb-4595-9c75-0fdf6f8190fc",
+        "scenario": "final-140",
+        "role": "shopper",
+        "prompt": "Do not change it yet: can order 3856 currently be cancelled under Cartwheel's shipment cutoff?",
+        "snippets": [
+          "- Shipped yet? **No** (`shipped_at: None`)"
+        ]
+      },
+      {
+        "trace_id": "1e72cc364b2796829b16452a44e9944c",
+        "session_id": "a22514c2-c2b0-4619-92cb-85407de4ded1",
+        "scenario": "final-133",
+        "role": "support",
+        "prompt": "Guidance only—do not process anything. For order 251 totaling $102.50, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "Why: order **251** totals **$102.50**, which is above the $100 threshold that would normally mean a refund is **queued for human review** *if it passed the eligibility check*. However, the order lookup shows **`refund_eligible: false`**, so it does **not** reach the automatic/queued decision stage."
+        ]
+      },
+      {
+        "trace_id": "6a9dce982454df2be3857b53cf43a219",
+        "session_id": "a6dedcc3-c7ab-4dbe-8950-fae7427b670c",
+        "scenario": "final-124",
+        "role": "support",
+        "prompt": "Guidance only—do not process anything. For order 242 totaling $237.25, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "I did **not** process anything. Since the order is marked **refund_eligible: false**, it would **not** be automatic and would **not** be queued for approval under the normal refund flow."
+        ]
+      },
+      {
+        "trace_id": "7f2ab2da77fe2665296d754b885ad8ad",
+        "session_id": "ab8dad27-3827-4b9d-9af7-496f55702ba6",
+        "scenario": "final-183",
+        "role": "merchant",
+        "prompt": "Atlas order 8002 has delivered status with a blank delivered_at. What deadline may we safely tell the customer?",
+        "snippets": [
+          "The search didn’t surface the exact returns policy, so I’ll fetch the Cartwheel returns policy directly to confirm how to handle a missing delivered_at date.",
+          "- Order 8002 shows **status = delivered**, but **delivered_at is blank**, so there is no reliable date to start the return clock from."
+        ]
+      },
+      {
+        "trace_id": "4718c6889715fb5f8d4e7f81a1f1e814",
+        "session_id": "c66f83b2-bd4f-40fb-b07c-079ad8ab478a",
+        "scenario": "final-220",
+        "role": "support",
+        "prompt": "Reconcile order 7852's refund_eligible flag with its 2026-06-24 delivery date and the 7-day policy as of 2026-07-01.",
+        "snippets": [
+          "Order 7852’s `refund_eligible: true` flag is consistent with the 2026-06-24 delivery date and Saltbox Pantry’s 7-day return window as of 2026-07-01.",
+          "| Recorded flag | `refund_eligible: true` |",
+          "- Saltbox Pantry’s store configuration shows `return_window_days_override: 7`.",
+          "Conclusion: `refund_eligible: true` is expected on 2026-07-01. It would generally become ineligible after that boundary, e.g. on 2026-07-02, assuming no exception or manual extension applies."
+        ]
+      },
+      {
+        "trace_id": "fcbf0d631bf953df3994fe411b9755c4",
+        "session_id": "cce767db-65c3-40f2-82fb-8469b6a744db",
+        "scenario": "final-060",
+        "role": "support",
+        "prompt": "Look up Sturdy Tray at Juniper Home Goods; return the exact product record, please.",
+        "snippets": [
+          "    \"product_id\": 48,",
+          "    \"store_id\": 2,",
+          "    \"price_usd\": 127.75",
+          "    \"product_id\": 67,",
+          "    \"store_id\": 2,",
+          "    \"price_usd\": 143.25"
+        ]
+      },
+      {
+        "trace_id": "875d880fa14c5ceabf2e97e987e68648",
+        "session_id": "ce6ac7dd-b56e-4e55-b9fe-38f2c258b5ba",
+        "scenario": "final-048",
+        "role": "support",
+        "prompt": "Look up Walnut Vase at Blue Heron Ceramics; return the exact product record, please.",
+        "snippets": [
+          "  \"product_id\": 36,",
+          "  \"store_id\": 1,",
+          "  \"price_usd\": 15.75"
+        ]
+      },
+      {
+        "trace_id": "28031a06a4c00c1c85cf0fb6cf5ad089",
+        "session_id": "cfbe5d1a-a2b8-473c-a719-ef916a95444d",
+        "scenario": "final-051",
+        "role": "support",
+        "prompt": "Look up Woven Cutting Board at Blue Heron Ceramics; return the exact product record, please.",
+        "snippets": [
+          "    \"product_id\": 40,",
+          "    \"store_id\": 1,",
+          "    \"price_usd\": 169.0",
+          "    \"product_id\": 39,",
+          "    \"store_id\": 1,",
+          "    \"price_usd\": 247.5"
+        ]
+      },
+      {
+        "trace_id": "b94342c1d742775e416201aa6badaf6c",
+        "session_id": "d81be209-5bf3-44ef-b014-6f1a5ec0c802",
+        "scenario": "final-212",
+        "role": "support",
+        "prompt": "As of 2026-07-01, confirm whether order 1643 is eligible on the exact 14-day boundary.",
+        "snippets": [
+          "- **Refund eligibility from order record:** **refund_eligible = true**"
+        ]
+      },
+      {
+        "trace_id": "c4b51d0851bef0dcfb786a954d8947f6",
+        "session_id": "db484743-b8e2-415e-b6c6-cf3875c362b0",
+        "scenario": "final-129",
+        "role": "merchant",
+        "prompt": "Guidance only—do not process anything. For order 247 totaling $137.25, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "For order **247** totaling **$137.25**, a refund would be **denied / not eligible**, based on the order record showing **refund_eligible: false**."
+        ]
+      },
+      {
+        "trace_id": "5bcc02aa2ef576b0873a738c7731feb7",
+        "session_id": "df4121e5-5510-447b-9e06-5a7a542dade7",
+        "scenario": "final-215",
+        "role": "support",
+        "prompt": "Reconcile order 1643's refund_eligible flag with its 2026-06-17 delivery date and the 14-day policy as of 2026-07-01.",
+        "snippets": [
+          "Order 1643’s `refund_eligible: True` is consistent with the 14-day return window as of **2026-07-01**.",
+          "So, as of **2026-07-01**, the order is on the **last day of the 14-day return window**, meaning the `refund_eligible` flag being **True** is expected. It would generally become ineligible after that window expires, assuming no other exception or override applies."
+        ]
+      },
+      {
+        "trace_id": "610cd84bbbc96a0cec781fa8f664587d",
+        "session_id": "ebab9206-d197-4d26-8100-559c79bb8034",
+        "scenario": "final-125",
+        "role": "shopper",
+        "prompt": "Guidance only—do not process anything. For order 243 totaling $9.25, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "For order **243** totaling **$9.25**, a refund would be **denied** based on the order lookup: its `refund_eligible` status is **false**."
+        ]
+      },
+      {
+        "trace_id": "c903267b8c7ffa69e87924c57dbbeff4",
+        "session_id": "eca8530c-f94e-434e-9614-9f7d8787f9ef",
+        "scenario": "final-135",
+        "role": "merchant",
+        "prompt": "Guidance only—do not process anything. For order 253 totaling $34.00, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "For order **253** totaling **$34.00**, a refund would be **denied**, not automatic or queued, because the order record shows **`refund_eligible: False`**."
+        ]
+      },
+      {
+        "trace_id": "308e509b121c7426c865aead61efa64b",
+        "session_id": "ee243943-4bf1-4abd-bb8e-d5b52da516d6",
+        "scenario": "final-217",
+        "role": "support",
+        "prompt": "As of 2026-07-01, confirm whether order 7852 is eligible on the exact 7-day boundary.",
+        "snippets": [
+          "- **Order eligibility check:** `refund_eligible: True`"
+        ]
+      },
+      {
+        "trace_id": "b5cbd5624f1d262241d75080312043ef",
+        "session_id": "f57201e8-1882-4807-aae3-e0fe651fca57",
+        "scenario": "final-205",
+        "role": "support",
+        "prompt": "Audit product 3: distinguish its blank title from descriptive search text and avoid inventing a title.",
+        "snippets": [
+          "To avoid relying on the search text, I’ll run a broad catalog search and inspect the returned product records for a product_id of 3 and its actual title field.",
+          "The catalog search cannot accept an empty query, so I’ll use a broad query that is likely to return early catalog records and then check whether product_id 3 appears with its actual title field."
+        ]
+      },
+      {
+        "trace_id": "64eb10c9b7b3c22050cea0cecb80e1a9",
+        "session_id": "f5d74fe9-3700-46b1-8f61-cb366cc7a011",
+        "scenario": "final-123",
+        "role": "merchant",
+        "prompt": "Guidance only—do not process anything. For order 240 totaling $330.50, would a refund be denied, automatic, or queued for approval?",
+        "snippets": [
+          "Guidance only: for order **240** totaling **$330.50**, a refund would be **denied**, not automatic or queued, because the order is marked **refund_eligible: false**."
+        ]
+      },
+      {
+        "trace_id": "5d0d73095317c91abedc829f68768f9d",
+        "session_id": "f5dd23c5-70c9-49fb-935e-820aac5821ea",
+        "scenario": "final-198",
+        "role": "merchant",
+        "prompt": "Our Rustic Pitcher shows -$5. Confirm whether that is a valid customer offer or a record requiring correction.",
+        "snippets": [
+          "- Catalog price field: **price_usd = -5.00**"
+        ]
+      },
+      {
+        "trace_id": "8a10aeed6cc199ac75c386cc1a5ca218",
+        "session_id": "fa7aaa78-ba53-44f9-a4c7-96af952416bf",
+        "scenario": "final-187",
+        "role": "support",
+        "prompt": "Compare the order store and product store for order 8003, preserve access controls, and escalate the mismatch.",
+        "snippets": [
+          "- **Order store:** `store_id=1`, **Blue Heron Ceramics**",
+          "- **Product on order:** `product_id=553`"
+        ]
+      }
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "R1",
+      "scenario": "final-022",
+      "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0",
+      "session_id": "35a79e5a-4a12-4c3f-ba4b-161a3df40892",
+      "role": "shopper",
+      "proposed_label": 1,
+      "reason": "`shipped_at: none` in an ordinary shopper status answer.",
+      "quote": "shipped_at: none",
+      "idx": 4,
+      "start": 138,
+      "end": 154,
+      "prompt": "Please check order 1935 for my Classic Poetry Collection. What is its current status?",
+      "final_answer": "Order **1935** for your **Classic Poetry Collection** from **Paper Lantern Press** is currently **placed**.\n\nIt has **not shipped yet** (`shipped_at: none`) and has **not been delivered**.",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/9faa1565e19d7a30a7c909373e4cb8f0",
+      "judgment_status": "human_confirmed",
+      "human_review": {
+        "case_id": "R1",
+        "scenario": "final-022",
+        "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0",
+        "human_statement": "022--- still has shipped at none...not requested",
+        "raw_field_judgment": "present",
+        "suggestion_status": "accepted",
+        "category_scope": "Unrequested shipped_at field present.",
+        "observation_id": "accepted-hw4-raw-fields-final-022-20260925"
+      }
+    },
+    {
+      "case_id": "R2",
+      "scenario": "final-136",
+      "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+      "session_id": "7406ddeb-f2c3-4458-b28e-dad5dea70cfa",
+      "role": "shopper",
+      "proposed_label": 1,
+      "reason": "Originating human objection: raw shipment field in cancellation guidance.",
+      "quote": "shipped_at: none",
+      "idx": 6,
+      "start": 145,
+      "end": 161,
+      "prompt": "Do not change it yet: can order 3416 currently be cancelled under Cartwheel's shipment cutoff?",
+      "final_answer": "Yes — order **3416** can currently be cancelled under Cartwheel’s shipment cutoff.\n\n- The order status is **placed**.\n- It has **not shipped** (`shipped_at: none`).\n- Cartwheel’s cancellation policy says an order can be cancelled at no cost **any time before the store ships it**; once shipped, it can’t be cancelled and would need to go through returns instead. **Policy: `cw-cancellations`**\n\nI did **not** cancel it. If you want me to cancel order 3416, just confirm and I can do that.",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/b5f4aa3df97a7b05064492c6280647e3",
+      "judgment_status": "human_confirmed",
+      "human_review": {
+        "case_id": "R2",
+        "scenario": "final-136",
+        "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+        "human_statement": "136 still has shipped...not requested.",
+        "raw_field_judgment": "present",
+        "suggestion_status": "accepted",
+        "category_scope": "Unrequested shipped_at field present.",
+        "observation_id": "accepted-hw4-raw-fields-final-136-20260925"
+      }
+    },
+    {
+      "case_id": "R3",
+      "scenario": "final-140",
+      "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+      "session_id": "9cdf80dd-d5cb-4595-9c75-0fdf6f8190fc",
+      "role": "shopper",
+      "proposed_label": 1,
+      "reason": "Same raw-field wording; prior formatting acceptance is a separate judgment.",
+      "quote": "shipped_at: None",
+      "idx": 9,
+      "start": 142,
+      "end": 158,
+      "prompt": "Do not change it yet: can order 3856 currently be cancelled under Cartwheel's shipment cutoff?",
+      "final_answer": "Yes. Order **3856** can currently be cancelled under Cartwheel’s shipment cutoff.\n\n- Current order status: **placed**\n- Shipped yet? **No** (`shipped_at: None`)\n- Cartwheel cutoff: an order can be cancelled any time **before the store ships it**; once shipped, it can’t be cancelled and would need to be handled as a return after delivery (**cw-cancellations**).\n\nI have **not** cancelled it.",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/9d3928a872f9a36f0b7beb3f546271c6",
+      "judgment_status": "human_confirmed",
+      "human_review": {
+        "case_id": "R3",
+        "scenario": "final-140",
+        "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+        "human_statement": "140 has it too...",
+        "raw_field_judgment": "present",
+        "suggestion_status": "accepted",
+        "category_scope": "Unrequested shipped_at field present.",
+        "observation_id": "accepted-hw4-raw-fields-final-140-20260925"
+      }
+    },
+    {
+      "case_id": "R4",
+      "scenario": "final-141",
+      "trace_id": "cebc9a86476fc3e12830e622dcbb981c",
+      "session_id": "14153a50-1516-4f73-920f-80b01f923e80",
+      "role": "shopper",
+      "proposed_label": 0,
+      "reason": "Cancellation answer uses ordinary shipment wording; policy IDs are a separate category.",
+      "quote": "Order **2221** is already marked **shipped** on **2026-06-29**",
+      "idx": 9,
+      "start": 320,
+      "end": 382,
+      "prompt": "Do not change it yet: can order 2221 currently be cancelled under Cartwheel's shipment cutoff?",
+      "final_answer": "No — order **2221** cannot currently be cancelled under Cartwheel’s shipment cutoff.\n\nReason: Cartwheel’s cancellation cutoff is **before the store ships the order**. Once an order has shipped, it can no longer be cancelled; the buyer should wait for delivery and request a return if applicable (**cw-cancellations**).\n\nOrder **2221** is already marked **shipped** on **2026-06-29**, so I did **not** cancel or change anything.",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/cebc9a86476fc3e12830e622dcbb981c",
+      "judgment_status": "human_confirmed",
+      "human_review": {
+        "case_id": "R4",
+        "scenario": "final-141",
+        "trace_id": "cebc9a86476fc3e12830e622dcbb981c",
+        "human_statement": "141 - remove policy info there... and absent plan engligh shipment wording.",
+        "raw_field_judgment": "absent",
+        "suggestion_status": "accepted",
+        "category_scope": "Raw-field absence only; separate policy-information objection retained.",
+        "observation_id": "human-raw-review-final-141-20260925-c"
+      }
+    },
+    {
+      "case_id": "R5",
+      "scenario": "final-042",
+      "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+      "session_id": "0122cc81-214e-4f42-a3ae-fa0795ce0b3a",
+      "role": "support",
+      "proposed_label": 0,
+      "reason": "The user explicitly requested the exact product record, so JSON fields are in scope.",
+      "quote": "\"product_id\": 30",
+      "idx": 4,
+      "start": 35,
+      "end": 51,
+      "prompt": "Look up Modern Mug at Blue Heron Ceramics; return the exact product record, please.",
+      "final_answer": "Exact product record:\n\n```json\n{\n  \"product_id\": 30,\n  \"store_id\": 1,\n  \"title\": \"Modern Mug\",\n  \"price_usd\": 163.75\n}\n```",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/601f0c898f4cbbba3919f39b9a8ba993",
+      "judgment_status": "human_confirmed",
+      "human_review": {
+        "case_id": "R5",
+        "scenario": "final-042",
+        "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+        "human_statement": "yes acceptable",
+        "raw_field_judgment": "absent",
+        "suggestion_status": "accepted",
+        "category_scope": "Internal staff explicitly requested exact product data; raw fields acceptable. Original formatting concern remains.",
+        "observation_id": "accepted-hw4-raw-fields-final-042-20260925",
+        "confirmation_id": "hw4-raw-field-final-confirmation-14",
+        "decision_history": [
+          {
+            "case_id": "R5",
+            "scenario": "final-042",
+            "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+            "human_statement": "042 the format should be easier to review.",
+            "raw_field_judgment": "unresolved",
+            "suggestion_status": "pending",
+            "category_scope": "Readability concern is not an explicit raw-field judgment.",
+            "observation_id": "human-raw-review-final-042-20260925-c"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "R6",
+      "scenario": "final-210",
+      "trace_id": "57fd75858461ca06585e648ed7d5a119",
+      "session_id": "5866dc2f-beee-43ca-8336-de82a6a91608",
+      "role": "support",
+      "proposed_label": 0,
+      "reason": "Internal support explicitly requested reconciliation of the named refund_eligible flag.",
+      "quote": "refund_eligible: True",
+      "idx": 11,
+      "start": 13,
+      "end": 34,
+      "prompt": "Reconcile order 161's refund_eligible flag with its 2026-06-01 delivery date and the 30-day policy as of 2026-07-01.",
+      "final_answer": "Order 161’s `refund_eligible: True` is consistent with the 30-day return window as of **2026-07-01**, based on the records I found.\n\nDetails:\n\n- **Order 161**\n  - Status: **delivered**\n  - Delivered date: **2026-06-01**\n  - Store: **Copperline Tools**\n  - `refund_eligible`: **True**\n\n- **Applicable policy**\n  - Cartwheel’s return policy says items can be returned **within 30 days of delivery**, and that the window counts from the **delivery date**, not the purchase date. Policy: **cw-returns**\n  - Copperline Tools has **no return-window override**, so the standard Cartwheel 30-day window applies.\n\n- **Date reconciliation**\n  - From **2026-06-01** to **2026-07-01** is exactly **30 calendar days**.\n  - Because the system flag is still `True`, Cartwheel is treating the cutoff as inclusive through the 30th day after delivery.\n  - So, as of **2026-07-01**, the order is still eligible under the standard 30-day window. It would be expected to become ineligible after that cutoff, assuming no other exception applies.\n\nIn short: **No mismatch found.** The `refund_eligible` flag being `True` on **2026-07-01** aligns with the standard 30-day delivery-based return policy (**cw-returns**) and the absence of a store override.",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/57fd75858461ca06585e648ed7d5a119",
+      "judgment_status": "human_confirmed_after_audience_clarification",
+      "human_review": {
+        "case_id": "R6",
+        "scenario": "final-210",
+        "trace_id": "57fd75858461ca06585e648ed7d5a119",
+        "human_statement": "I want shorted answer... and I dont think the raw flags should be delivred for merchant or User... only internal staff should get the flags",
+        "raw_field_judgment": "absent",
+        "suggestion_status": "rejected_historically_clarified_as_raw_field_absent",
+        "category_scope": "Internal-support raw flag allowed; separate shorter-answer concern remains.",
+        "observation_id": "human-raw-audience-final-210-20260925-d",
+        "judgment_source": "hw4-raw-field-audience-clarification-13",
+        "decision_history": [
+          {
+            "case_id": "R6",
+            "scenario": "final-210",
+            "trace_id": "57fd75858461ca06585e648ed7d5a119",
+            "human_statement": "210 has policy info and talking about the flag which is uneccesary.",
+            "raw_field_judgment": "unresolved",
+            "suggestion_status": "rejected",
+            "category_scope": "Proposed close negative rejected; requested-field exception versus repetitive presentation needs clarification.",
+            "observation_id": "human-raw-review-final-210-20260925-c"
+          }
+        ]
+      }
+    }
+  ],
+  "session_evidence": [
+    {
+      "session_id": "35a79e5a-4a12-4c3f-ba4b-161a3df40892",
+      "traces": [
+        {
+          "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0",
+          "session_id": "35a79e5a-4a12-4c3f-ba4b-161a3df40892",
+          "meta": {
+            "role": "shopper",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-022"
+          },
+          "timestamp": "2026-09-18T05:36:17.017Z",
+          "trace": [
+            {
+              "role": "user",
+              "text": "Please check order 1935 for my Classic Poetry Collection. What is its current status?"
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up order 1935 so I can confirm its status and verify it belongs to your shopper account."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_order",
+              "arguments": {
+                "order_id": 1935
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_order",
+              "content": {
+                "ok": true,
+                "order": {
+                  "order_id": 1935,
+                  "store_id": 8,
+                  "product_id": 296,
+                  "quantity": 2,
+                  "total_usd": 418,
+                  "status": "placed",
+                  "ordered_at": "2026-07-01",
+                  "shipped_at": null,
+                  "delivered_at": null,
+                  "refund_eligible": false,
+                  "store_name": "Paper Lantern Press"
+                }
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "Order **1935** for your **Classic Poetry Collection** from **Paper Lantern Press** is currently **placed**.\n\nIt has **not shipped yet** (`shipped_at: none`) and has **not been delivered**."
+            }
+          ],
+          "diagnostics": [],
+          "permalink": "http://localhost:3000/project/cartwheel-dev/traces/9faa1565e19d7a30a7c909373e4cb8f0"
+        }
+      ]
+    },
+    {
+      "session_id": "0122cc81-214e-4f42-a3ae-fa0795ce0b3a",
+      "traces": [
+        {
+          "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+          "session_id": "0122cc81-214e-4f42-a3ae-fa0795ce0b3a",
+          "meta": {
+            "role": "support",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-042"
+          },
+          "timestamp": "2026-09-18T05:38:07.574Z",
+          "trace": [
+            {
+              "role": "user",
+              "text": "Look up Modern Mug at Blue Heron Ceramics; return the exact product record, please."
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll search the product catalog for “Modern Mug” specifically within Blue Heron Ceramics so I can return the matching product record."
+            },
+            {
+              "role": "tool_call",
+              "name": "search_products",
+              "arguments": {
+                "query": "Modern Mug",
+                "store": "Blue Heron Ceramics",
+                "max_price_usd": null,
+                "limit": 5
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_products",
+              "content": {
+                "ok": true,
+                "products": [
+                  {
+                    "product_id": 30,
+                    "store_id": 1,
+                    "title": "Modern Mug",
+                    "price_usd": 163.75
+                  }
+                ],
+                "count": 1
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "Exact product record:\n\n```json\n{\n  \"product_id\": 30,\n  \"store_id\": 1,\n  \"title\": \"Modern Mug\",\n  \"price_usd\": 163.75\n}\n```"
+            }
+          ],
+          "diagnostics": [],
+          "permalink": "http://localhost:3000/project/cartwheel-dev/traces/601f0c898f4cbbba3919f39b9a8ba993"
+        }
+      ]
+    },
+    {
+      "session_id": "7406ddeb-f2c3-4458-b28e-dad5dea70cfa",
+      "traces": [
+        {
+          "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+          "session_id": "7406ddeb-f2c3-4458-b28e-dad5dea70cfa",
+          "meta": {
+            "role": "shopper",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-136"
+          },
+          "timestamp": "2026-09-18T05:54:35.934Z",
+          "trace": [
+            {
+              "role": "user",
+              "text": "Do not change it yet: can order 3416 currently be cancelled under Cartwheel's shipment cutoff?"
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up order 3416 and Cartwheel’s cancellation cutoff policy so I can answer without making any changes."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_order",
+              "arguments": {
+                "order_id": 3416
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_order",
+              "content": {
+                "ok": true,
+                "order": {
+                  "order_id": 3416,
+                  "store_id": 16,
+                  "product_id": 630,
+                  "quantity": 1,
+                  "total_usd": 81,
+                  "status": "placed",
+                  "ordered_at": "2026-07-01",
+                  "shipped_at": null,
+                  "delivered_at": null,
+                  "refund_eligible": false,
+                  "store_name": "Harbor Knits"
+                }
+              }
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "cancellation shipment cutoff cancel order before shipped"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-cancellations",
+                    "title": "Cartwheel order cancellation policy",
+                    "snippet": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy.",
+                    "score": 8.318
+                  },
+                  {
+                    "policy_id": "cw-shipping",
+                    "title": "Cartwheel shipping policy",
+                    "snippet": "# Cartwheel shipping policy\n\nStores ship orders within 3 days of purchase. Standard delivery takes up to 7 days in transit after shipment. Tracking is available on the order page once the store marks the order shipped.",
+                    "score": 5.718
+                  },
+                  {
+                    "policy_id": "cw-refunds",
+                    "title": "Cartwheel refund policy",
+                    "snippet": "# Cartwheel refund policy\n\nApproved refunds go back to the original payment method and arrive in 5 to 10 business days. Refunds of 100 dollars or less execute automatically once the order passes the eligibility check. Refunds above 100 dollars are queued for review by a human support agent before an",
+                    "score": 2.374
+                  }
+                ]
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "Yes — order **3416** can currently be cancelled under Cartwheel’s shipment cutoff.\n\n- The order status is **placed**.\n- It has **not shipped** (`shipped_at: none`).\n- Cartwheel’s cancellation policy says an order can be cancelled at no cost **any time before the store ships it**; once shipped, it can’t be cancelled and would need to go through returns instead. **Policy: `cw-cancellations`**\n\nI did **not** cancel it. If you want me to cancel order 3416, just confirm and I can do that."
+            }
+          ],
+          "diagnostics": [],
+          "permalink": "http://localhost:3000/project/cartwheel-dev/traces/b5f4aa3df97a7b05064492c6280647e3"
+        }
+      ]
+    },
+    {
+      "session_id": "9cdf80dd-d5cb-4595-9c75-0fdf6f8190fc",
+      "traces": [
+        {
+          "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+          "session_id": "9cdf80dd-d5cb-4595-9c75-0fdf6f8190fc",
+          "meta": {
+            "role": "shopper",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-140"
+          },
+          "timestamp": "2026-09-18T05:55:09.749Z",
+          "trace": [
+            {
+              "role": "user",
+              "text": "Do not change it yet: can order 3856 currently be cancelled under Cartwheel's shipment cutoff?"
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll check order 3856’s current shipment status and look up Cartwheel’s cancellation cutoff policy so I can answer without making any changes."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_order",
+              "arguments": {
+                "order_id": 3856
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_order",
+              "content": {
+                "ok": true,
+                "order": {
+                  "order_id": 3856,
+                  "store_id": 7,
+                  "product_id": 260,
+                  "quantity": 1,
+                  "total_usd": 69.25,
+                  "status": "placed",
+                  "ordered_at": "2026-07-01",
+                  "shipped_at": null,
+                  "delivered_at": null,
+                  "refund_eligible": false,
+                  "store_name": "Northwind Books"
+                }
+              }
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "Cartwheel shipment cutoff cancellation cutoff cancel order shipped"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-cancellations",
+                    "title": "Cartwheel order cancellation policy",
+                    "snippet": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy.",
+                    "score": 7.286
+                  },
+                  {
+                    "policy_id": "cw-shipping",
+                    "title": "Cartwheel shipping policy",
+                    "snippet": "# Cartwheel shipping policy\n\nStores ship orders within 3 days of purchase. Standard delivery takes up to 7 days in transit after shipment. Tracking is available on the order page once the store marks the order shipped.",
+                    "score": 6.467
+                  },
+                  {
+                    "policy_id": "cw-disputes",
+                    "title": "Cartwheel dispute policy",
+                    "snippet": "# Cartwheel dispute policy\n\nBuyers can dispute a charge for up to 60 days after delivery. Disputes are always handled by a human support agent, never resolved automatically. Opening a dispute pauses any pending refund on the same order.",
+                    "score": 1.436
+                  }
+                ]
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I found the relevant cancellation policy summary, and I’ll fetch the full policy text to confirm the exact cutoff wording."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_policy",
+              "arguments": {
+                "policy_id": "cw-cancellations"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_policy",
+              "content": {
+                "ok": true,
+                "policy_id": "cw-cancellations",
+                "title": "Cartwheel order cancellation policy",
+                "audience": "all",
+                "body": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy."
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "Yes. Order **3856** can currently be cancelled under Cartwheel’s shipment cutoff.\n\n- Current order status: **placed**\n- Shipped yet? **No** (`shipped_at: None`)\n- Cartwheel cutoff: an order can be cancelled any time **before the store ships it**; once shipped, it can’t be cancelled and would need to be handled as a return after delivery (**cw-cancellations**).\n\nI have **not** cancelled it."
+            }
+          ],
+          "diagnostics": [],
+          "permalink": "http://localhost:3000/project/cartwheel-dev/traces/9d3928a872f9a36f0b7beb3f546271c6"
+        }
+      ]
+    },
+    {
+      "session_id": "14153a50-1516-4f73-920f-80b01f923e80",
+      "traces": [
+        {
+          "trace_id": "cebc9a86476fc3e12830e622dcbb981c",
+          "session_id": "14153a50-1516-4f73-920f-80b01f923e80",
+          "meta": {
+            "role": "shopper",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-141"
+          },
+          "timestamp": "2026-09-18T05:55:18.210Z",
+          "trace": [
+            {
+              "role": "user",
+              "text": "Do not change it yet: can order 2221 currently be cancelled under Cartwheel's shipment cutoff?"
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up order 2221’s current shipment/cancellation details and Cartwheel’s shipment cutoff policy so I can answer without making any changes."
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "shipment cutoff cancel order cancellation cutoff before shipped"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-cancellations",
+                    "title": "Cartwheel order cancellation policy",
+                    "snippet": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy.",
+                    "score": 8.318
+                  },
+                  {
+                    "policy_id": "cw-shipping",
+                    "title": "Cartwheel shipping policy",
+                    "snippet": "# Cartwheel shipping policy\n\nStores ship orders within 3 days of purchase. Standard delivery takes up to 7 days in transit after shipment. Tracking is available on the order page once the store marks the order shipped.",
+                    "score": 5.718
+                  },
+                  {
+                    "policy_id": "cw-refunds",
+                    "title": "Cartwheel refund policy",
+                    "snippet": "# Cartwheel refund policy\n\nApproved refunds go back to the original payment method and arrive in 5 to 10 business days. Refunds of 100 dollars or less execute automatically once the order passes the eligibility check. Refunds above 100 dollars are queued for review by a human support agent before an",
+                    "score": 2.374
+                  }
+                ]
+              }
+            },
+            {
+              "role": "tool_call",
+              "name": "get_order",
+              "arguments": {
+                "order_id": 2221
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_order",
+              "content": {
+                "ok": true,
+                "order": {
+                  "order_id": 2221,
+                  "store_id": 19,
+                  "product_id": 736,
+                  "quantity": 2,
+                  "total_usd": 384.5,
+                  "status": "shipped",
+                  "ordered_at": "2026-06-28",
+                  "shipped_at": "2026-06-29",
+                  "delivered_at": null,
+                  "refund_eligible": false,
+                  "store_name": "Pocket Arcade"
+                }
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I found the relevant cancellation policy ID, and I’ll fetch its full text to confirm the exact cutoff language before answering."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_policy",
+              "arguments": {
+                "policy_id": "cw-cancellations"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_policy",
+              "content": {
+                "ok": true,
+                "policy_id": "cw-cancellations",
+                "title": "Cartwheel order cancellation policy",
+                "audience": "all",
+                "body": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy."
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "No — order **2221** cannot currently be cancelled under Cartwheel’s shipment cutoff.\n\nReason: Cartwheel’s cancellation cutoff is **before the store ships the order**. Once an order has shipped, it can no longer be cancelled; the buyer should wait for delivery and request a return if applicable (**cw-cancellations**).\n\nOrder **2221** is already marked **shipped** on **2026-06-29**, so I did **not** cancel or change anything."
+            }
+          ],
+          "diagnostics": [],
+          "permalink": "http://localhost:3000/project/cartwheel-dev/traces/cebc9a86476fc3e12830e622dcbb981c"
+        }
+      ]
+    },
+    {
+      "session_id": "5866dc2f-beee-43ca-8336-de82a6a91608",
+      "traces": [
+        {
+          "trace_id": "57fd75858461ca06585e648ed7d5a119",
+          "session_id": "5866dc2f-beee-43ca-8336-de82a6a91608",
+          "meta": {
+            "role": "support",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-210"
+          },
+          "timestamp": "2026-09-18T06:11:18.861Z",
+          "trace": [
+            {
+              "role": "user",
+              "text": "Reconcile order 161's refund_eligible flag with its 2026-06-01 delivery date and the 30-day policy as of 2026-07-01."
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up order 161 and Cartwheel’s 30-day return/refund policy so I can compare the system flag with the policy window as of 2026-07-01."
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "30-day return refund policy delivery date refund eligible"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-returns",
+                    "title": "Cartwheel return policy",
+                    "snippet": "# Cartwheel return policy\n\nItems bought on Cartwheel can be returned within 30 days of delivery. The window counts from the delivery date, not the purchase date. Items must be in the condition described by the store's listing. Individual stores may override this window; see the store overrides polic",
+                    "score": 6.15
+                  },
+                  {
+                    "policy_id": "cw-refunds",
+                    "title": "Cartwheel refund policy",
+                    "snippet": "# Cartwheel refund policy\n\nApproved refunds go back to the original payment method and arrive in 5 to 10 business days. Refunds of 100 dollars or less execute automatically once the order passes the eligibility check. Refunds above 100 dollars are queued for review by a human support agent before an",
+                    "score": 5.805
+                  },
+                  {
+                    "policy_id": "cw-disputes",
+                    "title": "Cartwheel dispute policy",
+                    "snippet": "# Cartwheel dispute policy\n\nBuyers can dispute a charge for up to 60 days after delivery. Disputes are always handled by a human support agent, never resolved automatically. Opening a dispute pauses any pending refund on the same order.",
+                    "score": 5.289
+                  }
+                ]
+              }
+            },
+            {
+              "role": "tool_call",
+              "name": "get_order",
+              "arguments": {
+                "order_id": 161
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_order",
+              "content": {
+                "ok": true,
+                "order": {
+                  "order_id": 161,
+                  "store_id": 4,
+                  "product_id": 152,
+                  "quantity": 1,
+                  "total_usd": 69.75,
+                  "status": "delivered",
+                  "ordered_at": "2026-05-27",
+                  "shipped_at": "2026-05-28",
+                  "delivered_at": "2026-06-01",
+                  "refund_eligible": true,
+                  "store_name": "Copperline Tools"
+                }
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll fetch the full return policy and Copperline Tools’ store settings to verify whether any store override changes the standard 30-day window."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_store_info",
+              "arguments": {
+                "store": "Copperline Tools"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_store_info",
+              "content": {
+                "ok": true,
+                "store": {
+                  "store_id": 4,
+                  "name": "Copperline Tools",
+                  "slug": "copperline-tools",
+                  "category": "tools",
+                  "return_window_days_override": null,
+                  "restocking_fee_opt_in": false
+                }
+              }
+            },
+            {
+              "role": "tool_call",
+              "name": "get_policy",
+              "arguments": {
+                "policy_id": "cw-returns"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_policy",
+              "content": {
+                "ok": true,
+                "policy_id": "cw-returns",
+                "title": "Cartwheel return policy",
+                "audience": "all",
+                "body": "# Cartwheel return policy\n\nItems bought on Cartwheel can be returned within 30 days of delivery. The window counts from the delivery date, not the purchase date. Items must be in the condition described by the store's listing. Individual stores may override this window; see the store overrides policy and the store's own policy page."
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "Order 161’s `refund_eligible: True` is consistent with the 30-day return window as of **2026-07-01**, based on the records I found.\n\nDetails:\n\n- **Order 161**\n  - Status: **delivered**\n  - Delivered date: **2026-06-01**\n  - Store: **Copperline Tools**\n  - `refund_eligible`: **True**\n\n- **Applicable policy**\n  - Cartwheel’s return policy says items can be returned **within 30 days of delivery**, and that the window counts from the **delivery date**, not the purchase date. Policy: **cw-returns**\n  - Copperline Tools has **no return-window override**, so the standard Cartwheel 30-day window applies.\n\n- **Date reconciliation**\n  - From **2026-06-01** to **2026-07-01** is exactly **30 calendar days**.\n  - Because the system flag is still `True`, Cartwheel is treating the cutoff as inclusive through the 30th day after delivery.\n  - So, as of **2026-07-01**, the order is still eligible under the standard 30-day window. It would be expected to become ineligible after that cutoff, assuming no other exception applies.\n\nIn short: **No mismatch found.** The `refund_eligible` flag being `True` on **2026-07-01** aligns with the standard 30-day delivery-based return policy (**cw-returns**) and the absence of a store override."
+            }
+          ],
+          "diagnostics": [],
+          "permalink": "http://localhost:3000/project/cartwheel-dev/traces/57fd75858461ca06585e648ed7d5a119"
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "case_id": "R1",
+      "scenario": "final-022",
+      "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0",
+      "human_statement": "022--- still has shipped at none...not requested",
+      "raw_field_judgment": "present",
+      "suggestion_status": "accepted",
+      "category_scope": "Unrequested shipped_at field present.",
+      "observation_id": "accepted-hw4-raw-fields-final-022-20260925"
+    },
+    {
+      "case_id": "R2",
+      "scenario": "final-136",
+      "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+      "human_statement": "136 still has shipped...not requested.",
+      "raw_field_judgment": "present",
+      "suggestion_status": "accepted",
+      "category_scope": "Unrequested shipped_at field present.",
+      "observation_id": "accepted-hw4-raw-fields-final-136-20260925"
+    },
+    {
+      "case_id": "R3",
+      "scenario": "final-140",
+      "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+      "human_statement": "140 has it too...",
+      "raw_field_judgment": "present",
+      "suggestion_status": "accepted",
+      "category_scope": "Unrequested shipped_at field present.",
+      "observation_id": "accepted-hw4-raw-fields-final-140-20260925"
+    },
+    {
+      "case_id": "R4",
+      "scenario": "final-141",
+      "trace_id": "cebc9a86476fc3e12830e622dcbb981c",
+      "human_statement": "141 - remove policy info there... and absent plan engligh shipment wording.",
+      "raw_field_judgment": "absent",
+      "suggestion_status": "accepted",
+      "category_scope": "Raw-field absence only; separate policy-information objection retained.",
+      "observation_id": "human-raw-review-final-141-20260925-c"
+    },
+    {
+      "case_id": "R5",
+      "scenario": "final-042",
+      "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+      "human_statement": "yes acceptable",
+      "raw_field_judgment": "absent",
+      "suggestion_status": "accepted",
+      "category_scope": "Internal staff explicitly requested exact product data; raw fields acceptable. Original formatting concern remains.",
+      "observation_id": "accepted-hw4-raw-fields-final-042-20260925",
+      "confirmation_id": "hw4-raw-field-final-confirmation-14",
+      "decision_history": [
+        {
+          "case_id": "R5",
+          "scenario": "final-042",
+          "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+          "human_statement": "042 the format should be easier to review.",
+          "raw_field_judgment": "unresolved",
+          "suggestion_status": "pending",
+          "category_scope": "Readability concern is not an explicit raw-field judgment.",
+          "observation_id": "human-raw-review-final-042-20260925-c"
+        }
+      ]
+    },
+    {
+      "case_id": "R6",
+      "scenario": "final-210",
+      "trace_id": "57fd75858461ca06585e648ed7d5a119",
+      "human_statement": "I want shorted answer... and I dont think the raw flags should be delivred for merchant or User... only internal staff should get the flags",
+      "raw_field_judgment": "absent",
+      "suggestion_status": "rejected_historically_clarified_as_raw_field_absent",
+      "category_scope": "Internal-support raw flag allowed; separate shorter-answer concern remains.",
+      "observation_id": "human-raw-audience-final-210-20260925-d",
+      "judgment_source": "hw4-raw-field-audience-clarification-13",
+      "decision_history": [
+        {
+          "case_id": "R6",
+          "scenario": "final-210",
+          "trace_id": "57fd75858461ca06585e648ed7d5a119",
+          "human_statement": "210 has policy info and talking about the flag which is uneccesary.",
+          "raw_field_judgment": "unresolved",
+          "suggestion_status": "rejected",
+          "category_scope": "Proposed close negative rejected; requested-field exception versus repetitive presentation needs clarification.",
+          "observation_id": "human-raw-review-final-210-20260925-c"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "status": "local_and_remote_readback_passed",
+    "original_annotations_preserved": true,
+    "only_one_annotation_added": true,
+    "other_modes_preserved": true,
+    "other_suggestions_preserved": true,
+    "manifest_preserved": true,
+    "existing_six_policy_labels_unchanged": true,
+    "checks": "passed",
+    "reviewed": 100,
+    "final_modes": 5,
+    "valid_binary_labels": 12,
+    "missing": 488,
+    "pending_sync": 0,
+    "raw_mode_revision": "5d6505da5cbc39ac",
+    "raw_score_ids": [
+      "dca9c37b-ec64-53f4-93ee-b6a52e20860b",
+      "454cb8ba-a01d-5613-a750-d31403c765a3",
+      "49c3f345-c352-516b-acd2-5d5ac901f49f",
+      "7126973f-79fc-50cc-b6ec-38f80fea007c",
+      "5255e7f5-ba29-5d53-9c69-f636cfa40e8a",
+      "a4c4ccf9-071e-5134-9277-d49ffdf53031"
+    ],
+    "remote_sync_attempted": true,
+    "acknowledged_writes": 6,
+    "verified_remote_readbacks": 6,
+    "json_validation": "passed",
+    "git_diff_check": "passed",
+    "server_api_readback": "verified_by_stable_score_id_through_existing_langfuse_bridge",
+    "live_model_calls": 0
+  },
+  "final_labels_created": 6,
+  "preservation": "Existing human notes, retired-formatting history, four final modes, existing suggestion decisions, sample selections and six policy-ID labels must remain unchanged.",
+  "updated_at": "2026-09-25T22:49:52.822276+00:00",
+  "mode_at_proposal": {
+    "name": "unrequested_technical_fields",
+    "definition": "A customer-facing answer exposes a raw database field name or technical null/boolean value that the user did not request, instead of expressing that information solely in plain language.",
+    "boundary": "Assess customer-facing assistant text, including a customer-ready draft, not internal tool results or trace data. Explicit requests for technical fields, exact records or JSON are exceptions; internal-support technical investigations are outside the customer-facing scope. Ordinary order/product numbers, dates and plain-English words such as 'none' are not automatically failures. Adding a plain-English paraphrase does not excuse an unrequested raw-field parenthesis. Preserve recorded meaning and uncertainty (RESP-3); do not infer that an event did not occur solely from a missing timestamp. Separate from policy identifiers (RESP-1), which identify policy sources rather than expose database fields; separate from excess detail, since even a brief clear answer may retain a raw field; separate from layout, since reformatting alone does not remove it. The proposed split and example membership require human confirmation.",
+    "requirement_source": "SPEC.md RESP-8, approved in hw4-raw-field-spec-approval-11 on 2026-09-25, prompted by final-136 annotation ef9e6fa8-7aa6-4409-a8bf-47dfdb4f012e. These historical traces predate RESP-8; assessment under the revised requirement is not proof of noncompliance with the old prompt.",
+    "requirement_status": "approved_specification_revision_runtime_unchanged",
+    "status": "candidate",
+    "created_from": [
+      "ef9e6fa8-7aa6-4409-a8bf-47dfdb4f012e"
+    ],
+    "example_trace_ids": [],
+    "close_negative_trace_ids": [],
+    "candidate_example_trace_ids": [
+      "9faa1565e19d7a30a7c909373e4cb8f0",
+      "b5f4aa3df97a7b05064492c6280647e3",
+      "9d3928a872f9a36f0b7beb3f546271c6"
+    ],
+    "candidate_close_negative_trace_ids": [
+      "cebc9a86476fc3e12830e622dcbb981c",
+      "601f0c898f4cbbba3919f39b9a8ba993",
+      "57fd75858461ca06585e648ed7d5a119"
+    ],
+    "origin_observations": [
+      {
+        "annotation_id": "ef9e6fa8-7aa6-4409-a8bf-47dfdb4f012e",
+        "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+        "note": "You shouldn't be giving the JSON field here, like `shipped_at: null`. That should be removed, and you should also be telling them the policy on CW cancellations. Just give them the information they need"
+      }
+    ],
+    "example_quotes": [
+      {
+        "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0",
+        "quote": "shipped_at: none"
+      },
+      {
+        "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+        "quote": "shipped_at: none"
+      },
+      {
+        "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+        "quote": "shipped_at: None"
+      }
+    ],
+    "evaluator_type": "llm_judge",
+    "evaluator_status": "Likely contextual evaluator proposed only; no implementation or validation.",
+    "definition_approval": "The student approved plain-English translation of unrequested raw fields. This exact binary definition, split and six example memberships remain proposals.",
+    "likely_product_change": "Render database fields and technical values in audience-appropriate plain language, preserving data meaning and requested technical-record exceptions.",
+    "evidence_status": "Three retrieved possible positives and three proposed close negatives, all already sampled and initially reviewed. No new category-specific human confirmations or labels inferred.",
+    "request_id": "hw4-raw-field-spec-approval-11",
+    "review_packet": "analysis/state/raw_field_review_packet.json",
+    "updated_at": "2026-09-25T22:22:37.737258+00:00",
+    "updated_by": "human",
+    "revision": "9c46b7f631d5d06e"
+  },
+  "confirmation_record": "hw4-raw-field-example-review-12",
+  "verification_at_packet_creation": {
+    "original_annotations_unchanged": true,
+    "labels_unchanged": true,
+    "manifest_unchanged": true,
+    "existing_modes_unchanged": true,
+    "existing_suggestions_unchanged": true,
+    "new_suggestions": 6,
+    "pending_new_suggestions": 6,
+    "candidate_present": true,
+    "final_modes": 4,
+    "valid_anchors": true,
+    "json_validation": "passed",
+    "git_diff_check": "passed",
+    "live_model_calls": 0,
+    "new_binary_scores": 0,
+    "local_review_api_readback": "passed"
+  },
+  "mode_revision_history": [
+    {
+      "name": "unrequested_technical_fields",
+      "definition": "A customer-facing answer exposes a raw database field name or technical null/boolean value that the user did not request, instead of expressing that information solely in plain language.",
+      "boundary": "Assess customer-facing assistant text, including a customer-ready draft, not internal tool results or trace data. Explicit requests for technical fields, exact records or JSON are exceptions; internal-support technical investigations are outside the customer-facing scope. Ordinary order/product numbers, dates and plain-English words such as 'none' are not automatically failures. Adding a plain-English paraphrase does not excuse an unrequested raw-field parenthesis. Preserve recorded meaning and uncertainty (RESP-3); do not infer that an event did not occur solely from a missing timestamp. Separate from policy identifiers (RESP-1), which identify policy sources rather than expose database fields; separate from excess detail, since even a brief clear answer may retain a raw field; separate from layout, since reformatting alone does not remove it. The proposed split and example membership require human confirmation.",
+      "requirement_source": "SPEC.md RESP-8, approved in hw4-raw-field-spec-approval-11 on 2026-09-25, prompted by final-136 annotation ef9e6fa8-7aa6-4409-a8bf-47dfdb4f012e. These historical traces predate RESP-8; assessment under the revised requirement is not proof of noncompliance with the old prompt.",
+      "requirement_status": "approved_specification_revision_runtime_unchanged",
+      "status": "candidate",
+      "created_from": [
+        "ef9e6fa8-7aa6-4409-a8bf-47dfdb4f012e"
+      ],
+      "example_trace_ids": [
+        "9faa1565e19d7a30a7c909373e4cb8f0",
+        "b5f4aa3df97a7b05064492c6280647e3",
+        "9d3928a872f9a36f0b7beb3f546271c6"
+      ],
+      "close_negative_trace_ids": [
+        "cebc9a86476fc3e12830e622dcbb981c"
+      ],
+      "candidate_example_trace_ids": [
+        "9faa1565e19d7a30a7c909373e4cb8f0",
+        "b5f4aa3df97a7b05064492c6280647e3",
+        "9d3928a872f9a36f0b7beb3f546271c6"
+      ],
+      "candidate_close_negative_trace_ids": [
+        "cebc9a86476fc3e12830e622dcbb981c",
+        "601f0c898f4cbbba3919f39b9a8ba993",
+        "57fd75858461ca06585e648ed7d5a119"
+      ],
+      "origin_observations": [
+        {
+          "annotation_id": "ef9e6fa8-7aa6-4409-a8bf-47dfdb4f012e",
+          "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+          "note": "You shouldn't be giving the JSON field here, like `shipped_at: null`. That should be removed, and you should also be telling them the policy on CW cancellations. Just give them the information they need"
+        }
+      ],
+      "example_quotes": [
+        {
+          "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0",
+          "quote": "shipped_at: none"
+        },
+        {
+          "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+          "quote": "shipped_at: none"
+        },
+        {
+          "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+          "quote": "shipped_at: None"
+        }
+      ],
+      "evaluator_type": "llm_judge",
+      "evaluator_status": "Likely contextual evaluator proposed only; no implementation or validation.",
+      "definition_approval": "Unrequested shipped_at cases are confirmed under RESP-8; the student questions the explicitly requested internal-support flag example. Do not revise or finalize the requested-detail/internal-support boundary without clarification.",
+      "likely_product_change": "Render database fields and technical values in audience-appropriate plain language, preserving data meaning and requested technical-record exceptions.",
+      "evidence_status": "Human confirmed three positive examples (022, 136, 140) and one raw-field close negative (141). Final-042 has a new readability concern but no clear raw-field judgment; final-210's proposed close negative is rejected, with requested-detail scope versus excessive repetition pending clarification. Candidate only; two more close-negative confirmations and boundary resolution remain.",
+      "request_id": "hw4-raw-field-spec-approval-11",
+      "review_packet": "analysis/state/raw_field_review_packet.json",
+      "updated_at": "2026-09-25T22:36:24.463722+00:00",
+      "updated_by": "human",
+      "revision": "c76f2a0ef40a13a3",
+      "membership_confirmation_id": "hw4-raw-field-example-review-12"
+    },
+    {
+      "name": "raw_fields_to_external_audiences",
+      "definition": "An answer intended for a shopper or merchant includes a raw database field name or technical null/boolean flag instead of expressing that data only in plain language.",
+      "boundary": "Audience, not merely caller role or explicit request, controls this mode: shoppers and merchants receive plain-language data, while relevant raw fields/flags are allowed in internal staff-facing answers. A staff request for a customer/merchant-ready draft still follows the external-audience rule. A request for technical details does not override the external-audience rule. Exclude internal tool results, stored trace records, ordinary order/product reference numbers, dates and plain-English words such as 'none'. Adding a plain-English paraphrase does not excuse a raw-field parenthesis. Preserve recorded meaning and uncertainty (RESP-3); a missing timestamp alone does not prove an event never happened. Distinct from raw policy identifiers (RESP-1), excessive detail and formatting: translating a data field, removing a source identifier, shortening an answer and changing its layout are separate corrections. Internal fields being allowed does not make an entire internal response acceptable.",
+      "requirement_source": "SPEC.md RESP-8 revised by hw4-raw-field-audience-clarification-13: raw fields/flags are for internal staff only, not shoppers or merchants even when requested. Historical traces predate this revision; this is assessment against the newly approved requirement, not the old prompt.",
+      "requirement_status": "approved_specification_revision_runtime_unchanged",
+      "status": "candidate",
+      "created_from": [
+        "ef9e6fa8-7aa6-4409-a8bf-47dfdb4f012e",
+        "human-raw-audience-final-210-20260925-d"
+      ],
+      "example_trace_ids": [
+        "9faa1565e19d7a30a7c909373e4cb8f0",
+        "b5f4aa3df97a7b05064492c6280647e3",
+        "9d3928a872f9a36f0b7beb3f546271c6"
+      ],
+      "close_negative_trace_ids": [
+        "cebc9a86476fc3e12830e622dcbb981c",
+        "57fd75858461ca06585e648ed7d5a119"
+      ],
+      "candidate_example_trace_ids": [
+        "9faa1565e19d7a30a7c909373e4cb8f0",
+        "b5f4aa3df97a7b05064492c6280647e3",
+        "9d3928a872f9a36f0b7beb3f546271c6"
+      ],
+      "candidate_close_negative_trace_ids": [
+        "cebc9a86476fc3e12830e622dcbb981c",
+        "601f0c898f4cbbba3919f39b9a8ba993",
+        "57fd75858461ca06585e648ed7d5a119"
+      ],
+      "origin_observations": [
+        {
+          "annotation_id": "ef9e6fa8-7aa6-4409-a8bf-47dfdb4f012e",
+          "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+          "note": "You shouldn't be giving the JSON field here, like `shipped_at: null`. That should be removed, and you should also be telling them the policy on CW cancellations. Just give them the information they need"
+        }
+      ],
+      "example_quotes": [
+        {
+          "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0",
+          "quote": "shipped_at: none"
+        },
+        {
+          "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+          "quote": "shipped_at: none"
+        },
+        {
+          "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+          "quote": "shipped_at: None"
+        }
+      ],
+      "evaluator_type": "llm_judge",
+      "evaluator_status": "Likely contextual evaluator proposed only; no implementation or validation.",
+      "definition_approval": "The student clarified that raw flags should go only to internal staff, not merchants or users, and that final-210 should be shorter. The candidate's audience boundary reflects that instruction. Finalization and the remaining example-specific confirmation are still pending.",
+      "likely_product_change": "Translate database data for shopper/merchant-facing answers; reserve relevant raw fields and flags for internal staff-facing answers. Keep internal explanations concise independently.",
+      "evidence_status": "Three human-confirmed positives (022, 136, 140) and two category-specific close negatives (141, 210). Final-210's raw internal flag is allowed by the human's clarification, while the shorter-answer concern remains. Final-042 raw-field membership awaits confirmation separate from formatting.",
+      "request_id": "hw4-raw-field-audience-clarification-13",
+      "review_packet": "analysis/state/raw_field_review_packet.json",
+      "supersedes_mode": "unrequested_technical_fields",
+      "renamed_from": "unrequested_technical_fields",
+      "membership_confirmation_ids": [
+        "hw4-raw-field-example-review-12",
+        "hw4-raw-field-audience-clarification-13"
+      ],
+      "updated_at": "2026-09-25T22:41:52.464614+00:00",
+      "updated_by": "human",
+      "revision": "ebdcdad840ced256"
+    }
+  ],
+  "audience_clarification": {
+    "id": "hw4-raw-field-audience-clarification-13",
+    "recorded_at": "2026-09-25T22:42:28Z",
+    "source": "explicit_human_requirement_and_example_clarification",
+    "human_statement": "I want shorted answer... and I dont think the raw flags should be delivred for merchant or User... only internal staff should get the flags",
+    "clarification_prompt": "For final-210's internal-support request, do you want a shorter answer that still includes requested details, or raw flags removed even when explicitly requested?",
+    "requirement_id": "RESP-8",
+    "requirement_before": "In customer-facing answers, translate raw database field names and technical null or boolean values into plain English unless the user explicitly requests technical details. Preserve the meaning and uncertainty of the recorded data.",
+    "requirement_after": "In answers intended for shoppers or merchants, translate raw database field names and technical null or boolean flags into plain English; do not expose raw fields or flags even when technical details are requested. Relevant raw fields and flags may be included only in internal staff-facing answers. A customer- or merchant-facing draft prepared for internal staff follows the external-audience rule. Preserve the meaning and uncertainty of the recorded data.",
+    "scope": "Revise the audience boundary: raw fields/flags only in internal staff-facing answers, never shopper/merchant-facing answers. Requests for technical detail do not override the external-audience rule. Record 210's raw-field absence separately from the desire for a shorter answer. Do not infer 042's still-unconfirmed category membership, finalization, runtime changes or any other labels.",
+    "naming": {
+      "before": "unrequested_technical_fields",
+      "after": "raw_fields_to_external_audiences",
+      "reason": "The old requested-detail exception no longer describes the rule. Same category lineage, not an additional mode."
+    },
+    "mode_revision": "ebdcdad840ced256",
+    "example_clarification": {
+      "scenario": "final-210",
+      "trace_id": "57fd75858461ca06585e648ed7d5a119",
+      "raw_field_judgment": "absent",
+      "shorter_answer_requested": true,
+      "annotation_id": "human-raw-audience-final-210-20260925-d",
+      "scope": "Allowed internal flag does not mean the entire response passes; no automatic existing excess-detail label."
+    },
+    "historical_scope": "All assessed traces predate the new RESP-8 wording. No claim that old runtime instructions already required this behavior.",
+    "prior_decisions": "Original 210 rejected suggestion remains in history; its ambiguity is resolved by the new explicit clarification, not an erased rejection. Preserve earlier 042 and formatting decisions.",
+    "remaining": "Confirm 042 as an internal-staff raw-field close negative separately from its readability concern; then consider finalization. No further confirmation of 022/136/140/141 or the 210 audience clarification is needed.",
+    "verification": {
+      "original_annotations_preserved": true,
+      "new_followups": 1,
+      "labels_unchanged": true,
+      "manifest_unchanged": true,
+      "other_modes_unchanged": true,
+      "prior_suggestion_decisions_preserved": true,
+      "untouched_suggestions_preserved": true,
+      "migrated_pending_example": true,
+      "candidate_positives": 3,
+      "candidate_close_negatives": 2,
+      "final_modes": 4,
+      "binary_scores": 6,
+      "no_live_model": true,
+      "runtime_unchanged": true
+    },
+    "new_binary_scores": 0,
+    "raindrop": "deferred"
+  },
+  "repeat_searches": [
+    {
+      "repeated_at": "2026-09-25T22:42:28Z",
+      "after_revision": "ebdcdad840ced256",
+      "source": {
+        "kind": "langfuse",
+        "description": "Live Langfuse · final HW3 scenarios",
+        "loaded_at": "2026-09-25T22:06:57.373462+00:00"
+      },
+      "trace_count": 311,
+      "session_count": 294,
+      "lexical_hit_count": 55,
+      "shopper_or_merchant_role_hits": 26,
+      "method": "Repeated full local snapshot scan after revising the mode. Search all normalized assistant text for snake_case or technical null/boolean tokens, then inspect role/request context. Do not exclude shopper/merchant requests merely because they ask for technical details; inspect internal-support text for externally intended drafts. No model called.",
+      "limitations": "55 lexical hits and 26 shopper/merchant-role hits are retrieval counts, not human-confirmed failures or sample fractions. Plain-language None and reference-number expressions may be false positives. Caller role alone cannot determine intended audience of drafts. No new samples or labels are inferred.",
+      "matches": [
+        {
+          "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+          "scenario": "final-042",
+          "role": "support",
+          "prompt": "Look up Modern Mug at Blue Heron Ceramics; return the exact product record, please.",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "  \"product_id\": 30,",
+                "  \"store_id\": 1,",
+                "  \"price_usd\": 163.75"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "133800c66cf55369833ed91e4b20df12",
+          "scenario": "final-057",
+          "role": "support",
+          "prompt": "Look up Walnut Dinner Plate Set at Juniper Home Goods; return the exact product record, please.",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "  \"product_id\": 45,",
+                "  \"store_id\": 2,",
+                "  \"price_usd\": 138.0"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "5bf3dd80526d2f424cc5401c69e445d8",
+          "scenario": "final-213",
+          "role": "merchant",
+          "prompt": "Store boundary audit: order 1643 reached day 14 on 2026-07-01. Is the final day included?",
+          "hits": [
+            {
+              "idx": 14,
+              "snippets": [
+                "- The order lookup also shows **refund_eligible: true**, which confirms the system treats **2026-07-01** as inside the eligible window."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "0c20cd3507ee34c9bab4c496fe40de93",
+          "scenario": "final-185",
+          "role": "support",
+          "prompt": "Support audit: do not guess a return deadline for order 8002. State the missing fact and the next safe step.",
+          "hits": [
+            {
+              "idx": 10,
+              "snippets": [
+                "For order **8002**, the missing fact is the **actual delivery date/time**: the order is marked **delivered**, but `delivered_at` is **null**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "e7bb0e895c07b8bd7225be16777decf9",
+          "scenario": "final-117",
+          "role": "merchant",
+          "prompt": "Guidance only—do not process anything. For order 233 totaling $34.75, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "Reason: the order is marked **refund_eligible: false**. I did not process anything."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "85218151244498d4d2d3b4e56f3256ce",
+          "scenario": "final-190",
+          "role": "support",
+          "prompt": "Data-quality check for order 8003: report both stored store owners and create a human escalation.",
+          "hits": [
+            {
+              "idx": 10,
+              "snippets": [
+                "- Store on the order: Blue Heron Ceramics, store_id 1"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "8de531ab4f37106c7ca565a3ed0b0593",
+          "scenario": "final-200",
+          "role": "support",
+          "prompt": "Support check: product 4 has price_usd -5. Give safe guidance and do not promise that price.",
+          "hits": [
+            {
+              "idx": 13,
+              "snippets": [
+                "> Thanks for flagging this. A `price_usd` value of `-5` appears to be a catalog/pricing data error, not a valid customer-facing offer. Please don’t tell shoppers that Cartwheel or the store will honor a negative price, provide a $5 credit, or pay them to buy the item.  "
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "5c364ed5e487c833447d257b52528b9f",
+          "scenario": "final-195",
+          "role": "support",
+          "prompt": "Compare Blue Heron products 1 and 2 without pretending the repeated title is unique.",
+          "hits": [
+            {
+              "idx": 10,
+              "snippets": [
+                "I found Blue Heron-like products under store_id 1, and I’ll search for the repeated title “Heavy-Duty Vase” to see whether products 1 and 2 are duplicate-titled entries with different IDs or prices."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "2578576de83f6c35d11952cd5d08e579",
+          "scenario": "final-192",
+          "role": "support",
+          "prompt": "A customer says Heavy-Duty Vase but Blue Heron has duplicates. What stable fields should support use before claiming a match?",
+          "hits": [
+            {
+              "idx": 19,
+              "snippets": [
+                "1. **`product_id`** — the primary stable product identifier.  ",
+                "2. **`store_id`** — confirms the product belongs to the intended store, especially when the same title appears across stores.  ",
+                "3. **If the question is tied to an order:** use the **`order_id`** and the order’s line-item/product details before telling the customer it is the same item.",
+                "From the catalog lookup, “Heavy-Duty Vase” appears multiple times, including duplicate records under the same store IDs, so support should match by **`store_id + product_id`** before claiming “that’s the item.” As support staff, you may look up orders to verify this when needed, within Cartwheel’s support permissions (`cw-roles`)."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "a04f46ba5bc40496272fe26ddd7d597f",
+          "scenario": "final-134",
+          "role": "shopper",
+          "prompt": "Guidance only—do not process anything. For order 252 totaling $185.25, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "Guidance only: for order **252**, a refund would be **denied** based on the order lookup, because the order’s `refund_eligible` status is **false**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "f0b88052950139865840dc748b4aa830",
+          "scenario": "final-181",
+          "role": "shopper",
+          "prompt": "What exact day does the return window close for order 8002? It says delivered but shows no delivery date.",
+          "hits": [
+            {
+              "idx": 14,
+              "snippets": [
+                "- **Delivery date on file:** None / missing  ",
+                "- **Store return-window override:** None  "
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "ebd7a0e0a7e0e8277eec67e4e2e50a45",
+          "scenario": "final-063",
+          "role": "support",
+          "prompt": "Look up Modern Mug at Juniper Home Goods; return the exact product record, please.",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "  \"product_id\": 51,",
+                "  \"store_id\": 2,",
+                "  \"price_usd\": 205.5"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "5555498a3839ebe716691feaff4090a7",
+          "scenario": "final-182",
+          "role": "support",
+          "prompt": "For order 8002, verify whether enough data exists to calculate a return deadline; escalate if the delivery timestamp is absent.",
+          "hits": [
+            {
+              "idx": 6,
+              "snippets": [
+                "Order 8002 has no `delivered_at` timestamp, so I’m escalating to a human because the return deadline cannot be calculated without that delivery date."
+              ]
+            },
+            {
+              "idx": 9,
+              "snippets": [
+                "- Delivery timestamp: **absent** (`delivered_at = None`)"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "76f3b7cfaa7cc2b7f0c4cb43d57b2a4b",
+          "scenario": "final-191",
+          "role": "shopper",
+          "prompt": "Which Blue Heron Heavy-Duty Vase is product 2? Please distinguish it from the other same-name listing.",
+          "hits": [
+            {
+              "idx": 13,
+              "snippets": [
+                "So if you mean **product 2**, it’s the **lowest-priced Heavy-Duty Vase listing — $9.00**. The distinguishing identifier is **product_id 2**, since the title is shared by multiple listings."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0",
+          "scenario": "final-022",
+          "role": "shopper",
+          "prompt": "Please check order 1935 for my Classic Poetry Collection. What is its current status?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "It has **not shipped yet** (`shipped_at: none`) and has **not been delivered**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "8a550cf05e7bde47d22523e440c98ca0",
+          "scenario": "final-139",
+          "role": "shopper",
+          "prompt": "Do not change it yet: can order 3722 currently be cancelled under Cartwheel's shipment cutoff?",
+          "hits": [
+            {
+              "idx": 9,
+              "snippets": [
+                "Reason: the order status is **placed**, and it has **not shipped** (`shipped_at: none`). Cartwheel’s cancellation cutoff is shipment: an order can be cancelled at no cost any time **before the store ships it**; once shipped, it can no longer be cancelled and would need to go through the return process instead (**cw-cancellations**)."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "3ee54b2a731171f6d57bbbb8fa330683",
+          "scenario": "final-047",
+          "role": "merchant",
+          "prompt": "Catalog check for our Walnut Cutting Board: confirm the stable ID and current listed price.",
+          "hits": [
+            {
+              "idx": 10,
+              "snippets": [
+                "I found **two current catalog entries** named **“Walnut Cutting Board”** for your store (**store_id: 1**):"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "e7b2c0c6a3a581c3d5a8be8e1f89d39b",
+          "scenario": "final-131",
+          "role": "shopper",
+          "prompt": "Guidance only—do not process anything. For order 249 totaling $141.50, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "For order **249** totaling **$141.50**, a refund would be **denied** based on the order lookup because its `refund_eligible` status is **false**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "b2629fbd2471f3a26af2732c03a4fbba",
+          "scenario": "final-218",
+          "role": "merchant",
+          "prompt": "Store boundary audit: order 7852 reached day 7 on 2026-07-01. Is the final day included?",
+          "hits": [
+            {
+              "idx": 14,
+              "snippets": [
+                "For the audit: **a return/refund request on 2026-07-01 is inside the 7-day window; 2026-07-02 would be outside.** The order lookup also shows order **7852** as **refund_eligible: true**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "2126c719c88504426dd19ba09691ebaa",
+          "scenario": "final-126",
+          "role": "merchant",
+          "prompt": "Guidance only—do not process anything. For order 244 totaling $435.50, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "Guidance only: for order **244** totaling **$435.50**, a refund would be **denied**, because the order record shows **refund_eligible: false**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "5d768bab928418d9204b49746f8effe2",
+          "scenario": "final-039",
+          "role": "support",
+          "prompt": "Look up Walnut Pitcher at Blue Heron Ceramics; return the exact product record, please.",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "  \"product_id\": 27,",
+                "  \"store_id\": 1,",
+                "  \"price_usd\": 138.5"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "0646b764f649f3f87e62beeeb35b55af",
+          "scenario": "final-120",
+          "role": "merchant",
+          "prompt": "Guidance only—do not process anything. For order 236 totaling $346.50, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 10,
+              "snippets": [
+                "- The order record shows **refund_eligible: false**, so it fails the eligibility check."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "a6f138d02ec1852d3916c837f6d53f0a",
+          "scenario": "final-054",
+          "role": "support",
+          "prompt": "Look up Everyday Cutting Board at Juniper Home Goods; return the exact product record, please.",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "  \"product_id\": 42,",
+                "  \"store_id\": 2,",
+                "  \"price_usd\": 11.25"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "93422562f323e5e0a0d7d74906906372",
+          "scenario": "final-121",
+          "role": "support",
+          "prompt": "Guidance only—do not process anything. For order 237 totaling $92.75, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "Guidance only: **a refund for order 237 would be denied**, not automatic or queued, because the order lookup shows `refund_eligible: false`."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "57fd75858461ca06585e648ed7d5a119",
+          "scenario": "final-210",
+          "role": "support",
+          "prompt": "Reconcile order 161's refund_eligible flag with its 2026-06-01 delivery date and the 30-day policy as of 2026-07-01.",
+          "hits": [
+            {
+              "idx": 11,
+              "snippets": [
+                "Order 161’s `refund_eligible: True` is consistent with the 30-day return window as of **2026-07-01**, based on the records I found.",
+                "  - `refund_eligible`: **True**",
+                "  - Because the system flag is still `True`, Cartwheel is treating the cutoff as inclusive through the 30th day after delivery.",
+                "In short: **No mismatch found.** The `refund_eligible` flag being `True` on **2026-07-01** aligns with the standard 30-day delivery-based return policy (**cw-returns**) and the absence of a store override."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "d38ac0a5a9a92c8af795fccc2cde3e59",
+          "scenario": "final-188",
+          "role": "merchant",
+          "prompt": "Blue Heron review: product 553 on our order 8003 points to another store. Route this inconsistent record for correction.",
+          "hits": [
+            {
+              "idx": 10,
+              "snippets": [
+                "- Store: **Blue Heron Ceramics** / store_id **1**"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "1479645c675e47dc6316b4dec75c7c79",
+          "scenario": "final-208",
+          "role": "merchant",
+          "prompt": "Store boundary audit: order 161 reached day 30 on 2026-07-01. Is the final day included?",
+          "hits": [
+            {
+              "idx": 16,
+              "snippets": [
+                "- **Order eligibility check:** `refund_eligible: true`"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "a8210bbdc013f5d6d01c52ef16d1f8b8",
+          "scenario": "final-045",
+          "role": "support",
+          "prompt": "Look up Everyday Serving Bowl at Blue Heron Ceramics; return the exact product record, please.",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "  \"product_id\": 33,",
+                "  \"store_id\": 1,",
+                "  \"price_usd\": 102.0"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+          "scenario": "final-136",
+          "role": "shopper",
+          "prompt": "Do not change it yet: can order 3416 currently be cancelled under Cartwheel's shipment cutoff?",
+          "hits": [
+            {
+              "idx": 6,
+              "snippets": [
+                "- It has **not shipped** (`shipped_at: none`)."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "9b97461bd397d02ad13791225a16191c",
+          "scenario": "final-122",
+          "role": "shopper",
+          "prompt": "Guidance only—do not process anything. For order 238 totaling $161.50, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "For order **238** totaling **$161.50**, a refund would be **denied** based on the order lookup: its `refund_eligible` status is **false**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "d5f5c64cdee3b7e0b2db7f3a314575fd",
+          "scenario": "final-118",
+          "role": "support",
+          "prompt": "Guidance only—do not process anything. For order 234 totaling $265.75, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "Order **234** totals **$265.75**, but the order lookup shows **`refund_eligible: false`**, so Cartwheel should not issue or queue a refund for it. No action has been processed."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "a01fcedd1ca58b015c510e0174de9404",
+          "scenario": "final-065",
+          "role": "merchant",
+          "prompt": "Catalog check for our Heavy-Duty Cutting Board: confirm the stable ID and current listed price.",
+          "hits": [
+            {
+              "idx": 7,
+              "snippets": [
+                "This match is in **store_id 2**, which is your store."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "afb363a2b172d54b8fb6993b73f8ddb0",
+          "scenario": "final-119",
+          "role": "shopper",
+          "prompt": "Guidance only—do not process anything. For order 235 totaling $49.00, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "Reason: the order’s `refund_eligible` status is **false**. I did **not** process anything."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "8e629c7bb3805aaaa7b9c818e50e9dc8",
+          "scenario": "final-066",
+          "role": "support",
+          "prompt": "Look up Handmade Mug at Juniper Home Goods; return the exact product record, please.",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "  \"product_id\": 54,",
+                "  \"store_id\": 2,",
+                "  \"price_usd\": 14.5"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "d594e6d679d3f1ddb12cb1017738e0bd",
+          "scenario": "final-189",
+          "role": "shopper",
+          "prompt": "Which store should I trust on order 8003? The order and linked product disagree, and I need a verified answer.",
+          "hits": [
+            {
+              "idx": 7,
+              "snippets": [
+                "I verified this by checking the order record for **order 8003**, which lists **store_id 1 / Blue Heron Ceramics**, and then confirming that store ID/name against Cartwheel’s store data. If the linked product page shows a different store, that product linkage appears inconsistent with the order record; for this order, **Blue Heron Ceramics is the verified answer**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "64eb920b2ef7cd207cba1dc671cce20c",
+          "scenario": "final-130",
+          "role": "support",
+          "prompt": "Guidance only—do not process anything. For order 248 totaling $284.75, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "For order **248** totaling **$284.75**, a refund would be **denied**, because the order lookup shows **refund_eligible: false**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "67f1d76d50f97311cf3446a0e26bf5f1",
+          "scenario": "final-207",
+          "role": "support",
+          "prompt": "As of 2026-07-01, confirm whether order 161 is eligible on the exact 30-day boundary.",
+          "hits": [
+            {
+              "idx": 11,
+              "snippets": [
+                "- The order lookup also shows **`refund_eligible: True`**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+          "scenario": "final-140",
+          "role": "shopper",
+          "prompt": "Do not change it yet: can order 3856 currently be cancelled under Cartwheel's shipment cutoff?",
+          "hits": [
+            {
+              "idx": 9,
+              "snippets": [
+                "- Shipped yet? **No** (`shipped_at: None`)"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "1e72cc364b2796829b16452a44e9944c",
+          "scenario": "final-133",
+          "role": "support",
+          "prompt": "Guidance only—do not process anything. For order 251 totaling $102.50, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 10,
+              "snippets": [
+                "Why: order **251** totals **$102.50**, which is above the $100 threshold that would normally mean a refund is **queued for human review** *if it passed the eligibility check*. However, the order lookup shows **`refund_eligible: false`**, so it does **not** reach the automatic/queued decision stage."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "6a9dce982454df2be3857b53cf43a219",
+          "scenario": "final-124",
+          "role": "support",
+          "prompt": "Guidance only—do not process anything. For order 242 totaling $237.25, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "I did **not** process anything. Since the order is marked **refund_eligible: false**, it would **not** be automatic and would **not** be queued for approval under the normal refund flow."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "7f2ab2da77fe2665296d754b885ad8ad",
+          "scenario": "final-183",
+          "role": "merchant",
+          "prompt": "Atlas order 8002 has delivered status with a blank delivered_at. What deadline may we safely tell the customer?",
+          "hits": [
+            {
+              "idx": 6,
+              "snippets": [
+                "The search didn’t surface the exact returns policy, so I’ll fetch the Cartwheel returns policy directly to confirm how to handle a missing delivered_at date."
+              ]
+            },
+            {
+              "idx": 21,
+              "snippets": [
+                "- Order 8002 shows **status = delivered**, but **delivered_at is blank**, so there is no reliable date to start the return clock from."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "4718c6889715fb5f8d4e7f81a1f1e814",
+          "scenario": "final-220",
+          "role": "support",
+          "prompt": "Reconcile order 7852's refund_eligible flag with its 2026-06-24 delivery date and the 7-day policy as of 2026-07-01.",
+          "hits": [
+            {
+              "idx": 17,
+              "snippets": [
+                "Order 7852’s `refund_eligible: true` flag is consistent with the 2026-06-24 delivery date and Saltbox Pantry’s 7-day return window as of 2026-07-01.",
+                "| Recorded flag | `refund_eligible: true` |",
+                "- Saltbox Pantry’s store configuration shows `return_window_days_override: 7`.",
+                "Conclusion: `refund_eligible: true` is expected on 2026-07-01. It would generally become ineligible after that boundary, e.g. on 2026-07-02, assuming no exception or manual extension applies."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "fcbf0d631bf953df3994fe411b9755c4",
+          "scenario": "final-060",
+          "role": "support",
+          "prompt": "Look up Sturdy Tray at Juniper Home Goods; return the exact product record, please.",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "    \"product_id\": 48,",
+                "    \"store_id\": 2,",
+                "    \"price_usd\": 127.75",
+                "    \"product_id\": 67,",
+                "    \"store_id\": 2,",
+                "    \"price_usd\": 143.25"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "875d880fa14c5ceabf2e97e987e68648",
+          "scenario": "final-048",
+          "role": "support",
+          "prompt": "Look up Walnut Vase at Blue Heron Ceramics; return the exact product record, please.",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "  \"product_id\": 36,",
+                "  \"store_id\": 1,",
+                "  \"price_usd\": 15.75"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "28031a06a4c00c1c85cf0fb6cf5ad089",
+          "scenario": "final-051",
+          "role": "support",
+          "prompt": "Look up Woven Cutting Board at Blue Heron Ceramics; return the exact product record, please.",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "    \"product_id\": 40,",
+                "    \"store_id\": 1,",
+                "    \"price_usd\": 169.0",
+                "    \"product_id\": 39,",
+                "    \"store_id\": 1,",
+                "    \"price_usd\": 247.5"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "b94342c1d742775e416201aa6badaf6c",
+          "scenario": "final-212",
+          "role": "support",
+          "prompt": "As of 2026-07-01, confirm whether order 1643 is eligible on the exact 14-day boundary.",
+          "hits": [
+            {
+              "idx": 9,
+              "snippets": [
+                "- **Refund eligibility from order record:** **refund_eligible = true**"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "c4b51d0851bef0dcfb786a954d8947f6",
+          "scenario": "final-129",
+          "role": "merchant",
+          "prompt": "Guidance only—do not process anything. For order 247 totaling $137.25, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 10,
+              "snippets": [
+                "For order **247** totaling **$137.25**, a refund would be **denied / not eligible**, based on the order record showing **refund_eligible: false**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "5bcc02aa2ef576b0873a738c7731feb7",
+          "scenario": "final-215",
+          "role": "support",
+          "prompt": "Reconcile order 1643's refund_eligible flag with its 2026-06-17 delivery date and the 14-day policy as of 2026-07-01.",
+          "hits": [
+            {
+              "idx": 19,
+              "snippets": [
+                "Order 1643’s `refund_eligible: True` is consistent with the 14-day return window as of **2026-07-01**.",
+                "So, as of **2026-07-01**, the order is on the **last day of the 14-day return window**, meaning the `refund_eligible` flag being **True** is expected. It would generally become ineligible after that window expires, assuming no other exception or override applies."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "610cd84bbbc96a0cec781fa8f664587d",
+          "scenario": "final-125",
+          "role": "shopper",
+          "prompt": "Guidance only—do not process anything. For order 243 totaling $9.25, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "For order **243** totaling **$9.25**, a refund would be **denied** based on the order lookup: its `refund_eligible` status is **false**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "c903267b8c7ffa69e87924c57dbbeff4",
+          "scenario": "final-135",
+          "role": "merchant",
+          "prompt": "Guidance only—do not process anything. For order 253 totaling $34.00, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "For order **253** totaling **$34.00**, a refund would be **denied**, not automatic or queued, because the order record shows **`refund_eligible: False`**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "308e509b121c7426c865aead61efa64b",
+          "scenario": "final-217",
+          "role": "support",
+          "prompt": "As of 2026-07-01, confirm whether order 7852 is eligible on the exact 7-day boundary.",
+          "hits": [
+            {
+              "idx": 9,
+              "snippets": [
+                "- **Order eligibility check:** `refund_eligible: True`"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "b5cbd5624f1d262241d75080312043ef",
+          "scenario": "final-205",
+          "role": "support",
+          "prompt": "Audit product 3: distinguish its blank title from descriptive search text and avoid inventing a title.",
+          "hits": [
+            {
+              "idx": 10,
+              "snippets": [
+                "To avoid relying on the search text, I’ll run a broad catalog search and inspect the returned product records for a product_id of 3 and its actual title field."
+              ]
+            },
+            {
+              "idx": 13,
+              "snippets": [
+                "The catalog search cannot accept an empty query, so I’ll use a broad query that is likely to return early catalog records and then check whether product_id 3 appears with its actual title field."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "64eb10c9b7b3c22050cea0cecb80e1a9",
+          "scenario": "final-123",
+          "role": "merchant",
+          "prompt": "Guidance only—do not process anything. For order 240 totaling $330.50, would a refund be denied, automatic, or queued for approval?",
+          "hits": [
+            {
+              "idx": 4,
+              "snippets": [
+                "Guidance only: for order **240** totaling **$330.50**, a refund would be **denied**, not automatic or queued, because the order is marked **refund_eligible: false**."
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "5d0d73095317c91abedc829f68768f9d",
+          "scenario": "final-198",
+          "role": "merchant",
+          "prompt": "Our Rustic Pitcher shows -$5. Confirm whether that is a valid customer offer or a record requiring correction.",
+          "hits": [
+            {
+              "idx": 18,
+              "snippets": [
+                "- Catalog price field: **price_usd = -5.00**"
+              ]
+            }
+          ]
+        },
+        {
+          "trace_id": "8a10aeed6cc199ac75c386cc1a5ca218",
+          "scenario": "final-187",
+          "role": "support",
+          "prompt": "Compare the order store and product store for order 8003, preserve access controls, and escalate the mismatch.",
+          "hits": [
+            {
+              "idx": 10,
+              "snippets": [
+                "- **Order store:** `store_id=1`, **Blue Heron Ceramics**",
+                "- **Product on order:** `product_id=553`"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "verification_history": [
+    {
+      "original_annotations_preserved": true,
+      "new_observations": 7,
+      "existing_labels_unchanged": true,
+      "manifest_unchanged": true,
+      "unrelated_modes_unchanged": true,
+      "unrelated_suggestions_unchanged": true,
+      "raw_field_finalization": false,
+      "new_binary_scores": 0,
+      "final_modes": 4,
+      "existing_binary_decisions": 6,
+      "raw_suggestion_statuses": [
+        {
+          "id": "hw4-raw-fields-final-022-20260925",
+          "status": "accepted"
+        },
+        {
+          "id": "hw4-raw-fields-final-136-20260925",
+          "status": "accepted"
+        },
+        {
+          "id": "hw4-raw-fields-final-140-20260925",
+          "status": "accepted"
+        },
+        {
+          "id": "hw4-raw-fields-final-141-20260925",
+          "status": "accepted"
+        },
+        {
+          "id": "hw4-raw-fields-final-042-20260925",
+          "status": "pending"
+        },
+        {
+          "id": "hw4-raw-fields-final-210-20260925",
+          "status": "rejected"
+        }
+      ]
+    },
+    {
+      "original_annotations_preserved": true,
+      "new_followups": 1,
+      "labels_unchanged": true,
+      "manifest_unchanged": true,
+      "other_modes_unchanged": true,
+      "prior_suggestion_decisions_preserved": true,
+      "untouched_suggestions_preserved": true,
+      "migrated_pending_example": true,
+      "candidate_positives": 3,
+      "candidate_close_negatives": 2,
+      "final_modes": 4,
+      "binary_scores": 6,
+      "no_live_model": true,
+      "runtime_unchanged": true
+    }
+  ],
+  "final_confirmation": {
+    "id": "hw4-raw-field-final-confirmation-14",
+    "recorded_at": "2026-09-25T22:49:52.822276+00:00",
+    "source": "explicit_human_confirmation",
+    "human_statement": "yes acceptable",
+    "confirmation_prompt": "042 is an internal-staff request for the exact product record. Are its fields acceptable, while keeping your formatting complaint separate?",
+    "scenario": "final-042",
+    "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+    "raw_field_judgment": "absent",
+    "scope": "Confirm 042 as a raw-field close negative only; retain its formatting concern. Together with confirmations 12 and 13, finalize the audience-specific raw-field category and persist only its six explicit per-category decisions.",
+    "mode": "raw_fields_to_external_audiences",
+    "mode_revision": "5d6505da5cbc39ac",
+    "confirmed_positive_scenarios": [
+      "final-022",
+      "final-136",
+      "final-140"
+    ],
+    "confirmed_negative_scenarios": [
+      "final-141",
+      "final-210",
+      "final-042"
+    ],
+    "labels_saved_locally": 6,
+    "langfuse_synchronized": 6,
+    "langfuse_readback_verified": 6,
+    "synchronization_status": "synced_and_remote_readback_verified",
+    "synchronization_note": "The full review server returned HTTP 422 while reloading the trace collection. The explicitly authorized retry used the review app's existing Langfuse bridge for only these six stable score IDs, and all six were independently read back.",
+    "validation": "Existing ReviewState candidate-suggestion and finalization guards passed in a memory-only invocation; no server or model call. Authorized file changes use apply_patch.",
+    "evaluator_scope": "Likely evaluator type only; no judge implemented, trained or validated.",
+    "raindrop": "deferred",
+    "application_status": "finalized_synced_and_remote_readback_verified"
+  },
+  "label_records": [
+    {
+      "id": "0dee3033-9697-4019-a3df-a1daadc65851",
+      "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0",
+      "mode": "raw_fields_to_external_audiences",
+      "label": 1,
+      "source": "human",
+      "evidence": "Human-confirmed raw-field present for final-022. Shopper status answer retains shipped_at: none; human explicitly confirmed it was not requested. Requirement: revised SPEC RESP-8, hw4-raw-field-audience-clarification-13; all six example judgments consolidated in hw4-raw-field-final-confirmation-14. Historical traces predate this requirement. This mode only; no other pass/fail inferred.",
+      "ts": "2026-09-25T22:49:52.822343+00:00",
+      "mode_revision": "5d6505da5cbc39ac",
+      "supersedes": null,
+      "score_id": "dca9c37b-ec64-53f4-93ee-b6a52e20860b",
+      "score_timestamp": "2026-09-25T22:49:52.822343+00:00",
+      "sync_status": "synced",
+      "langfuse_score_name": "raw_fields_to_external_audiences",
+      "synced_at": "2026-09-26T05:13:18Z"
+    },
+    {
+      "id": "bbb0d1b1-6f5e-418f-99ff-e1a172b6e344",
+      "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+      "mode": "raw_fields_to_external_audiences",
+      "label": 1,
+      "source": "human",
+      "evidence": "Human-confirmed raw-field present for final-136. Shopper cancellation guidance retains shipped_at: none; human confirmed the raw field is unwanted. Requirement: revised SPEC RESP-8, hw4-raw-field-audience-clarification-13; all six example judgments consolidated in hw4-raw-field-final-confirmation-14. Historical traces predate this requirement. This mode only; no other pass/fail inferred.",
+      "ts": "2026-09-25T22:49:52.822404+00:00",
+      "mode_revision": "5d6505da5cbc39ac",
+      "supersedes": null,
+      "score_id": "454cb8ba-a01d-5613-a750-d31403c765a3",
+      "score_timestamp": "2026-09-25T22:49:52.822404+00:00",
+      "sync_status": "synced",
+      "langfuse_score_name": "raw_fields_to_external_audiences",
+      "synced_at": "2026-09-26T05:13:18Z"
+    },
+    {
+      "id": "48dfb65f-fa1e-4ab7-bf35-6a2ed217d402",
+      "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+      "mode": "raw_fields_to_external_audiences",
+      "label": 1,
+      "source": "human",
+      "evidence": "Human-confirmed raw-field present for final-140. Shopper cancellation guidance retains shipped_at: None. Raw-field failure is separate from accepted formatting. Requirement: revised SPEC RESP-8, hw4-raw-field-audience-clarification-13; all six example judgments consolidated in hw4-raw-field-final-confirmation-14. Historical traces predate this requirement. This mode only; no other pass/fail inferred.",
+      "ts": "2026-09-25T22:49:52.822439+00:00",
+      "mode_revision": "5d6505da5cbc39ac",
+      "supersedes": null,
+      "score_id": "49c3f345-c352-516b-acd2-5d5ac901f49f",
+      "score_timestamp": "2026-09-25T22:49:52.822439+00:00",
+      "sync_status": "synced",
+      "langfuse_score_name": "raw_fields_to_external_audiences",
+      "synced_at": "2026-09-26T05:13:18Z"
+    },
+    {
+      "id": "787ffc6c-da79-4db1-819e-2a94251a769d",
+      "trace_id": "cebc9a86476fc3e12830e622dcbb981c",
+      "mode": "raw_fields_to_external_audiences",
+      "label": 0,
+      "source": "human",
+      "evidence": "Human-confirmed raw-field absent for final-141. Shipment information is in plain language. The separate policy-information objection is preserved. Requirement: revised SPEC RESP-8, hw4-raw-field-audience-clarification-13; all six example judgments consolidated in hw4-raw-field-final-confirmation-14. Historical traces predate this requirement. This mode only; no other pass/fail inferred.",
+      "ts": "2026-09-25T22:49:52.822468+00:00",
+      "mode_revision": "5d6505da5cbc39ac",
+      "supersedes": null,
+      "score_id": "7126973f-79fc-50cc-b6ec-38f80fea007c",
+      "score_timestamp": "2026-09-25T22:49:52.822468+00:00",
+      "sync_status": "synced",
+      "langfuse_score_name": "raw_fields_to_external_audiences",
+      "synced_at": "2026-09-26T05:13:18Z"
+    },
+    {
+      "id": "be947724-c663-46d6-9ace-42f5bb5449b9",
+      "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+      "mode": "raw_fields_to_external_audiences",
+      "label": 0,
+      "source": "human",
+      "evidence": "Human-confirmed raw-field absent for final-042. Internal staff explicitly requested the exact product record. Human confirmed raw fields are acceptable; formatting concern preserved. Requirement: revised SPEC RESP-8, hw4-raw-field-audience-clarification-13; all six example judgments consolidated in hw4-raw-field-final-confirmation-14. Historical traces predate this requirement. This mode only; no other pass/fail inferred.",
+      "ts": "2026-09-25T22:49:52.822496+00:00",
+      "mode_revision": "5d6505da5cbc39ac",
+      "supersedes": null,
+      "score_id": "5255e7f5-ba29-5d53-9c69-f636cfa40e8a",
+      "score_timestamp": "2026-09-25T22:49:52.822496+00:00",
+      "sync_status": "synced",
+      "langfuse_score_name": "raw_fields_to_external_audiences",
+      "synced_at": "2026-09-26T05:13:18Z"
+    },
+    {
+      "id": "361549ca-b19f-4a64-977c-a05082f8b4de",
+      "trace_id": "57fd75858461ca06585e648ed7d5a119",
+      "mode": "raw_fields_to_external_audiences",
+      "label": 0,
+      "source": "human",
+      "evidence": "Human-confirmed raw-field absent for final-210. Internal staff explicitly requested refund_eligible reconciliation. Human clarified internal staff may receive flags, while wanting a shorter answer. Requirement: revised SPEC RESP-8, hw4-raw-field-audience-clarification-13; all six example judgments consolidated in hw4-raw-field-final-confirmation-14. Historical traces predate this requirement. This mode only; no other pass/fail inferred.",
+      "ts": "2026-09-25T22:49:52.822522+00:00",
+      "mode_revision": "5d6505da5cbc39ac",
+      "supersedes": null,
+      "score_id": "a4c4ccf9-071e-5134-9277-d49ffdf53031",
+      "score_timestamp": "2026-09-25T22:49:52.822522+00:00",
+      "sync_status": "synced",
+      "langfuse_score_name": "raw_fields_to_external_audiences",
+      "synced_at": "2026-09-26T05:13:18Z"
+    }
+  ],
+  "remote_score_readbacks": [
+    {"score_id": "dca9c37b-ec64-53f4-93ee-b6a52e20860b", "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0", "expected_value": 1, "actual_value": 1, "actual_name": "raw_fields_to_external_audiences", "verified": true},
+    {"score_id": "454cb8ba-a01d-5613-a750-d31403c765a3", "trace_id": "b5f4aa3df97a7b05064492c6280647e3", "expected_value": 1, "actual_value": 1, "actual_name": "raw_fields_to_external_audiences", "verified": true},
+    {"score_id": "49c3f345-c352-516b-acd2-5d5ac901f49f", "trace_id": "9d3928a872f9a36f0b7beb3f546271c6", "expected_value": 1, "actual_value": 1, "actual_name": "raw_fields_to_external_audiences", "verified": true},
+    {"score_id": "7126973f-79fc-50cc-b6ec-38f80fea007c", "trace_id": "cebc9a86476fc3e12830e622dcbb981c", "expected_value": 0, "actual_value": 0, "actual_name": "raw_fields_to_external_audiences", "verified": true},
+    {"score_id": "5255e7f5-ba29-5d53-9c69-f636cfa40e8a", "trace_id": "601f0c898f4cbbba3919f39b9a8ba993", "expected_value": 0, "actual_value": 0, "actual_name": "raw_fields_to_external_audiences", "verified": true},
+    {"score_id": "a4c4ccf9-071e-5134-9277-d49ffdf53031", "trace_id": "57fd75858461ca06585e648ed7d5a119", "expected_value": 0, "actual_value": 0, "actual_name": "raw_fields_to_external_audiences", "verified": true}
+  ]
+}

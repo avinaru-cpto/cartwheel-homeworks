@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Markdown source-map browser checks</title>
+<style>body{font:16px/1.5 system-ui;margin:32px;max-width:900px}li{margin:8px 0}.pass{color:#185b38}.fail{color:#b42318}#fixture{padding:16px;border:1px solid #ccc}table{border-collapse:collapse}td,th{padding:8px;border:1px solid #ccc}mark{background:#ffe8a3}</style>
+<h1>Markdown source-map browser checks</h1><p>Synthetic DOM checks only. No homework state is read or written.</p>
+<p id="summary">Running…</p><ul id="results"></ul><div id="fixture"></div>
+<!--RENDERER-->
+<script>
+'use strict';
+const root=document.querySelector('#fixture'), results=[];
+function assert(condition,message){if(!condition)throw Error(message)}
+function eq(actual,expected){assert(actual===expected,JSON.stringify(actual)+' !== '+JSON.stringify(expected))}
+function test(name,fn){try{fn();results.push({name,pass:true})}catch(e){results.push({name,pass:false,error:e.message})}}
+function show(source,ranges=[],formatted=true){root.innerHTML=ReviewMarkdown.render(source,ranges,formatted)}
+function firstText(el){const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);return w.nextNode()}
+function rangeBetween(a,start,b,end){const r=document.createRange();r.setStart(a,start);r.setEnd(b,end);return r}
+test('Selection crosses bold text and plain price without losing raw syntax',()=>{
+  const source='Before\n\n- **Total:** $42.00\n- Quantity: 1';show(source);
+  const a=firstText(root.querySelector('strong'));
+  const leaf=[...root.querySelectorAll('[data-source-start]')].find(el=>el.textContent.includes('$42.00'));
+  const b=firstText(leaf), end=b.textContent.indexOf('$42.00')+6;
+  const anchor=ReviewMarkdown.sourceRange(root,rangeBetween(a,0,b,end),source);
+  eq(anchor.quote,'Total:** $42.00');eq(source.slice(anchor.start,anchor.end),anchor.quote);
+  show(source,[{...anchor,id:'new',pending:true}]);
+  eq([...root.querySelectorAll('mark')].map(el=>el.textContent).join(''),'Total: $42.00');
+});
+test('Legacy highlighted price survives formatted/source/format round-trip',()=>{
+  const source='- **Total:** $42.00', note={start:0,end:source.length,id:'saved'};
+  const before=JSON.stringify(note);
+  show(source,[note]);eq(root.textContent,'Total: $42.00');assert(root.querySelector('strong'),'bold retained');
+  show(source,[note],false);eq(root.textContent,source);
+  show(source,[note]);eq(root.textContent,'Total: $42.00');eq(JSON.stringify(note),before);
+});
+test('Selection across table cells maps to contiguous original source',()=>{
+  const source='| Event | Date |\n|---|---|\n| Ordered | 2026-06-20 |\n| Delivered | 2026-06-24 |';show(source);
+  const a=firstText(root.querySelector('th')), b=firstText(root.querySelector('tbody tr:last-child td:last-child'));
+  const anchor=ReviewMarkdown.sourceRange(root,rangeBetween(a,0,b,b.length),source);
+  eq(anchor.start,source.indexOf('Event'));eq(anchor.end,source.indexOf('2026-06-24')+10);
+  assert(anchor.quote.includes('|---|---|'),'raw delimiter row is retained in evidence');
+  show(source,[{...anchor,id:'table-note'}]);eq(root.querySelectorAll('table').length,1);
+  assert(root.querySelectorAll('mark').length>=6,'all selected cells remain highlighted');
+});
+test('Element-boundary ranges only include selected visible children',()=>{
+  const source='one **two** three';show(source);const bold=root.querySelector('strong');
+  const r=document.createRange();r.selectNodeContents(bold);
+  eq(ReviewMarkdown.sourceRange(root,r,source).quote,'two');
+  r.selectNode(bold);eq(ReviewMarkdown.sourceRange(root,r,source).quote,'two');
+});
+test('Overlapping highlights do not change source mapping',()=>{
+  const source='**Total:** $42.00';show(source,[{start:0,end:source.length,id:'outer'},{start:3,end:7,id:'inner'}]);
+  const r=document.createRange();r.selectNodeContents(root.querySelector('strong'));
+  eq(ReviewMarkdown.sourceRange(root,r,source).quote,'Total:');
+});
+test('Unicode selections use the same UTF-16 coordinates as existing notes',()=>{
+  const source='Hello **🧪 café**!';show(source);const node=firstText(root.querySelector('strong'));
+  const anchor=ReviewMarkdown.sourceRange(root,rangeBetween(node,0,node,node.length),source);
+  eq(anchor.start,8);eq(anchor.quote,'🧪 café');eq(anchor.end,15);
+});
+test('Selection across separate paragraphs keeps original blank lines',()=>{
+  const source='**First** paragraph.\n\nSecond paragraph.';show(source);
+  const a=firstText(root.querySelector('strong')), b=firstText(root.querySelectorAll('p')[1]);
+  eq(ReviewMarkdown.sourceRange(root,rangeBetween(a,0,b,6),source).quote,'First** paragraph.\n\nSecond');
+});
+test('HTML stays text, unsafe links stay inert, and images never load',()=>{
+  show('<img src=x onerror="alert(1)">\n\n[bad](javascript:evil) ![pixel](https://example.org/track)');
+  eq(root.querySelectorAll('img,script,iframe,a').length,0);
+  assert(root.textContent.includes('<img'),'raw HTML remains visible text');
+});
+document.querySelector('#results').innerHTML=results.map(r=>'<li class="'+(r.pass?'pass':'fail')+'">'+(r.pass?'PASS: ':'FAIL: ')+r.name+(r.error?' — '+r.error:'')+'</li>').join('');
+const failures=results.filter(r=>!r.pass).length;
+document.querySelector('#summary').textContent=(results.length-failures)+' / '+results.length+' passed';
+document.body.dataset.failures=String(failures);
+</script></html>

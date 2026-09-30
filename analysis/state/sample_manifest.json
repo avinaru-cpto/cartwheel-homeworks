@@ -1,0 +1,615 @@
+{
+  "version": 1,
+  "batches": [
+    {
+      "name": "uniform_initial",
+      "count": 15,
+      "method": "uniform_initial",
+      "seed": 20260918,
+      "selected_at": "2026-09-24T16:43:59.381584+00:00",
+      "source": {
+        "kind": "langfuse",
+        "description": "Live Langfuse · final HW3 scenarios",
+        "loaded_at": "2026-09-18T08:19:54.101797+00:00"
+      }
+    },
+    {
+      "name": "cluster",
+      "count": 15,
+      "method": "cluster",
+      "seed": 20260918,
+      "selected_at": "2026-09-24T18:33:31.210437+00:00",
+      "source": {
+        "kind": "langfuse",
+        "description": "Live Langfuse · final HW3 scenarios",
+        "loaded_at": "2026-09-18T08:19:54.101797+00:00"
+      },
+      "features": [
+        "turn_count",
+        "tool_call_count",
+        "distinct_tools",
+        "has_retrieval",
+        "tokens"
+      ],
+      "description": "Round-robin nearest-centroid representatives from five structural clusters."
+    },
+    {
+      "name": "dimension",
+      "count": 30,
+      "method": "dimension",
+      "seed": 20260918,
+      "selected_at": "2026-09-25T03:58:17.906352+00:00",
+      "source": {
+        "kind": "langfuse",
+        "description": "Live Langfuse · final HW3 scenarios",
+        "loaded_at": "2026-09-18T08:19:54.101797+00:00"
+      },
+      "dimension": "role",
+      "dimension_selected_at": "2026-09-25T03:58:17.906967+00:00",
+      "allocation": {
+        "merchant": 10,
+        "shopper": 10,
+        "support": 10
+      }
+    },
+    {
+      "name": "depth",
+      "count": 25,
+      "method": "depth",
+      "seed": 20260918,
+      "selected_at": "2026-09-25T04:55:22.949732+00:00",
+      "source": {
+        "kind": "langfuse",
+        "description": "Live Langfuse · final HW3 scenarios",
+        "loaded_at": "2026-09-18T08:19:54.101797+00:00"
+      },
+      "search_reason": "Depth search over all 311 distinct traces in the review app's live-Langfuse snapshot (loaded 2026-09-18), excluding all 62 already-reviewed trace IDs (including the 60 formal breadth samples). Retrieval used status/price prompt patterns and currency fields, answer word counts plus topic neighbors of human clarity notes, and final-assistant-message presence plus historical diagnostics. Manually selected 25 IDs for role/topic and boundary coverage: unsolicited_status_price 10, answer_obscured_by_excess_detail 9, missing_usable_final_response 6; 12 possible matches and 13 possible close negatives. Length, price strings, and diagnostics are search signals, not labels. Includes completed/incomplete attempts of three scenarios; final-229 has a reworded prompt, not an identical retry. Full per-trace reasons: analysis/state/depth_search_plan.json. No model calls. Student must review and accept/reject suggestions."
+    },
+    {
+      "name": "uniform_final",
+      "count": 15,
+      "method": "uniform_final",
+      "seed": 20260918,
+      "selected_at": "2026-09-25T06:51:18.554002+00:00",
+      "source": {
+        "kind": "langfuse",
+        "description": "Live Langfuse · final HW3 scenarios",
+        "loaded_at": "2026-09-25T06:50:22.934755+00:00"
+      },
+      "taxonomy_at_selection": [
+        {
+          "name": "unsolicited_status_price",
+          "status": "final",
+          "definition": "A status-only answer includes a price that the user did not request and that is not needed to answer the question.",
+          "revision": "dde0b0df8f7d3cba"
+        },
+        {
+          "name": "answer_obscured_by_excess_detail",
+          "status": "final",
+          "definition": "Irrelevant explanation makes the actual answer to the user's question difficult to find or understand.",
+          "revision": "c2cb76d8c4d54728"
+        },
+        {
+          "name": "missing_usable_final_response",
+          "status": "final",
+          "definition": "The run ends without an answer, clarification, refusal, escalation, or clear failure notice, leaving silence or only an unfulfilled promise to act.",
+          "revision": "9c58fdeebeb56799"
+        },
+        {
+          "name": "unsupported_cause_speculation",
+          "status": "candidate",
+          "definition": "The assistant names a specific cause of a data inconsistency without evidence for that cause, even when presented as likely, unless the user explicitly requested possible causes.",
+          "revision": "0a4685ca53d0326b"
+        },
+        {
+          "name": "unreadable_response_format",
+          "status": "candidate",
+          "definition": "The final assistant response uses formatting or layout that materially obstructs reading the requested answer when displayed as intended in the supported interface.",
+          "revision": "650f47c6ebc09ff1"
+        }
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "trace_id": "8a90a74981157335e612ecdb6d1cb4b5",
+      "session_id": "76adfa71-9148-44ed-82f3-9f2ad3c2bafe",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "4b27fa5d6872a0c279316e23e7381998",
+      "session_id": "edb6419c-8042-48b9-afb1-eb5d0428da4b",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "1aae3527ca33cc70a8551e2ade8a5708",
+      "session_id": "3f7b818c-ed13-410a-9049-6bbd29e6e4c1",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "ff9cce25aa87dc136ee5da2f94ada972",
+      "session_id": "a0222cad-1dca-4ee0-9b51-1817a51c7ccf",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "b6bcc0b1bf2317bd2fb1b820ec13f017",
+      "session_id": "1324a589-6624-48c8-b6e6-0b8c73211b33",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+      "session_id": "9cdf80dd-d5cb-4595-9c75-0fdf6f8190fc",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "8f157d3c02b550c03346a4877bd32f23",
+      "session_id": "3c14fb30-f56b-46a0-8403-885214c197f5",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "4d6480256c61dd4bb586850c6a3e1952",
+      "session_id": "f84d040c-986d-49e2-86b7-a879cf13333d",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "9f089e0afe52e109302663a3fad425c8",
+      "session_id": "2266b367-0e19-4180-ad40-e9fd0094f781",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "354d27074968be0c96490fb55ce788e9",
+      "session_id": "2ad021c1-e57b-442b-81b8-5c3302efa861",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "f17c22cfb8a9a940a007c3c24b2d506e",
+      "session_id": "b77ec7c7-ccc5-4458-a2e2-995a8c1ee2fc",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "fbea98de885cdbc03acf4ecbcc4b202a",
+      "session_id": "64745ce8-15ce-4c52-b3c3-615ee271136b",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "a01fcedd1ca58b015c510e0174de9404",
+      "session_id": "81d0f3c6-c14f-4e0a-8f16-88f6ceeab400",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "3be525925815884b6839b3015c587f00",
+      "session_id": "6b7d7903-3d80-4e00-a7fa-27bd12e5f436",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "2d7bb582d801725c21b0c5db7e4415dc",
+      "session_id": "e3466223-704f-4cc4-8bb3-f56ac4cd243e",
+      "batch": "uniform_initial"
+    },
+    {
+      "trace_id": "9d3c7769d756cd6287ca13dd67cb743a",
+      "session_id": "b8c51f67-3fdf-4a92-998f-70af2cc60fe8",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "39681500c7432a4d7646a771126a600f",
+      "session_id": "ceda3758-89d3-45ca-9ca8-c0295c2f1bd2",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "17a78c49dc803c0b1f6c3cfe88015964",
+      "session_id": "1aa29bfc-63ee-4944-a852-5dd7c96d7bed",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "cf238703268230fdd777d8c1d365837a",
+      "session_id": "6099762b-c958-486b-8fd3-8cafa03b1b94",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "cb0ec6c0d8747c644d653f1f69be289d",
+      "session_id": "69a294fa-f1b3-4478-a382-775ed3b921c3",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "a104fae600a86a47aec9ffd5d4c82608",
+      "session_id": "340723b5-d3d5-4982-9793-796f4bd11db3",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "9f3631e5582b7cf4dc70f8246c5cdd68",
+      "session_id": "c81a2e3d-97a4-4432-9a37-40ea939c9ef2",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "87612b899806c6eabeee99c18cabd775",
+      "session_id": "67699d5c-15fe-4c53-9531-e50ec8d76684",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "17ffa5dd3aae44d9e964fe1751e01c63",
+      "session_id": "676e2a17-218f-4e7b-8734-3d203b2b51a6",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "6b80c8c038aa149222558ed2830da945",
+      "session_id": "19f3e4bb-3ee3-4517-bbd6-4e395bdc2d97",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "a814d2eab28835bacebabfe3e751c010",
+      "session_id": "67f76ba2-e572-4306-82d1-d61e9be7e584",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "6a9dce982454df2be3857b53cf43a219",
+      "session_id": "a6dedcc3-c7ab-4dbe-8950-fae7427b670c",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "d53d5a53a583d341734ea73770042deb",
+      "session_id": "4770210a-d24c-4534-8061-da959db6f95d",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "136f589f8c579d2c5c125046bd3c9052",
+      "session_id": "2d926fff-b34c-4ae2-a1e5-6c350eb19746",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "4718c6889715fb5f8d4e7f81a1f1e814",
+      "session_id": "c66f83b2-bd4f-40fb-b07c-079ad8ab478a",
+      "batch": "cluster"
+    },
+    {
+      "trace_id": "37c1afce8bd6e1fb6f8dca40ed5f6b1a",
+      "session_id": "b83cd3c4-29c1-4898-9467-b0c07c7f98f0",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "8c28744c64240e622105e2dbccd061a9",
+      "session_id": "2ffc28e8-54c0-4975-9e38-c586225b561b",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "0e69d44e50e93a6e87166ffabb5849b4",
+      "session_id": "7eda9b77-4632-42b4-ae69-f55e4c10f4bc",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "0646b764f649f3f87e62beeeb35b55af",
+      "session_id": "539f1412-c2a3-466e-bda6-3e4c8f76d423",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "549bbff44819c799c7efbf4fd338b997",
+      "session_id": "ffc0d6ab-8169-43b3-b0f5-5f59a89e4826",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "70fa06d346c4eb870abbe05e863cc15d",
+      "session_id": "514a4090-80f2-4cf3-80b4-3b95fcb0b6a3",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "5442c39e747d335479a00f66d63e4234",
+      "session_id": "fb7619ca-64c4-41ee-98ab-0b10a330562b",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "f9ea3aaf8a04c4bc26ac8151f80bfcac",
+      "session_id": "7a870c4e-c9bd-4e73-ba38-5cb8b594e61d",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "57fd75858461ca06585e648ed7d5a119",
+      "session_id": "5866dc2f-beee-43ca-8336-de82a6a91608",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "935241816b69977a4f0aac31c26d79c3",
+      "session_id": "177c0268-8227-4632-b731-9325702310f7",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "189cbad551590625e3dcc4475c83a715",
+      "session_id": "9a61cdc5-9663-4b73-a2eb-46767dff420e",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "5c364ed5e487c833447d257b52528b9f",
+      "session_id": "169132b9-2680-48e5-bd29-ff963dd61751",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "ee1063cab2429b3b8eb66447f264ab29",
+      "session_id": "ba74379c-ae5d-4d13-9f9a-49d668e7dfcf",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "f876e10fc7b07f1805983a7ef7c9c6e7",
+      "session_id": "3a5b06c5-a818-4b88-9fe4-c39750306454",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "ebd7a0e0a7e0e8277eec67e4e2e50a45",
+      "session_id": "2a76b18b-1598-4c1c-bd59-54f66d410eff",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "b2629fbd2471f3a26af2732c03a4fbba",
+      "session_id": "41d1ac44-3b7a-43db-9f08-c86308793f97",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "b80177ceb82a6bf8ef03495031b94aef",
+      "session_id": "3cca62c8-7235-49ee-8ed6-e3565f0eb2b7",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "5b4ef21394b1c7c221b45bc755a6d341",
+      "session_id": "124a9ad8-8dc3-4819-b911-42fd56013a40",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "89396ac09a79d249e1ec588b8291d55a",
+      "session_id": "0d494ef7-7fd6-4116-b164-6f46a91e3642",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0",
+      "session_id": "35a79e5a-4a12-4c3f-ba4b-161a3df40892",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "8e629c7bb3805aaaa7b9c818e50e9dc8",
+      "session_id": "8a9cb476-7fb3-46c4-932e-d8efa9d54044",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "a50f00648658bfdb096fb6e7b4d459ac",
+      "session_id": "09f735b2-888a-41f1-9b69-ae2792510df5",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "95977c85d0fdca9f4630c23e86f21138",
+      "session_id": "2b7e0cda-a373-49c1-95d9-268102dde729",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "5555498a3839ebe716691feaff4090a7",
+      "session_id": "32c0cd89-3d1d-4214-89bf-ef5b732201af",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "4861a42c9fc577c806c80860333bfb2b",
+      "session_id": "9bbcc445-de68-43d9-b25c-9277aa9669e9",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "549c342a6e35e4662e23efb377905337",
+      "session_id": "e3a207da-95df-4146-8fb9-5d7d5736ac0a",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "85218151244498d4d2d3b4e56f3256ce",
+      "session_id": "0d962c87-e0aa-4828-bab9-869d8d6e6ffa",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "7f2ab2da77fe2665296d754b885ad8ad",
+      "session_id": "ab8dad27-3827-4b9d-9af7-496f55702ba6",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "9fab513fcc53df2582307456f37bd9c3",
+      "session_id": "147050c9-b823-4287-ad0b-edf7f6485067",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "d3854dd75f22c21d1cba64d01b2fc23d",
+      "session_id": "7d086f96-f722-4069-8506-d8506316096b",
+      "batch": "dimension"
+    },
+    {
+      "trace_id": "fb0463b005703697636254c8ecdda50a",
+      "session_id": "f5e4e9d3-181d-4784-b4d9-ac65cf0fc653",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "a9499256610ffd92842699e742670e3e",
+      "session_id": "583c5879-f75f-48c3-b50f-1c23384d9234",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "6f65ee6bb49301a524d3fe18fcbc3796",
+      "session_id": "59649bc3-e6b5-4668-9410-6443436d0622",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "a1797134c9f9c583f618d3faebf91758",
+      "session_id": "2aad6992-e364-4ca0-84dd-ec8ede2eeda2",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "ec49e5ae195a7e2c451dd0fe786a8cb8",
+      "session_id": "b9d5636e-e182-4649-8603-66b7fc6db0b4",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "14cfcbe16173d641d9b1f02de56ecebb",
+      "session_id": "1edaa05f-0c23-46f9-8cf1-4c3c785ba9e5",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "cf11613678bb1cf4a222c176c4feeb1d",
+      "session_id": "003ff00c-61a5-456e-9427-1c89d159c6f6",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+      "session_id": "0122cc81-214e-4f42-a3ae-fa0795ce0b3a",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "fdc9b6379302dc15c17d798c8942629e",
+      "session_id": "78f07537-4aa2-41ca-a9a3-944457e11289",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "b41fbdef0e06083dbe456aa076661299",
+      "session_id": "b155e47f-8d67-47a1-a0b8-329eb5c08d6a",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "daa2241cbf02e9fcf88faad7a898cc84",
+      "session_id": "270c4376-5332-42ae-896f-9dc5d4a4eac6",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "f0b88052950139865840dc748b4aa830",
+      "session_id": "242d9a4f-f49b-4060-96bb-3574e61a1637",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "5d0d73095317c91abedc829f68768f9d",
+      "session_id": "f5dd23c5-70c9-49fb-935e-820aac5821ea",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "bf9c049c55debdbe66011e1e0a13588a",
+      "session_id": "5a7222f1-55ca-436a-bb99-0d621e792075",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "5bcc02aa2ef576b0873a738c7731feb7",
+      "session_id": "df4121e5-5510-447b-9e06-5a7a542dade7",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "d6a224138e3516eee8c023706d35aa8a",
+      "session_id": "7ea33e96-d969-4b64-ac27-63dab6a43db6",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "a0f158324c6b0e60401334b346fdb699",
+      "session_id": "af033710-5330-4d89-a7f5-211ecc3d9f40",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "3b57a3446b3644107335cebe57a38b6e",
+      "session_id": "e2da8e0c-b1cd-4c19-a5af-05f2fd8bc87c",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "cebc9a86476fc3e12830e622dcbb981c",
+      "session_id": "14153a50-1516-4f73-920f-80b01f923e80",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "44862c87ab91d6a519e7d7f20a42cb3c",
+      "session_id": "b534536a-ff84-4567-8e1c-3ea2a786a385",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "23d8c02949dfda9a3f1fc01352c861a6",
+      "session_id": "4f8d2c93-d9ab-444c-abef-1631234e6b0a",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "f8b252caf57871e2070d567411e0fe2e",
+      "session_id": "07ad3d0c-0f75-49a0-a1ff-5d4fa87e31ee",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "80290bc1947180f8d6513afd8ce4ec72",
+      "session_id": "26af56ff-77cb-49d8-9e1f-31249e5e1040",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "b2d44f1891cba1343b973c261ddb90f9",
+      "session_id": "147050c9-b823-4287-ad0b-edf7f6485067",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "263eb00c484d8fb7bea51ec3319c1fc9",
+      "session_id": "3ef53289-528a-483b-b2cd-f6ae748bc96c",
+      "batch": "depth"
+    },
+    {
+      "trace_id": "67aff4031d8e0bd3d4322095746813d8",
+      "session_id": "64572ada-cf61-4401-9757-6799fc92b5e1",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "fe73e9caae3a71d4da3939cb6f47b2c3",
+      "session_id": "dfbca5f9-8822-409a-9af1-a7575440f5e5",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "2e4554ab3f8b3a6ae890a6f2133c8781",
+      "session_id": "e7f22731-7404-4620-8d36-f011b45585fb",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "bb0a556b3e48c15f688561043d3b57e6",
+      "session_id": "13408bb6-fddc-48ef-809a-7e4744757b62",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "11ac4cc470cd4b49685a37852cecb3a9",
+      "session_id": "36d58091-013e-46c8-9ddc-a0523ba5a6d8",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+      "session_id": "7406ddeb-f2c3-4458-b28e-dad5dea70cfa",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "88471324f51094691b7a3f59294a32a2",
+      "session_id": "f34d961a-5a1c-426e-9fa9-c198b3a32a5e",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "741d12d852640acedd0969cd74054140",
+      "session_id": "cb62a7f3-ce88-43da-ad58-203232569bab",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "f7ba8b8eb26607d50ed27556e87d2aa8",
+      "session_id": "085662d7-abcd-41ce-afae-f83f07ac556b",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "f2826551729602ba6a2745670dda89d6",
+      "session_id": "d894568f-8328-40e9-a45f-eca1a61e8f61",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "be8f58e4ac6c021e8c7983aa493a89f4",
+      "session_id": "3335fd97-8c5a-4822-b865-7b16a5fa1f80",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "69e1feb092880ca9171f3c59a71f8675",
+      "session_id": "bba2f478-46ba-4fda-9c3e-f169d29b35d1",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "c6587501222775390914279bb4418a97",
+      "session_id": "46cf7b2f-7a55-4ba9-99ab-65986e8096f6",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "2e67ef48c576d7708def5ef317c0faeb",
+      "session_id": "4f07b019-bb5c-4502-b5f4-86408a32556f",
+      "batch": "uniform_final"
+    },
+    {
+      "trace_id": "75174cca62ef290cbf69b742e2829163",
+      "session_id": "6d956214-f9b6-4142-a9e1-11396969eb77",
+      "batch": "uniform_final"
+    }
+  ]
+}

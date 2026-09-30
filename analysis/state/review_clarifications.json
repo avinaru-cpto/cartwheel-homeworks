@@ -1,0 +1,809 @@
+{
+  "clarifications": [
+    {
+      "id": "hw4-depth-note-meaning-clarification-01",
+      "recorded_at": "2026-09-25T05:31:09.952Z",
+      "source": "explicit_human_conversation_clarification",
+      "human_statement": {
+        "price": "Shouldnt show price means failure present...",
+        "praise": "this is prefect means the response was great and what I wanted... so no failure observed."
+      },
+      "scope": "Clear suggestion click/note inversions only; original annotations and all final labels remain unchanged.",
+      "changes": [
+        {
+          "suggestion_id": "hw4-depth-01-fb0463b005703697636254c8ecdda50a",
+          "trace_id": "fb0463b005703697636254c8ecdda50a",
+          "scenario_id": "final-004",
+          "mode": "unsolicited_status_price",
+          "previous_status": "rejected",
+          "reconciled_status": "accepted",
+          "original_decision_reason": "It should still not show the price. I don't know why it's showing it.",
+          "reconciled_reason": "It should still not show the price. I don't know why it's showing it.\n\nHuman meaning clarification: The student's price objection means this failure is present; the original Reject click had the opposite meaning.",
+          "initial_annotation_id": "2a9a6e3a-46b2-45c6-8455-4b96a941ac11"
+        },
+        {
+          "suggestion_id": "hw4-depth-09-fdc9b6379302dc15c17d798c8942629e",
+          "trace_id": "fdc9b6379302dc15c17d798c8942629e",
+          "scenario_id": "final-232",
+          "mode": "unsolicited_status_price",
+          "previous_status": "accepted",
+          "reconciled_status": "rejected",
+          "original_decision_reason": "Is much better to read",
+          "reconciled_reason": "Is much better to read\n\nHuman meaning clarification: The student's praise and initial no-failure observation mean the response is acceptable, not that an unsolicited-price failure is present.",
+          "initial_annotation_id": "eee77e25-0c65-4424-b60d-1232ff35abc7"
+        },
+        {
+          "suggestion_id": "hw4-depth-10-b41fbdef0e06083dbe456aa076661299",
+          "trace_id": "b41fbdef0e06083dbe456aa076661299",
+          "scenario_id": "final-236",
+          "mode": "unsolicited_status_price",
+          "previous_status": "accepted",
+          "reconciled_status": "rejected",
+          "original_decision_reason": "This is much better to read.",
+          "reconciled_reason": "This is much better to read.\n\nHuman meaning clarification: The student's praise and initial no-failure observation mean the response is acceptable, not that an unsolicited-price failure is present.",
+          "initial_annotation_id": "a7864724-b55e-482d-bc74-6294e7eb2058"
+        },
+        {
+          "suggestion_id": "hw4-depth-12-f0b88052950139865840dc748b4aa830",
+          "trace_id": "f0b88052950139865840dc748b4aa830",
+          "scenario_id": "final-181",
+          "mode": "answer_obscured_by_excess_detail",
+          "previous_status": "accepted",
+          "reconciled_status": "rejected",
+          "original_decision_reason": "This is correct.",
+          "reconciled_reason": "This is correct.\n\nHuman meaning clarification: The student calls the response correct and initially recorded no failure; this is approval of the response, not of the proposed excess-detail failure.",
+          "initial_annotation_id": "409838fb-0ae3-4295-b69a-cadb63d9991e"
+        },
+        {
+          "suggestion_id": "hw4-depth-13-5d0d73095317c91abedc829f68768f9d",
+          "trace_id": "5d0d73095317c91abedc829f68768f9d",
+          "scenario_id": "final-198",
+          "mode": "answer_obscured_by_excess_detail",
+          "previous_status": "accepted",
+          "reconciled_status": "rejected",
+          "original_decision_reason": "Is the correct",
+          "reconciled_reason": "Is the correct\n\nHuman meaning clarification: The student's positive explanation and initial no-failure observation approve the response, not the proposed excess-detail failure.",
+          "initial_annotation_id": "25747617-a5c7-42b4-988e-554155c3fee2"
+        },
+        {
+          "suggestion_id": "hw4-depth-14-bf9c049c55debdbe66011e1e0a13588a",
+          "trace_id": "bf9c049c55debdbe66011e1e0a13588a",
+          "scenario_id": "final-186",
+          "mode": "answer_obscured_by_excess_detail",
+          "previous_status": "accepted",
+          "reconciled_status": "rejected",
+          "original_decision_reason": "The right response to the user",
+          "reconciled_reason": "The right response to the user\n\nHuman meaning clarification: The student calls this the right response and initially recorded no failure; the proposed excess-detail failure is rejected.",
+          "initial_annotation_id": "e9f88644-df66-4bee-a75c-8f99ce852657"
+        },
+        {
+          "suggestion_id": "hw4-depth-18-3b57a3446b3644107335cebe57a38b6e",
+          "trace_id": "3b57a3446b3644107335cebe57a38b6e",
+          "scenario_id": "final-178",
+          "mode": "answer_obscured_by_excess_detail",
+          "previous_status": "accepted",
+          "reconciled_status": "rejected",
+          "original_decision_reason": "This is perfect.",
+          "reconciled_reason": "This is perfect.\n\nHuman meaning clarification: The student explicitly clarified that 'this is perfect' means the response was great and no failure was observed.",
+          "initial_annotation_id": "831744f5-5f4d-44de-b7c3-b5db877a433f"
+        },
+        {
+          "suggestion_id": "hw4-depth-19-cebc9a86476fc3e12830e622dcbb981c",
+          "trace_id": "cebc9a86476fc3e12830e622dcbb981c",
+          "scenario_id": "final-141",
+          "mode": "answer_obscured_by_excess_detail",
+          "previous_status": "accepted",
+          "reconciled_status": "rejected",
+          "original_decision_reason": "Is much simpler to read",
+          "reconciled_reason": "Is much simpler to read\n\nHuman meaning clarification: The student's praise for readability and initial no-failure observation approve the response, not the proposed excess-detail failure.",
+          "initial_annotation_id": "c24225b1-984a-466d-9a38-8b750464647b"
+        },
+        {
+          "suggestion_id": "hw4-depth-23-80290bc1947180f8d6513afd8ce4ec72",
+          "trace_id": "80290bc1947180f8d6513afd8ce4ec72",
+          "scenario_id": "final-229",
+          "mode": "missing_usable_final_response",
+          "previous_status": "accepted",
+          "reconciled_status": "rejected",
+          "original_decision_reason": "This is correct.",
+          "reconciled_reason": "This is correct.\n\nHuman meaning clarification: The student calls the completed reply correct and initially recorded no failure; this rejects the proposed missing-response failure.",
+          "initial_annotation_id": "d87e18a8-6149-4841-882f-959bf5652869"
+        },
+        {
+          "suggestion_id": "hw4-depth-24-b2d44f1891cba1343b973c261ddb90f9",
+          "trace_id": "b2d44f1891cba1343b973c261ddb90f9",
+          "scenario_id": "final-238",
+          "mode": "missing_usable_final_response",
+          "previous_status": "accepted",
+          "reconciled_status": "rejected",
+          "original_decision_reason": "This is right, and it gave enough details.",
+          "reconciled_reason": "This is right, and it gave enough details.\n\nHuman meaning clarification: The student says the response is right and gives enough detail, alongside an initial no-failure observation; this rejects the proposed missing-response failure.",
+          "initial_annotation_id": "9a46e187-26ad-4e55-953e-9d85b6a2390e"
+        },
+        {
+          "suggestion_id": "hw4-depth-25-263eb00c484d8fb7bea51ec3319c1fc9",
+          "trace_id": "263eb00c484d8fb7bea51ec3319c1fc9",
+          "scenario_id": "final-242",
+          "mode": "missing_usable_final_response",
+          "previous_status": "accepted",
+          "reconciled_status": "rejected",
+          "original_decision_reason": "This works.",
+          "reconciled_reason": "This works.\n\nHuman meaning clarification: The student says the response works: reject only the proposed missing-response failure. Preserve the separate first-pass price objection; do not mark the whole trace clean.",
+          "initial_annotation_id": "b10df2f2-8e88-4a08-a697-fbfe1f126552"
+        }
+      ],
+      "unresolved": [
+        {
+          "scenario_id": "final-042",
+          "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+          "reason": "The price objection is clear, but this is an exact-record request, not status-only. Relationship to the approved exception and mode scope needs human clarification. No change."
+        },
+        {
+          "scenario_id": "final-215",
+          "trace_id": "5bcc02aa2ef576b0873a738c7731feb7",
+          "reason": "Mixed note: 'The format is fine. Remove the asterisks.' Initial no-failure review and accepted excess-detail suggestion differ. No change."
+        }
+      ],
+      "pending_suggestions_unchanged": [
+        "hw4-depth-11-daa2241cbf02e9fcf88faad7a898cc84",
+        "hw4-depth-16-d6a224138e3516eee8c023706d35aa8a"
+      ],
+      "preserved_history_notes": [
+        "The incomplete final-229 attempt retains its initial no_failure record and later explicit 'Nothing showed up' concern. No initial record was flipped.",
+        "The completed final-242 attempt retains its separate price objection; only its missing-response suggestion is reconciled as rejected.",
+        "Historical accepted_suggestion observations remain unchanged; consult current suggestion dispositions before deriving support for a mode. They are not final positive labels."
+      ]
+    },
+    {
+      "id": "hw4-depth-boundary-clarification-02",
+      "recorded_at": "2026-09-25T05:35:34.156Z",
+      "source": "explicit_human_conversation_confirmation",
+      "human_statement": "Final 042 - yes.... 215... yes... formatting wasnt good.",
+      "confirmation_context": "The assistant asked whether final-042 should retain the exact-record exception allowing JSON and price, and whether final-215's answer was acceptable with only a display-formatting concern. The student confirmed both.",
+      "resolves_prior_cases": {
+        "clarification_id": "hw4-depth-note-meaning-clarification-01",
+        "scenario_ids": [
+          "final-042",
+          "final-215"
+        ]
+      },
+      "changes": [
+        {
+          "suggestion_id": "hw4-depth-08-601f0c898f4cbbba3919f39b9a8ba993",
+          "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+          "mode": "unsolicited_status_price",
+          "previous_status": "accepted",
+          "reconciled_status": "rejected",
+          "original_decision_reason": "Should not have the pricing",
+          "human_confirmed_reason": "The student confirmed the existing exact-record exception: this support request explicitly asks for the product record, so its JSON and price are acceptable. Reject the unsolicited-status-price suggestion; this is not a status-only request."
+        },
+        {
+          "suggestion_id": "hw4-depth-15-5bcc02aa2ef576b0873a738c7731feb7",
+          "trace_id": "5bcc02aa2ef576b0873a738c7731feb7",
+          "mode": "answer_obscured_by_excess_detail",
+          "previous_status": "accepted",
+          "reconciled_status": "rejected",
+          "original_decision_reason": "The format is fine. Remove the asterisks.",
+          "human_confirmed_reason": "The student confirmed that the answer was acceptable but the formatting was not good. Reject this excess-detail suggestion; preserve the formatting concern separately without assuming its cause or treating it as resolved."
+        }
+      ],
+      "preserved_formatting_concern": {
+        "trace_id": "5bcc02aa2ef576b0873a738c7731feb7",
+        "scenario_id": "final-215",
+        "student_assessment": "Formatting was not good; answer content acceptable.",
+        "status": "preserved_for_separate_review",
+        "cause": "not determined",
+        "not_a_final_mode": true
+      },
+      "scope": "Suggestion dispositions only. Initial annotations, historical acceptance observations, final labels, taxonomy, and the two pending suggestions are unchanged."
+    },
+    {
+      "id": "hw4-response-and-format-clarification-03",
+      "recorded_at": "2026-09-25T05:59:35Z",
+      "source": "explicit_human_conversation_confirmation",
+      "human_statement": "I approve all",
+      "confirmation_context": "The student approved three numbered items: add the proposed response-completion requirement, accept the displayed final-069 response, and accept the displayed final-075 response. The approval does not include additional follow-ups or Raindrop setup.",
+      "specification_revision": {
+        "requirement_id": "RESP-7",
+        "approved_text": "Every user turn must receive an answer, clarification, refusal, escalation, or clear failure notice—not silence or only a promise to act.",
+        "motivating_annotation_ids": [
+          "accepted-hw4-depth-20-44862c87ab91d6a519e7d7f20a42cb3c",
+          "accepted-hw4-depth-21-23d8c02949dfda9a3f1fc01352c861a6",
+          "accepted-hw4-depth-22-f8b252caf57871e2070d567411e0fe2e"
+        ],
+        "historical_trace_caveat": "The motivating traces predate the explicit requirement. The new rule does not establish a historical prompt violation or change runtime behavior."
+      },
+      "formatting_confirmations": [
+        {
+          "scenario_id": "final-069",
+          "trace_id": "70fa06d346c4eb870abbe05e863cc15d",
+          "original_annotation_id": "545cbce4-0c4e-4ded-ab02-bc5212fca231",
+          "followup_annotation_id": "human-confirmation-format-final-069-20260925",
+          "decision": "Displayed response acceptable; formatting concern resolved for this response.",
+          "original_note": "Formatting is not right, but otherwise the answers look correct"
+        },
+        {
+          "scenario_id": "final-075",
+          "trace_id": "0e69d44e50e93a6e87166ffabb5849b4",
+          "original_annotation_id": "6eb1a9ff-a943-4257-93df-266d584763c9",
+          "followup_annotation_id": "human-confirmation-format-final-075-20260925",
+          "decision": "Displayed response acceptable; formatting concern resolved for this response.",
+          "original_note": "It's not human-readable"
+        }
+      ],
+      "scope": "Added RESP-7, aligned the existing missing-response candidate to it with revision history, and appended two follow-up observations. Original annotations, suggestion decisions, sample selections and final labels remain unchanged. No final mode or Langfuse score created. Does not resolve final-215 or final-220, approve a blanket formatting rule, diagnose the old display, or authorize Raindrop."
+    },
+    {
+      "id": "hw4-date-and-requested-detail-clarification-04",
+      "recorded_at": "2026-09-25T06:04:39Z",
+      "source": "explicit_human_conversation_confirmation",
+      "human_statement": "approve both",
+      "confirmation_context": "The student approved removing only the wrong-date-math objection on final-220 and accepting the explicitly requested product ID, price and identification details on final-194, retaining separate formatting/verbosity concerns.",
+      "decisions": [
+        {
+          "scenario_id": "final-220",
+          "trace_id": "4718c6889715fb5f8d4e7f81a1f1e814",
+          "original_annotation_id": "93595629-fbf3-42c7-a280-22492eeebe67",
+          "followup_annotation_id": "human-confirmation-date-final-220-20260925",
+          "decision": "Date arithmetic objection resolved: seven elapsed days, with eligibility on the inclusive day-seven boundary.",
+          "evidence": "The recorded request uses delivery 2026-06-24 and as-of 2026-07-01. The unchanged seed.eligibility.is_refund_eligible oracle previously returned True on July 1 and False on July 2 for a delivered order and a 7-day window.",
+          "preserved_concerns": [
+            "formatting",
+            "clarity/verbosity",
+            "technical details"
+          ]
+        },
+        {
+          "scenario_id": "final-194",
+          "trace_id": "9f089e0afe52e109302663a3fad425c8",
+          "original_annotation_id": "662e146b-591b-4f57-a6d8-d16d30b6a8eb",
+          "followup_annotation_id": "human-confirmation-requested-details-final-194-20260925",
+          "decision": "The requested product ID 2, $9 price and unambiguous identification are acceptable; these details are not unsolicited.",
+          "evidence": "Recorded user request: I see several Heavy-Duty Vase listings. Is product 2 the $9 one, and how should I refer to it unambiguously?",
+          "preserved_concerns": [
+            "separate verbosity/clarity concerns"
+          ],
+          "scope_limit": "Does not approve every additional detail in the reply."
+        }
+      ],
+      "scope": "Append-only follow-up observations and provenance. Original notes, all taxonomy definitions, specification, suggestions, sample selections, binary labels and Langfuse scores are unchanged. Does not resolve final-210 or final-215, or authorize Raindrop."
+    },
+    {
+      "id": "hw4-requested-flag-clarification-05",
+      "recorded_at": "2026-09-25T06:07:47Z",
+      "source": "explicit_human_conversation_confirmation",
+      "human_statement": "approve",
+      "confirmation_context": "The assistant asked whether mentioning refund_eligible is acceptable in final-210 and final-220 because both support requests explicitly ask to reconcile that flag, while retaining separate formatting or verbosity concerns. The student approved.",
+      "decisions": [
+        {
+          "scenario_id": "final-210",
+          "trace_id": "57fd75858461ca06585e648ed7d5a119",
+          "original_annotation_id": "9daf60e2-48c3-4932-b9ac-be6014f3fa31",
+          "followup_annotation_id": "human-confirmation-requested-flag-final-210-20260925",
+          "decision": "Mentioning the explicitly requested refund_eligible flag is acceptable.",
+          "preserved_concerns": [
+            "formatting",
+            "verbosity/clarity"
+          ],
+          "scope_limit": "Not an approval of every technical detail or policy explanation, or an all-mode judgment."
+        },
+        {
+          "scenario_id": "final-220",
+          "trace_id": "4718c6889715fb5f8d4e7f81a1f1e814",
+          "original_annotation_id": "93595629-fbf3-42c7-a280-22492eeebe67",
+          "followup_annotation_id": "human-confirmation-requested-flag-final-220-20260925",
+          "decision": "Mentioning the explicitly requested refund_eligible flag is acceptable.",
+          "preserved_concerns": [
+            "formatting",
+            "verbosity/clarity"
+          ],
+          "scope_limit": "Not an approval of every technical detail or policy explanation, or an all-mode judgment."
+        }
+      ],
+      "scope": "Append-only clarification of requested flag mentions in two responses. Original notes, taxonomy definitions, specification, suggestions, sample selections, binary labels and Langfuse scores are unchanged. Does not resolve final-215 or authorize Raindrop."
+    },
+    {
+      "id": "hw4-taxonomy-packet-confirmation-06",
+      "recorded_at": "2026-09-25T06:30:30Z",
+      "source": "explicit_human_conversation_confirmation",
+      "human_statement": "Defer Raindrop workshop\n\nconfirm A, b and C",
+      "confirmation_context": "The student confirmed A, B and C in hw4-taxonomy-review-20260925-01. This confirms the named categories, approved definitions/boundaries, the packet's listed positive and close-negative examples, and likely LLM-judge evaluator types. B confirmation includes final-108, final-146, final-182 and final-195 as positives. No more detailed new rationale was supplied; the original human notes and packet caveats remain the evidence.",
+      "packet_id": "hw4-taxonomy-review-20260925-01",
+      "workshop_status": "deferred_at_student_request",
+      "decisions": [
+        {
+          "key": "A",
+          "mode": "unsolicited_status_price",
+          "definition": "A status-only answer includes a price that the user did not request and that is not needed to answer the question.",
+          "boundary": "Requested or necessary prices are excluded. This is distinct from general excess detail: a brief status answer can still contain an unsolicited price. The motivating traces predate RESP-6; do not claim they disobeyed that explicit rule when recorded.",
+          "positive_trace_ids": [
+            "a9499256610ffd92842699e742670e3e",
+            "6f65ee6bb49301a524d3fe18fcbc3796",
+            "a1797134c9f9c583f618d3faebf91758"
+          ],
+          "close_negative_trace_ids": [
+            "fdc9b6379302dc15c17d798c8942629e",
+            "b41fbdef0e06083dbe456aa076661299",
+            "cf11613678bb1cf4a222c176c4feeb1d"
+          ],
+          "evaluator_type": "llm_judge",
+          "previous_proposed_evaluator_type": "llm_judge",
+          "mode_status": "final",
+          "evidence_role": "confirmed taxonomy examples, not the completed all-mode labeling matrix"
+        },
+        {
+          "key": "B",
+          "mode": "answer_obscured_by_excess_detail",
+          "definition": "Irrelevant explanation makes the actual answer to the user's question difficult to find or understand.",
+          "boundary": "Length alone, required policy citations (RESP-1), and explicitly requested technical detail are not failures. JSON is acceptable for a support user's explicit exact-record request. Appropriate escalation is not itself a failure. Distinguish excess detail from unsolicited status prices and from no final answer. Recheck format-only complaints after the review UI's Markdown rendering fix.",
+          "positive_trace_ids": [
+            "f876e10fc7b07f1805983a7ef7c9c6e7",
+            "549bbff44819c799c7efbf4fd338b997",
+            "5555498a3839ebe716691feaff4090a7",
+            "5c364ed5e487c833447d257b52528b9f"
+          ],
+          "close_negative_trace_ids": [
+            "cebc9a86476fc3e12830e622dcbb981c",
+            "3b57a3446b3644107335cebe57a38b6e",
+            "a0f158324c6b0e60401334b346fdb699"
+          ],
+          "evaluator_type": "llm_judge",
+          "previous_proposed_evaluator_type": "llm_judge",
+          "mode_status": "final",
+          "evidence_role": "confirmed taxonomy examples, not the completed all-mode labeling matrix"
+        },
+        {
+          "key": "C",
+          "mode": "missing_usable_final_response",
+          "definition": "The run ends without an answer, clarification, refusal, escalation, or clear failure notice, leaving silence or only an unfulfilled promise to act.",
+          "boundary": "A clarifying question, appropriate refusal or escalation, or clear user-facing failure notice is a response under RESP-7; task success is a separate question. Exclude completed but unclear answers. Keep recorded execution causes (quota exhaustion or provider rejection) separate from model-behavior failures, and do not infer a current provider problem from a historical trace. The motivating traces predate RESP-7. Cause-specific grouping and example confirmation remain pending.",
+          "positive_trace_ids": [
+            "44862c87ab91d6a519e7d7f20a42cb3c",
+            "23d8c02949dfda9a3f1fc01352c861a6",
+            "f8b252caf57871e2070d567411e0fe2e"
+          ],
+          "close_negative_trace_ids": [
+            "80290bc1947180f8d6513afd8ce4ec72",
+            "b2d44f1891cba1343b973c261ddb90f9",
+            "263eb00c484d8fb7bea51ec3319c1fc9"
+          ],
+          "evaluator_type": "llm_judge",
+          "previous_proposed_evaluator_type": "code",
+          "mode_status": "final",
+          "evidence_role": "confirmed taxonomy examples, not the completed all-mode labeling matrix"
+        }
+      ],
+      "scope": "Finalize these three individual modes with their confirmed evidence and likely evaluator. Overall taxonomy remains incomplete against the 5–8-mode requirement. Preserve all initial annotations and current suggestion dispositions. Do not create or infer labels for other trace/mode pairs, claim a completed labeling pass, run judges, implement runtime changes, or perform Raindrop Workshop.",
+      "application_status": "applied_and_read_back",
+      "applied_pattern_revisions": {
+        "unsolicited_status_price": "dde0b0df8f7d3cba",
+        "answer_obscured_by_excess_detail": "c2cb76d8c4d54728",
+        "missing_usable_final_response": "9c58fdeebeb56799"
+      },
+      "verification": {
+        "original_annotations_unchanged": true,
+        "suggestions_unchanged": true,
+        "manifest_unchanged": true,
+        "labels_unchanged": true,
+        "final_modes": 3
+      }
+    },
+    {
+      "id": "hw4-two-additional-candidate-request-07",
+      "recorded_at": "2026-09-25T06:39:07Z",
+      "source": "explicit_human_request",
+      "human_statement": "Lets make up the 2 extra categories from teh 2 remaining examples to move on",
+      "action": "Draft two candidate categories from the existing observations on final-177 and final-215. Do not invent example traces, confirmations, requirements in force at trace time, scores or completed homework.",
+      "scope": "Candidate grouping only. Exact definitions, requirements, evaluator types and example membership remain pending review. A/B/C final modes, original notes, existing suggestion decisions, sample selections and labels are preserved. Raindrop remains deferred.",
+      "application_status": "applied_and_read_back",
+      "saved_candidate_revisions": {
+        "unsupported_cause_speculation": "0a4685ca53d0326b",
+        "unreadable_response_format": "650f47c6ebc09ff1"
+      },
+      "verification": {
+        "prior_final_modes_unchanged": true,
+        "original_annotations_unchanged": true,
+        "suggestions_unchanged": true,
+        "manifest_unchanged": true,
+        "labels_unchanged": true,
+        "new_final_modes": 0,
+        "new_scores": 0
+      }
+    },
+    {
+      "id": "hw4-policy-identifier-spec-approval-08",
+      "recorded_at": "2026-09-25T15:02:10Z",
+      "source": "explicit_human_approval",
+      "human_statement": "approve",
+      "approval_prompt": "Do you approve this specification change? Explain policies in plain English. Keep policy identifiers in internal trace records, not customer-facing answers, unless requested.",
+      "scope": "Approve the RESP-1 specification revision and consistent PURPOSE-1 wording only. Do not infer approval of mode definitions, example membership, close negatives, final labels, runtime edits, live-model runs, or Workshop.",
+      "requirement_before": "Cite the policy identifier for every claim derived from a policy document.",
+      "requirement_after": "Ground every policy claim in retrieved policy documents and preserve the supporting policy identifiers in internal trace records. Explain applicable policies in plain language in customer-facing answers; do not show raw policy identifiers unless the user explicitly requests them. Internal support-facing responses retain policy-identifier citations for policy claims.",
+      "motivating_observations": [
+        {
+          "scenario": "final-085",
+          "trace_id": "11ac4cc470cd4b49685a37852cecb3a9",
+          "annotation_ids": [
+            "522105d8-7fa3-462d-b9fb-25d2093ef03c"
+          ]
+        },
+        {
+          "scenario": "final-092",
+          "trace_id": "88471324f51094691b7a3f59294a32a2",
+          "annotation_ids": [
+            "54cd7f12-ceb7-4680-a832-ce199b1642ef"
+          ]
+        },
+        {
+          "scenario": "final-149",
+          "trace_id": "f7ba8b8eb26607d50ed27556e87d2aa8",
+          "annotation_ids": [
+            "46f88b87-f69f-490d-a5f1-cf20fc2ba9c2"
+          ]
+        },
+        {
+          "scenario": "final-249",
+          "trace_id": "be8f58e4ac6c021e8c7983aa493a89f4",
+          "annotation_ids": [
+            "ece5d42a-c269-48d8-bbeb-cb722575655d"
+          ]
+        },
+        {
+          "scenario": "final-115",
+          "trace_id": "69e1feb092880ca9171f3c59a71f8675",
+          "annotation_ids": [
+            "c09d940a-2235-45da-8b8b-28c444ca330a"
+          ]
+        },
+        {
+          "scenario": "final-138",
+          "trace_id": "2e67ef48c576d7708def5ef317c0faeb",
+          "annotation_ids": [
+            "85e93424-5837-4b13-94ac-fec2a86745a8"
+          ]
+        }
+      ],
+      "application_status": "applied_to_spec_and_recorded",
+      "historical_scope": "Motivating traces predate this revision and followed the old citation instruction. Any later label under the revised requirement must identify its requirement version rather than claiming the old agent disobeyed this newly approved rule.",
+      "pending": "Confirm taxonomy boundaries and positive/close-negative memberships; reconcile the earlier verbosity-mode citation exception with the new requirement before final labeling.",
+      "raindrop": "deferred"
+    },
+    {
+      "id": "hw4-policy-id-example-confirmation-09",
+      "recorded_at": "2026-09-25T21:59:34Z",
+      "source": "explicit_human_review_and_clarification",
+      "human_statements": [
+        "085 Did have the policy ID's\n092 has the policy ID\n149 also has the Polcy ID\n\n069 has it perfect.\n072 has it ...good.\n079 has it",
+        "075 thats what I meant",
+        "yes"
+      ],
+      "final_confirmation_prompt": "Got it—075, not 079. Should I mark its policy citations as acceptable for an internal-support answer, like 069 and 072?",
+      "review_packet_id": "hw4-remaining-taxonomy-review-20260925-02",
+      "mode": "unsolicited_internal_policy_identifiers",
+      "scope": "The student checked the six cases for the stated policy-ID category, confirming the customer-facing/internal-support boundary. Finalize this category with three positives and three close negatives and save only these six explicit per-category judgments; do not infer other trace/mode labels.",
+      "number_correction": {
+        "original": "079",
+        "corrected": "075",
+        "scope": "No decision recorded for final-079."
+      },
+      "decisions": [
+        {
+          "case_id": "A1",
+          "scenario": "final-085",
+          "trace_id": "11ac4cc470cd4b49685a37852cecb3a9",
+          "label": 1,
+          "meaning": "present"
+        },
+        {
+          "case_id": "A2",
+          "scenario": "final-092",
+          "trace_id": "88471324f51094691b7a3f59294a32a2",
+          "label": 1,
+          "meaning": "present"
+        },
+        {
+          "case_id": "A3",
+          "scenario": "final-149",
+          "trace_id": "f7ba8b8eb26607d50ed27556e87d2aa8",
+          "label": 1,
+          "meaning": "present"
+        },
+        {
+          "case_id": "A4",
+          "scenario": "final-069",
+          "trace_id": "70fa06d346c4eb870abbe05e863cc15d",
+          "label": 0,
+          "meaning": "absent"
+        },
+        {
+          "case_id": "A5",
+          "scenario": "final-072",
+          "trace_id": "a0f158324c6b0e60401334b346fdb699",
+          "label": 0,
+          "meaning": "absent"
+        },
+        {
+          "case_id": "A6",
+          "scenario": "final-075",
+          "trace_id": "0e69d44e50e93a6e87166ffabb5849b4",
+          "label": 0,
+          "meaning": "absent"
+        }
+      ],
+      "requirement_approval_id": "hw4-policy-identifier-spec-approval-08",
+      "historical_scope": "Assessed against revised RESP-1, not a claim that the old traces violated the old visible-citation requirement.",
+      "evaluator_scope": "Likely LLM-judge type retained as a contextual recommendation; no separate evaluator implementation/validation approval is inferred.",
+      "application_status": "applied_and_synced_remote_readback_verified",
+      "mode_revision": "34fa9458870043f5",
+      "binary_labels_saved": 6,
+      "langfuse_acknowledged": 6,
+      "langfuse_readbacks_verified": 6,
+      "verification_record": "analysis/state/policy_id_confirmation.json",
+      "raindrop": "deferred"
+    },
+    {
+      "id": "hw4-formatting-recheck-confirmation-10",
+      "recorded_at": "2026-09-25T22:12:12Z",
+      "source": "explicit_human_recheck",
+      "human_statement": "215 none.\n111 none\n140 none\n\nall good",
+      "review_prompt": "Inspect 215, 111 and 140 in the formatted view. Report any remaining layout problem or none; judge layout separately from excess information or policy IDs.",
+      "review_packet_id": "hw4-remaining-taxonomy-review-20260925-02",
+      "decisions": [
+        {
+          "scenario": "final-215",
+          "trace_id": "5bcc02aa2ef576b0873a738c7731feb7",
+          "session_id": "df4121e5-5510-447b-9e06-5a7a542dade7",
+          "formatting_failure_observed": false,
+          "annotation_id": "human-confirmation-format-final-215-20260925-b"
+        },
+        {
+          "scenario": "final-111",
+          "trace_id": "fbea98de885cdbc03acf4ecbcc4b202a",
+          "session_id": "64745ce8-15ce-4c52-b3c3-615ee271136b",
+          "formatting_failure_observed": false,
+          "annotation_id": "human-confirmation-format-final-111-20260925-b"
+        },
+        {
+          "scenario": "final-140",
+          "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+          "session_id": "9cdf80dd-d5cb-4595-9c75-0fdf6f8190fc",
+          "formatting_failure_observed": false,
+          "annotation_id": "human-confirmation-format-final-140-20260925-b"
+        }
+      ],
+      "scope": "No remaining formatting problem in the three reviewed displays only. Preserve original notes and unrelated content/price/policy-ID judgments. No blanket whole-trace pass and no new final-mode binary labels.",
+      "taxonomy_action": "Retire the unsupported unreadable_response_format draft from the active taxonomy after its originating example and two other proposed examples have no remaining formatting defect. Retain prior candidate and decision history; retirement does not assert that formatting can never fail or prove the cause of earlier display concerns.",
+      "requirement_action": "Do not add the unapproved formatting requirement to SPEC.md.",
+      "application_status": "applied_and_read_back",
+      "raindrop": "deferred",
+      "retired_mode_revision": "8e1aa5d0533b4abd",
+      "verification": {
+        "suggestions": true,
+        "manifest": true,
+        "labels": true,
+        "original_annotations_preserved": true,
+        "other_modes_preserved": true,
+        "exactly_three_followups": true
+      }
+    },
+    {
+      "id": "hw4-raw-field-spec-approval-11",
+      "recorded_at": "2026-09-25T22:21:43Z",
+      "source": "explicit_human_approval",
+      "human_statement": "yes",
+      "approval_prompt": "Should customer-facing answers translate raw fields such as `shipped_at: none` into plain English, unless technical details were requested?",
+      "requirement_id": "RESP-8",
+      "requirement_after": "In customer-facing answers, translate raw database field names and technical null or boolean values into plain English unless the user explicitly requests technical details. Preserve the meaning and uncertainty of the recorded data.",
+      "motivating_observation": {
+        "scenario": "final-136",
+        "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+        "annotation_id": "ef9e6fa8-7aa6-4409-a8bf-47dfdb4f012e"
+      },
+      "scope": "Approve the specification requirement only. Proposed category definition, neighboring-mode split, positive/negative memberships and final binary judgments remain subject to human review. Preserve the formatting-only decisions for 215, 111 and 140. No runtime edit, model run or Workshop approval inferred.",
+      "historical_scope": "Recorded traces predate RESP-8 and must be assessed with that requirement-version caveat.",
+      "application_status": "applied_to_spec_and_recorded_candidate_only",
+      "candidate_mode": "unrequested_technical_fields",
+      "candidate_revision": "9c46b7f631d5d06e",
+      "review_packet": "analysis/state/raw_field_review_packet.json",
+      "new_binary_scores": 0,
+      "raindrop": "deferred"
+    },
+    {
+      "id": "hw4-raw-field-example-review-12",
+      "recorded_at": "2026-09-25T22:36:57Z",
+      "source": "explicit_human_review",
+      "human_statement": "022--- still has shipped at none...not requested\n136 still has shipped...not requested.\n140 has it too...\n141 - remove policy info there... and absent plan engligh shipment wording.\n042 the format should be easier to review.\n210 has policy info and talking about the flag which is uneccesary.",
+      "review_packet_id": "hw4-raw-fields-review-20260925-03",
+      "mode": "unrequested_technical_fields",
+      "decisions": [
+        {
+          "case_id": "R1",
+          "scenario": "final-022",
+          "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0",
+          "human_statement": "022--- still has shipped at none...not requested",
+          "raw_field_judgment": "present",
+          "suggestion_status": "accepted",
+          "category_scope": "Unrequested shipped_at field present.",
+          "observation_id": "accepted-hw4-raw-fields-final-022-20260925"
+        },
+        {
+          "case_id": "R2",
+          "scenario": "final-136",
+          "trace_id": "b5f4aa3df97a7b05064492c6280647e3",
+          "human_statement": "136 still has shipped...not requested.",
+          "raw_field_judgment": "present",
+          "suggestion_status": "accepted",
+          "category_scope": "Unrequested shipped_at field present.",
+          "observation_id": "accepted-hw4-raw-fields-final-136-20260925"
+        },
+        {
+          "case_id": "R3",
+          "scenario": "final-140",
+          "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+          "human_statement": "140 has it too...",
+          "raw_field_judgment": "present",
+          "suggestion_status": "accepted",
+          "category_scope": "Unrequested shipped_at field present.",
+          "observation_id": "accepted-hw4-raw-fields-final-140-20260925"
+        },
+        {
+          "case_id": "R4",
+          "scenario": "final-141",
+          "trace_id": "cebc9a86476fc3e12830e622dcbb981c",
+          "human_statement": "141 - remove policy info there... and absent plan engligh shipment wording.",
+          "raw_field_judgment": "absent",
+          "suggestion_status": "accepted",
+          "category_scope": "Raw-field absence only; separate policy-information objection retained.",
+          "observation_id": "human-raw-review-final-141-20260925-c"
+        },
+        {
+          "case_id": "R5",
+          "scenario": "final-042",
+          "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+          "human_statement": "042 the format should be easier to review.",
+          "raw_field_judgment": "unresolved",
+          "suggestion_status": "pending",
+          "category_scope": "Readability concern is not an explicit raw-field judgment.",
+          "observation_id": "human-raw-review-final-042-20260925-c"
+        },
+        {
+          "case_id": "R6",
+          "scenario": "final-210",
+          "trace_id": "57fd75858461ca06585e648ed7d5a119",
+          "human_statement": "210 has policy info and talking about the flag which is uneccesary.",
+          "raw_field_judgment": "unresolved",
+          "suggestion_status": "rejected",
+          "category_scope": "Proposed close negative rejected; requested-field exception versus repetitive presentation needs clarification.",
+          "observation_id": "human-raw-review-final-210-20260925-c"
+        }
+      ],
+      "scope": "Record only the three clear positives and one clear raw-field negative as confirmed candidate examples. Save all other concerns without recasting them as absent, reversing earlier judgments, rewriting the requirement or finalizing the mode.",
+      "clarification_pending": {
+        "final-042": "The support prompt requests the exact product record; is the concern its presentation, not the requested data fields? No raw-field decision inferred.",
+        "final-210": "The support prompt explicitly requests the refund_eligible flag and 30-day policy. Is the objection excessive/repetitive presentation or a desired change to the requested-detail exception? Existing RESP-1 also permits/requires internal-support policy-ID citations.",
+        "final-141": "Policy-information objection preserved separately; no score inferred for an unspecified policy explanation versus raw-identifier target."
+      },
+      "current_mode_revision": "c76f2a0ef40a13a3",
+      "requirement_changes": [],
+      "binary_scores_created": 0,
+      "verification": {
+        "original_annotations_preserved": true,
+        "new_observations": 7,
+        "existing_labels_unchanged": true,
+        "manifest_unchanged": true,
+        "unrelated_modes_unchanged": true,
+        "unrelated_suggestions_unchanged": true,
+        "raw_field_finalization": false,
+        "new_binary_scores": 0,
+        "final_modes": 4,
+        "existing_binary_decisions": 6,
+        "raw_suggestion_statuses": [
+          {
+            "id": "hw4-raw-fields-final-022-20260925",
+            "status": "accepted"
+          },
+          {
+            "id": "hw4-raw-fields-final-136-20260925",
+            "status": "accepted"
+          },
+          {
+            "id": "hw4-raw-fields-final-140-20260925",
+            "status": "accepted"
+          },
+          {
+            "id": "hw4-raw-fields-final-141-20260925",
+            "status": "accepted"
+          },
+          {
+            "id": "hw4-raw-fields-final-042-20260925",
+            "status": "pending"
+          },
+          {
+            "id": "hw4-raw-fields-final-210-20260925",
+            "status": "rejected"
+          }
+        ]
+      },
+      "application_status": "applied_and_read_back_pending_boundary_clarification",
+      "raindrop": "deferred"
+    },
+    {
+      "id": "hw4-raw-field-audience-clarification-13",
+      "recorded_at": "2026-09-25T22:42:28Z",
+      "source": "explicit_human_requirement_and_example_clarification",
+      "human_statement": "I want shorted answer... and I dont think the raw flags should be delivred for merchant or User... only internal staff should get the flags",
+      "clarification_prompt": "For final-210's internal-support request, do you want a shorter answer that still includes requested details, or raw flags removed even when explicitly requested?",
+      "requirement_id": "RESP-8",
+      "requirement_before": "In customer-facing answers, translate raw database field names and technical null or boolean values into plain English unless the user explicitly requests technical details. Preserve the meaning and uncertainty of the recorded data.",
+      "requirement_after": "In answers intended for shoppers or merchants, translate raw database field names and technical null or boolean flags into plain English; do not expose raw fields or flags even when technical details are requested. Relevant raw fields and flags may be included only in internal staff-facing answers. A customer- or merchant-facing draft prepared for internal staff follows the external-audience rule. Preserve the meaning and uncertainty of the recorded data.",
+      "scope": "Revise the audience boundary: raw fields/flags only in internal staff-facing answers, never shopper/merchant-facing answers. Requests for technical detail do not override the external-audience rule. Record 210's raw-field absence separately from the desire for a shorter answer. Do not infer 042's still-unconfirmed category membership, finalization, runtime changes or any other labels.",
+      "naming": {
+        "before": "unrequested_technical_fields",
+        "after": "raw_fields_to_external_audiences",
+        "reason": "The old requested-detail exception no longer describes the rule. Same category lineage, not an additional mode."
+      },
+      "mode_revision": "ebdcdad840ced256",
+      "example_clarification": {
+        "scenario": "final-210",
+        "trace_id": "57fd75858461ca06585e648ed7d5a119",
+        "raw_field_judgment": "absent",
+        "shorter_answer_requested": true,
+        "annotation_id": "human-raw-audience-final-210-20260925-d",
+        "scope": "Allowed internal flag does not mean the entire response passes; no automatic existing excess-detail label."
+      },
+      "historical_scope": "All assessed traces predate the new RESP-8 wording. No claim that old runtime instructions already required this behavior.",
+      "prior_decisions": "Original 210 rejected suggestion remains in history; its ambiguity is resolved by the new explicit clarification, not an erased rejection. Preserve earlier 042 and formatting decisions.",
+      "remaining": "Confirm 042 as an internal-staff raw-field close negative separately from its readability concern; then consider finalization. No further confirmation of 022/136/140/141 or the 210 audience clarification is needed.",
+      "verification": {
+        "original_annotations_preserved": true,
+        "new_followups": 1,
+        "labels_unchanged": true,
+        "manifest_unchanged": true,
+        "other_modes_unchanged": true,
+        "prior_suggestion_decisions_preserved": true,
+        "untouched_suggestions_preserved": true,
+        "migrated_pending_example": true,
+        "candidate_positives": 3,
+        "candidate_close_negatives": 2,
+        "final_modes": 4,
+        "binary_scores": 6,
+        "no_live_model": true,
+        "runtime_unchanged": true
+      },
+      "new_binary_scores": 0,
+      "raindrop": "deferred"
+    },
+    {
+      "id": "hw4-raw-field-final-confirmation-14",
+      "recorded_at": "2026-09-25T22:49:52.822276+00:00",
+      "source": "explicit_human_confirmation",
+      "human_statement": "yes acceptable",
+      "confirmation_prompt": "042 is an internal-staff request for the exact product record. Are its fields acceptable, while keeping your formatting complaint separate?",
+      "scenario": "final-042",
+      "trace_id": "601f0c898f4cbbba3919f39b9a8ba993",
+      "raw_field_judgment": "absent",
+      "scope": "Confirm 042 as a raw-field close negative only; retain its formatting concern. Together with confirmations 12 and 13, finalize the audience-specific raw-field category and persist only its six explicit per-category decisions.",
+      "mode": "raw_fields_to_external_audiences",
+      "mode_revision": "5d6505da5cbc39ac",
+      "confirmed_positive_scenarios": [
+        "final-022",
+        "final-136",
+        "final-140"
+      ],
+      "confirmed_negative_scenarios": [
+        "final-141",
+        "final-210",
+        "final-042"
+      ],
+      "labels_saved_locally": 6,
+      "langfuse_synchronized": 0,
+      "langfuse_readback_verified": 0,
+      "synchronization_status": "pending_not_attempted",
+      "synchronization_blocker": "Approval service rejected local-app access because its authentication failed. This is not evidence that Langfuse credentials or the application itself failed. No escalation workaround or HTTP retry was attempted.",
+      "validation": "Existing ReviewState candidate-suggestion and finalization guards passed in a memory-only invocation; no server or model call. Authorized file changes use apply_patch.",
+      "evaluator_scope": "Likely evaluator type only; no judge implemented, trained or validated.",
+      "raindrop": "deferred",
+      "application_status": "finalized_locally_six_scores_pending_sync"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-09-25 06:53:02 UTC",
+  "reason": "User requested access to the final batch. Corrected a custom UI sampling prerequisite to match homework/module-2/hw4.md Part B: after drafting the taxonomy, not after finalizing 5–8 modes.",
+  "implementation": {
+    "sampling_requires": "All first 85 sample traces reviewed plus at least one active candidate/final mode.",
+    "unchanged_requirements": [
+      "At least three human-confirmed positives per final mode.",
+      "Three close negatives where available.",
+      "Explicit human finalization signoff and requirement/boundary records.",
+      "Final binary labels require a finalized mode, reviewed trace and evidence.",
+      "HW4 completion still requires 5–8 evidence-backed final modes."
+    ],
+    "files": [
+      "analysis/review_app/state.py",
+      "analysis/review_app/index.html",
+      "analysis/review_app/README.md",
+      "tests/test_review_app.py"
+    ]
+  },
+  "selection": {
+    "name": "uniform_final",
+    "count": 15,
+    "method": "uniform_final",
+    "seed": 20260918,
+    "selected_at": "2026-09-25T06:51:18.554002+00:00",
+    "source": {
+      "kind": "langfuse",
+      "description": "Live Langfuse · final HW3 scenarios",
+      "loaded_at": "2026-09-25T06:50:22.934755+00:00"
+    },
+    "taxonomy_at_selection": [
+      {
+        "name": "unsolicited_status_price",
+        "status": "final",
+        "definition": "A status-only answer includes a price that the user did not request and that is not needed to answer the question.",
+        "revision": "dde0b0df8f7d3cba"
+      },
+      {
+        "name": "answer_obscured_by_excess_detail",
+        "status": "final",
+        "definition": "Irrelevant explanation makes the actual answer to the user's question difficult to find or understand.",
+        "revision": "c2cb76d8c4d54728"
+      },
+      {
+        "name": "missing_usable_final_response",
+        "status": "final",
+        "definition": "The run ends without an answer, clarification, refusal, escalation, or clear failure notice, leaving silence or only an unfulfilled promise to act.",
+        "revision": "9c58fdeebeb56799"
+      },
+      {
+        "name": "unsupported_cause_speculation",
+        "status": "candidate",
+        "definition": "The assistant names a specific cause of a data inconsistency without evidence for that cause, even when presented as likely, unless the user explicitly requested possible causes.",
+        "revision": "0a4685ca53d0326b"
+      },
+      {
+        "name": "unreadable_response_format",
+        "status": "candidate",
+        "definition": "The final assistant response uses formatting or layout that materially obstructs reading the requested answer when displayed as intended in the supported interface.",
+        "revision": "650f47c6ebc09ff1"
+      }
+    ]
+  },
+  "selected_trace_ids": [
+    "67aff4031d8e0bd3d4322095746813d8",
+    "fe73e9caae3a71d4da3939cb6f47b2c3",
+    "2e4554ab3f8b3a6ae890a6f2133c8781",
+    "bb0a556b3e48c15f688561043d3b57e6",
+    "11ac4cc470cd4b49685a37852cecb3a9",
+    "b5f4aa3df97a7b05064492c6280647e3",
+    "88471324f51094691b7a3f59294a32a2",
+    "741d12d852640acedd0969cd74054140",
+    "f7ba8b8eb26607d50ed27556e87d2aa8",
+    "f2826551729602ba6a2745670dda89d6",
+    "be8f58e4ac6c021e8c7983aa493a89f4",
+    "69e1feb092880ca9171f3c59a71f8675",
+    "c6587501222775390914279bb4418a97",
+    "2e67ef48c576d7708def5ef317c0faeb",
+    "75174cca62ef290cbf69b742e2829163"
+  ],
+  "role_composition": {
+    "support": 2,
+    "merchant": 2,
+    "shopper": 11
+  },
+  "verified": {
+    "source_kind": "langfuse",
+    "source_loaded_at": "2026-09-25T06:50:22.934755+00:00",
+    "loaded_distinct_traces": 311,
+    "eligible_unreviewed_pool": 224,
+    "uniform_seed": 20260918,
+    "total_sampled": 100,
+    "reviewed": 85,
+    "final_batch_reviewed": 0,
+    "old_manifest_samples_preserved": true,
+    "annotations_unchanged": true,
+    "patterns_unchanged": true,
+    "suggestions_unchanged": true,
+    "labels_unchanged": true,
+    "final_modes": 3,
+    "candidate_modes": 2
+  },
+  "tests": {
+    "new_sampling_regressions": {
+      "passed": 8
+    },
+    "markdown_renderer": {
+      "passed": 14
+    },
+    "offline_python_suite": {
+      "passed": 169,
+      "skipped": 13,
+      "xfailed": 21,
+      "xpassed": 9
+    },
+    "git_diff_check": "passed"
+  },
+  "live_model_calls": 0,
+  "langfuse_score_writes": 0,
+  "workshop_status": "deferred",
+  "final_batch_new_mode_count": null,
+  "hw4_complete": false
+}

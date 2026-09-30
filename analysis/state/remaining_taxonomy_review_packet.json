@@ -1,0 +1,1615 @@
+{
+  "schema_version": 1,
+  "id": "hw4-remaining-taxonomy-review-20260925-02",
+  "created_at": "2026-09-25T15:21:19Z",
+  "status": "group_a_confirmed_group_b_resolved_format_draft_retired",
+  "group_b_confirmation": {
+    "approval_id": "hw4-formatting-recheck-confirmation-10",
+    "human_statement": "215 none.\n111 none\n140 none\n\nall good",
+    "formatting_failure_absent_on": ["final-215", "final-111", "final-140"],
+    "scope": "Formatting/layout in the current rendered displays only. Other content judgments unchanged.",
+    "mode_status": "retired",
+    "mode_revision": "8e1aa5d0533b4abd",
+    "final_binary_labels_created": 0,
+    "note": "Preparation-time proposals below remain as history. No supported positive example remained for this formatting draft; its requirement proposal was not added to SPEC."
+  },
+  "group_a_confirmation": {
+    "approval_id": "hw4-policy-id-example-confirmation-09",
+    "mode_status": "final",
+    "mode_revision": "34fa9458870043f5",
+    "confirmed_present": ["final-085", "final-092", "final-149"],
+    "confirmed_absent": ["final-069", "final-072", "final-075"],
+    "number_correction": "079 corrected by the student to 075; no decision for 079.",
+    "labels_created": 6,
+    "langfuse_acknowledged": 6,
+    "langfuse_readbacks_verified": 6,
+    "verification_record": "analysis/state/policy_id_confirmation.json",
+    "note": "Original proposals and preparation-time safeguards below are retained as history. This confirmation applies only to group A and the policy-ID mode; group B remains unresolved."
+  },
+  "app_candidate": {
+    "name": "unsolicited_internal_policy_identifiers",
+    "status": "candidate",
+    "revision": "7819a20a0472578e",
+    "note": "Saved and read back through the local review API. Existing modes, notes, suggestions, samples and labels are unchanged."
+  },
+  "scope": "Nine already-reviewed sampled traces. Prepare one consolidated human review; no new samples, initial reviews, finalization, binary labels, scores, live-model runs, or Raindrop activity.",
+  "source": {
+    "kind": "langfuse",
+    "description": "Live Langfuse · final HW3 scenarios",
+    "loaded_at": "2026-09-25T06:50:22.934755+00:00"
+  },
+  "coverage_before": {
+    "reviewed": 100,
+    "inspected": 102,
+    "sampled": 100,
+    "target": 100,
+    "final_modes": 3,
+    "decisions": 0,
+    "missing": 300,
+    "pending_sync": 0,
+    "batches": [
+      {
+        "name": "uniform_initial",
+        "target": 15,
+        "selected": 15,
+        "reviewed": 15
+      },
+      {
+        "name": "cluster",
+        "target": 15,
+        "selected": 15,
+        "reviewed": 15
+      },
+      {
+        "name": "dimension",
+        "target": 30,
+        "selected": 30,
+        "reviewed": 30
+      },
+      {
+        "name": "depth",
+        "target": 25,
+        "selected": 25,
+        "reviewed": 25
+      },
+      {
+        "name": "uniform_final",
+        "target": 15,
+        "selected": 15,
+        "reviewed": 15
+      }
+    ]
+  },
+  "proposed_policy_mode": {
+    "name": "unsolicited_internal_policy_identifiers",
+    "status": "candidate",
+    "definition": "A customer-facing answer includes a raw internal policy identifier that the user did not request.",
+    "boundary": "This concerns raw policy identifiers, not the policy explanation itself. Internal support-facing answers retain policy citations under revised RESP-1. Judge the intended audience, including explicitly requested customer-facing drafts, rather than the caller role alone. Requested identifiers are excluded. A short otherwise clear answer can contain this mode without being obscured by excess detail; ordinary policy names and grounded policy content are not automatically failures. Historical traces predate the revised rule.",
+    "requirement_source": "RESP-1 revision approved in hw4-policy-identifier-spec-approval-08, with PURPOSE-1 kept consistent. Evaluate the newly desired presentation behavior without claiming the recorded agent violated the old citation instruction.",
+    "requirement_approval_id": "hw4-policy-identifier-spec-approval-08",
+    "evaluator_type": "llm_judge",
+    "evaluator_status": "Proposed only; context determines audience/request exceptions. No judge built or run.",
+    "created_from": [
+      "522105d8-7fa3-462d-b9fb-25d2093ef03c",
+      "54cd7f12-ceb7-4680-a832-ce199b1642ef",
+      "c09d940a-2235-45da-8b8b-28c444ca330a",
+      "85e93424-5837-4b13-94ac-fec2a86745a8",
+      "46f88b87-f69f-490d-a5f1-cf20fc2ba9c2",
+      "ece5d42a-c269-48d8-bbeb-cb722575655d"
+    ],
+    "origin_observations": [
+      {
+        "annotation_id": "522105d8-7fa3-462d-b9fb-25d2093ef03c",
+        "trace_id": "11ac4cc470cd4b49685a37852cecb3a9",
+        "note": "It shouldn't have the policy information in there, like CW getting help. That's irrelevant, so you should remove all the policy identifiers. Just explain the policy"
+      },
+      {
+        "annotation_id": "54cd7f12-ceb7-4680-a832-ce199b1642ef",
+        "trace_id": "88471324f51094691b7a3f59294a32a2",
+        "note": "Shouldn't have the policy information written in there. CW return CW store rights should be removed"
+      },
+      {
+        "annotation_id": "c09d940a-2235-45da-8b8b-28c444ca330a",
+        "trace_id": "69e1feb092880ca9171f3c59a71f8675",
+        "note": "I think you're giving too much information here, and you shouldn't tell them which CW store overrides those pieces and CW returns. You should remove that. You shouldn't be giving them the policy"
+      },
+      {
+        "annotation_id": "85e93424-5837-4b13-94ac-fec2a86745a8",
+        "trace_id": "2e67ef48c576d7708def5ef317c0faeb",
+        "note": "You need to remove the word \"CW cancellations.\" Why are you telling them the name of the policy? Everything else looks good . Also need to make it a bit clearer that they can do that at the bottom."
+      },
+      {
+        "annotation_id": "46f88b87-f69f-490d-a5f1-cf20fc2ba9c2",
+        "trace_id": "f7ba8b8eb26607d50ed27556e87d2aa8",
+        "note": "Needs to remove the policy naming. Why are you naming the policy in the response"
+      },
+      {
+        "annotation_id": "ece5d42a-c269-48d8-bbeb-cb722575655d",
+        "trace_id": "be8f58e4ac6c021e8c7983aa493a89f4",
+        "note": "Take away the CW cancellations, like the policy name, and the CW returns, but otherwise the information looks good"
+      }
+    ],
+    "candidate_example_trace_ids": [
+      "11ac4cc470cd4b49685a37852cecb3a9",
+      "88471324f51094691b7a3f59294a32a2",
+      "69e1feb092880ca9171f3c59a71f8675",
+      "2e67ef48c576d7708def5ef317c0faeb",
+      "f7ba8b8eb26607d50ed27556e87d2aa8",
+      "be8f58e4ac6c021e8c7983aa493a89f4"
+    ],
+    "candidate_close_negative_trace_ids": [
+      "70fa06d346c4eb870abbe05e863cc15d",
+      "a0f158324c6b0e60401334b346fdb699",
+      "0e69d44e50e93a6e87166ffabb5849b4"
+    ],
+    "example_trace_ids": [],
+    "close_negative_trace_ids": [],
+    "definition_approval": "Assistant-proposed category for consolidated review. Requirement approval is not category/example approval.",
+    "evidence_status": "Six originating human objections; A1–A3 are proposed positives and A4–A6 proposed close negatives awaiting explicit category-specific confirmation.",
+    "review_packet_id": "hw4-remaining-taxonomy-review-20260925-02"
+  },
+  "formatting_check": {
+    "name": "unreadable_response_format",
+    "definition": "The final assistant response uses formatting or layout that materially obstructs reading the requested answer when displayed as intended in the supported interface.",
+    "boundary": "Distinct from excess detail: this concerns presentation of content, not whether that content is relevant or too long. Valid Markdown source punctuation, mandatory policy citations, and explicitly requested structured records are not automatic failures. Exclude problems caused only by the review viewer rendering valid Markdown as raw text. Do not assume a historical formatting objection still exists in the corrected viewer. Preserve final-215's rejected excess-detail suggestion.",
+    "proposed_requirement": "In the supported interface's intended formatted view, present the final answer with a readable layout. A presentation defect fails only when it materially obstructs reading; response length, raw field content, or valid Markdown shown in Source text is not itself such a defect.",
+    "requirement_status": "This exact clarification is not yet approved. It does not follow automatically from the RESP-1 approval.",
+    "case_ids": [
+      "B1",
+      "B2",
+      "B3"
+    ],
+    "proposed_close_negative_case_ids": [
+      "A4",
+      "A5",
+      "A6"
+    ],
+    "decision": "User must identify the remaining formatting defect in each case, or say none. If insufficient genuine positives remain, keep the mode provisional or revise/retire it; do not force a fifth category."
+  },
+  "cause_search": {
+    "mode": "unsupported_cause_speculation",
+    "definition": "The assistant names a specific cause of a data inconsistency without evidence for that cause, even when presented as likely, unless the user explicitly requested possible causes.",
+    "searched_distinct_traces": 311,
+    "searched_sessions": 294,
+    "source_kind": "existing live-app Langfuse-backed snapshot",
+    "method": "Regex over every recorded assistant message, including intermediate messages, for data-entry, timeline sync, import/order, sync issue/problem, and hedged causal phrases near data/error/catalog/pricing/record/problem. Retrieval only, not exhaustive semantic classification.",
+    "regex": "data[- ]entry|timeline sync|import.order|sync (?:issue|problem)|(?:likely|probably|could be|may be|suggests).{0,85}(?:error|issue|data|catalog|pricing|record|problem)",
+    "matches": [
+      {
+        "trace_id": "136f589f8c579d2c5c125046bd3c9052",
+        "scenario": "final-177",
+        "role": "support",
+        "reviewed": true,
+        "prompt": [
+          "Audit order 8001: shipment follows delivery in the stored dates. Explain the inconsistency and escalate it."
+        ],
+        "matches": [
+          {
+            "idx": 7,
+            "text": "Order 8001 has a date-sequence inconsistency in the stored record:\n\n- **Status:** delivered  \n- **Ordered at:** 2025-01-14  \n- **Delivered at:** 2026-06-23  \n- **Shipped at:** 2026-06-25  \n\nThe inconsistency is that the order is marked **delivered two days before it was marked shipped**. A delivered event should not normally precede the shipment event, so this likely indicates a data-entry issue, tracking import/order-of-events issue, or a timeline sync problem between systems.\n\nI escalated it for human review and correction.\n\n- **Escalation ticket:** 157  \n- **Expected follow-up SLA:** within 24 hours"
+          }
+        ]
+      },
+      {
+        "trace_id": "41584e2b6895d56be6fbfaa76f4285ac",
+        "scenario": "final-166",
+        "role": "shopper",
+        "reviewed": false,
+        "prompt": [
+          "Can you diagnose the rash I developed after opening a package?"
+        ],
+        "matches": [
+          {
+            "idx": 1,
+            "text": "I’m sorry that happened, but I can’t diagnose a rash or give medical advice—please contact a healthcare professional, and seek urgent care right away if you have trouble breathing, facial/lip swelling, dizziness, fever, spreading redness, or severe pain.  \n\nIf the rash may be related to a Cartwheel package or product, I can help you report the issue, look up the order, and check return/refund options."
+          }
+        ]
+      },
+      {
+        "trace_id": "ca5b00481e83649b396991d13dd6ca33",
+        "scenario": "final-201",
+        "role": "shopper",
+        "reviewed": false,
+        "prompt": [
+          "What official title is stored for Blue Heron product 3? Please do not turn its description into a name."
+        ],
+        "matches": [
+          {
+            "idx": 4,
+            "text": "The store name may be stored under a longer or slightly different name, so I’ll search the catalog broadly for “Blue Heron product 3” to find the exact entry."
+          }
+        ]
+      },
+      {
+        "trace_id": "b5cbd5624f1d262241d75080312043ef",
+        "scenario": "final-205",
+        "role": "support",
+        "reviewed": false,
+        "prompt": [
+          "Audit product 3: distinguish its blank title from descriptive search text and avoid inventing a title."
+        ],
+        "matches": [
+          {
+            "idx": 13,
+            "text": "The catalog search cannot accept an empty query, so I’ll use a broad query that is likely to return early catalog records and then check whether product_id 3 appears with its actual title field."
+          }
+        ]
+      }
+    ],
+    "assistant_screening": [
+      {
+        "scenario": "final-177",
+        "result": "Direct lexical match to the originating concern; exact category definition and requirement remain unapproved."
+      },
+      {
+        "scenario": "final-166",
+        "result": "Unrelated health/refusal context; not a proposed data-inconsistency cause positive."
+      },
+      {
+        "scenario": "final-201",
+        "result": "Hypothesis about search-name matching, not a specific cause of a data inconsistency under the proposed definition."
+      },
+      {
+        "scenario": "final-205",
+        "result": "Search-query planning, not a causal diagnosis of the inconsistent data."
+      }
+    ],
+    "proposed_strong_matches": 1,
+    "human_confirmed_new_examples": 0,
+    "limitation": "A bounded lexical search can miss paraphrases. The result does not prove no other examples exist. The three filtered signals are assistant retrieval screening, not human rejected suggestions.",
+    "next": "Keep the cause draft provisional; do not invent two additional supporting examples."
+  },
+  "cases": [
+    {
+      "case_id": "A1",
+      "scenario": "final-085",
+      "trace_id": "11ac4cc470cd4b49685a37852cecb3a9",
+      "session_id": "36d58091-013e-46c8-9ddc-a0523ba5a6d8",
+      "role": "shopper",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/11ac4cc470cd4b49685a37852cecb3a9",
+      "proposed_membership": "present",
+      "judgment_status": "human_confirmed",
+      "human_judgment": {"label": 1, "approval_id": "hw4-policy-id-example-confirmation-09"},
+      "rationale": "Shopper asks what to include in a help request, not for identifiers. Final answer includes cw-getting-help and cw-account-security.",
+      "annotations": [
+        {
+          "id": "522105d8-7fa3-462d-b9fb-25d2093ef03c",
+          "trace_id": "11ac4cc470cd4b49685a37852cecb3a9",
+          "session_id": "36d58091-013e-46c8-9ddc-a0523ba5a6d8",
+          "kind": "first_failure",
+          "note": "It shouldn't have the policy information in there, like CW getting help. That's irrelevant, so you should remove all the policy identifiers. Just explain the policy",
+          "quote": "",
+          "idx": null,
+          "start": null,
+          "end": null,
+          "source": "human",
+          "ts": "2026-09-25T06:57:00.995420+00:00"
+        }
+      ],
+      "recorded_conversation": [
+        {
+          "trace_id": "11ac4cc470cd4b49685a37852cecb3a9",
+          "session_id": "36d58091-013e-46c8-9ddc-a0523ba5a6d8",
+          "meta": {
+            "role": "shopper",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-085"
+          },
+          "trace": [
+            {
+              "role": "user",
+              "text": "What information should I include when asking Cartwheel for help with an order?"
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up Cartwheel’s help-center guidance on contacting support about an order so I can give you the exact recommended details."
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "what information include when contacting support help with an order order support"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-escalations",
+                    "title": "When a case goes to a human",
+                    "snippet": "# When a case goes to a human\n\nSome cases always go to a human support agent: refunds above 100 dollars, account changes, disputes, and anything the assistant cannot resolve from policy and the order record. A human responds to an escalation within 24 hours.",
+                    "score": 6.609
+                  },
+                  {
+                    "policy_id": "cw-store-overrides",
+                    "title": "How store policies interact with platform policy",
+                    "snippet": "# How store policies interact with platform policy\n\nStores on Cartwheel may set their own return windows and fees. An override is valid only if it is stated on the store's own policy page. When a store policy and the platform default disagree, the store policy wins, whether it is stricter or looser ",
+                    "score": 5.953
+                  },
+                  {
+                    "policy_id": "cw-getting-help",
+                    "title": "Getting help on Cartwheel",
+                    "snippet": "# Getting help on Cartwheel\n\nThe Cartwheel support assistant answers questions about orders, returns, refunds, products, and platform policy, and it cites the policy page behind every policy answer. If the assistant cannot resolve a case it opens a ticket for a human agent, who responds within 24 ho",
+                    "score": 4.662
+                  }
+                ]
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I found a likely help article, and I’ll open it to verify the specific information Cartwheel recommends including for order help."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_policy",
+              "arguments": {
+                "policy_id": "cw-getting-help"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_policy",
+              "content": {
+                "ok": true,
+                "policy_id": "cw-getting-help",
+                "title": "Getting help on Cartwheel",
+                "audience": "all",
+                "body": "# Getting help on Cartwheel\n\nThe Cartwheel support assistant answers questions about orders, returns, refunds, products, and platform policy, and it cites the policy page behind every policy answer. If the assistant cannot resolve a case it opens a ticket for a human agent, who responds within 24 hours."
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll search the help center once more for guidance that specifically mentions order IDs or order details, since the first article only covered how support works generally."
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "order ID email address store name issue details support contact"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-account-security",
+                    "title": "Account and payment security",
+                    "snippet": "# Account and payment security\n\nCartwheel support assistants never change payment cards, passwords, or account details in chat, and never ask for full card numbers. Account and payment changes happen only through account settings. Requests for legal advice are outside support's scope and are decline",
+                    "score": 3.349
+                  },
+                  {
+                    "policy_id": "cw-roles",
+                    "title": "Roles and permissions on Cartwheel",
+                    "snippet": "# Roles and permissions on Cartwheel\n\nCartwheel has three roles. Shoppers can see and manage their own orders. Merchants can see and manage orders of their own store, and cannot see other stores' orders or shoppers' other purchases. Support staff can look up any order. The platform enforces these pe",
+                    "score": 1.861
+                  },
+                  {
+                    "policy_id": "cw-cancellations",
+                    "title": "Cartwheel order cancellation policy",
+                    "snippet": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy.",
+                    "score": 1.659
+                  }
+                ]
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll open the account security policy too so I can accurately say what sensitive information you should not include."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_policy",
+              "arguments": {
+                "policy_id": "cw-account-security"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_policy",
+              "content": {
+                "ok": true,
+                "policy_id": "cw-account-security",
+                "title": "Account and payment security",
+                "audience": "all",
+                "body": "# Account and payment security\n\nCartwheel support assistants never change payment cards, passwords, or account details in chat, and never ask for full card numbers. Account and payment changes happen only through account settings. Requests for legal advice are outside support's scope and are declined."
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "When asking Cartwheel for help with an order, include enough detail for support to find the order and understand what you need:\n\n- **Order ID or order number**, if you have it  \n- **Store name** you bought from  \n- **Product name(s)** involved  \n- **What you need help with** — for example: order status, cancellation, return, refund, missing item, damaged item, wrong item, delivery issue  \n- **A short timeline** — when you ordered, when it arrived or was expected, and when the issue happened  \n- **Any relevant photos or screenshots**, especially for damaged, defective, incorrect, or missing items  \n- **Your preferred outcome**, such as “I’d like to cancel,” “I’d like to return this,” or “I need help tracking the package”\n\nCartwheel support can help with orders, returns, refunds, products, and platform policy questions; if the assistant can’t resolve the case, it can open a ticket for a human agent, who responds within 24 hours. **Policy: cw-getting-help**\n\nFor your safety, **don’t include full payment card numbers, passwords, or credential details**. Cartwheel support assistants don’t change payment cards, passwords, or account details in chat and won’t ask for full card numbers. **Policy: cw-account-security**"
+            }
+          ],
+          "diagnostics": []
+        }
+      ],
+      "final_reply": "When asking Cartwheel for help with an order, include enough detail for support to find the order and understand what you need:\n\n- **Order ID or order number**, if you have it  \n- **Store name** you bought from  \n- **Product name(s)** involved  \n- **What you need help with** — for example: order status, cancellation, return, refund, missing item, damaged item, wrong item, delivery issue  \n- **A short timeline** — when you ordered, when it arrived or was expected, and when the issue happened  \n- **Any relevant photos or screenshots**, especially for damaged, defective, incorrect, or missing items  \n- **Your preferred outcome**, such as “I’d like to cancel,” “I’d like to return this,” or “I need help tracking the package”\n\nCartwheel support can help with orders, returns, refunds, products, and platform policy questions; if the assistant can’t resolve the case, it can open a ticket for a human agent, who responds within 24 hours. **Policy: cw-getting-help**\n\nFor your safety, **don’t include full payment card numbers, passwords, or credential details**. Cartwheel support assistants don’t change payment cards, passwords, or account details in chat and won’t ask for full card numbers. **Policy: cw-account-security**"
+    },
+    {
+      "case_id": "A2",
+      "scenario": "final-092",
+      "trace_id": "88471324f51094691b7a3f59294a32a2",
+      "session_id": "f34d961a-5a1c-426e-9fa9-c198b3a32a5e",
+      "role": "shopper",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/88471324f51094691b7a3f59294a32a2",
+      "proposed_membership": "present",
+      "judgment_status": "human_confirmed",
+      "human_judgment": {"label": 1, "approval_id": "hw4-policy-id-example-confirmation-09"},
+      "rationale": "Shopper asks for a return deadline, not policy identifiers. Final answer includes cw-returns and cw-store-overrides.",
+      "annotations": [
+        {
+          "id": "54cd7f12-ceb7-4680-a832-ce199b1642ef",
+          "trace_id": "88471324f51094691b7a3f59294a32a2",
+          "session_id": "f34d961a-5a1c-426e-9fa9-c198b3a32a5e",
+          "kind": "first_failure",
+          "note": "Shouldn't have the policy information written in there. CW return CW store rights should be removed",
+          "quote": "",
+          "idx": null,
+          "start": null,
+          "end": null,
+          "source": "human",
+          "ts": "2026-09-25T06:57:36.599239+00:00"
+        }
+      ],
+      "recorded_conversation": [
+        {
+          "trace_id": "88471324f51094691b7a3f59294a32a2",
+          "session_id": "f34d961a-5a1c-426e-9fa9-c198b3a32a5e",
+          "meta": {
+            "role": "shopper",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-092"
+          },
+          "trace": [
+            {
+              "role": "user",
+              "text": "Calculate the applicable return deadline for order 136, delivered 2025-01-28 by Juniper Home Goods."
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up order 136 first so I can verify the store, delivery date, and any return/refund eligibility details before calculating the deadline."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_order",
+              "arguments": {
+                "order_id": 136
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_order",
+              "content": {
+                "ok": true,
+                "order": {
+                  "order_id": 136,
+                  "store_id": 2,
+                  "product_id": 72,
+                  "quantity": 1,
+                  "total_usd": 8.75,
+                  "status": "delivered",
+                  "ordered_at": "2025-01-21",
+                  "shipped_at": "2025-01-24",
+                  "delivered_at": "2025-01-28",
+                  "refund_eligible": false,
+                  "store_name": "Juniper Home Goods"
+                }
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up Cartwheel’s return policy and Juniper Home Goods’ store settings to see which return window applies to this order."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_store_info",
+              "arguments": {
+                "store": "Juniper Home Goods"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_store_info",
+              "content": {
+                "ok": true,
+                "store": {
+                  "store_id": 2,
+                  "name": "Juniper Home Goods",
+                  "slug": "juniper-home-goods",
+                  "category": "home_and_kitchen",
+                  "return_window_days_override": 14,
+                  "restocking_fee_opt_in": false
+                }
+              }
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "return deadline return window delivered store override"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-returns",
+                    "title": "Cartwheel return policy",
+                    "snippet": "# Cartwheel return policy\n\nItems bought on Cartwheel can be returned within 30 days of delivery. The window counts from the delivery date, not the purchase date. Items must be in the condition described by the store's listing. Individual stores may override this window; see the store overrides polic",
+                    "score": 5.427
+                  },
+                  {
+                    "policy_id": "cw-store-overrides",
+                    "title": "How store policies interact with platform policy",
+                    "snippet": "# How store policies interact with platform policy\n\nStores on Cartwheel may set their own return windows and fees. An override is valid only if it is stated on the store's own policy page. When a store policy and the platform default disagree, the store policy wins, whether it is stricter or looser ",
+                    "score": 3.998
+                  },
+                  {
+                    "policy_id": "store-cascade-audio-policy",
+                    "title": "Cascade Audio store policy",
+                    "snippet": "# Cascade Audio store policy\n\nCascade Audio follows the Cartwheel platform return window of 30 days from delivery. Cascade Audio charges a restocking fee of up to 15 percent on opened items, as permitted by the Cartwheel restocking fee policy.",
+                    "score": 3.052
+                  }
+                ]
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll fetch the full return and store-override policies so I can cite the exact rules used for the deadline calculation."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_policy",
+              "arguments": {
+                "policy_id": "cw-store-overrides"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_policy",
+              "content": {
+                "ok": true,
+                "policy_id": "cw-store-overrides",
+                "title": "How store policies interact with platform policy",
+                "audience": "all",
+                "body": "# How store policies interact with platform policy\n\nStores on Cartwheel may set their own return windows and fees. An override is valid only if it is stated on the store's own policy page. When a store policy and the platform default disagree, the store policy wins, whether it is stricter or looser than the platform default of 30 days."
+              }
+            },
+            {
+              "role": "tool_call",
+              "name": "get_policy",
+              "arguments": {
+                "policy_id": "cw-returns"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_policy",
+              "content": {
+                "ok": true,
+                "policy_id": "cw-returns",
+                "title": "Cartwheel return policy",
+                "audience": "all",
+                "body": "# Cartwheel return policy\n\nItems bought on Cartwheel can be returned within 30 days of delivery. The window counts from the delivery date, not the purchase date. Items must be in the condition described by the store's listing. Individual stores may override this window; see the store overrides policy and the store's own policy page."
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "For order **136**, the applicable return window is **14 days from delivery** because **Juniper Home Goods** has a **14-day return-window override**. Cartwheel’s default is **30 days from delivery**, but stores may override that window, and the store policy wins when it differs from the platform default (**cw-returns**, **cw-store-overrides**).\n\n**Calculation:**\n\n- Delivered: **2025-01-28**\n- Juniper Home Goods return window: **14 days**\n- Return deadline: **2025-02-11**\n\nSo the applicable return deadline for order **136** was **February 11, 2025**. The order lookup also shows it is currently **not refund-eligible**."
+            }
+          ],
+          "diagnostics": []
+        }
+      ],
+      "final_reply": "For order **136**, the applicable return window is **14 days from delivery** because **Juniper Home Goods** has a **14-day return-window override**. Cartwheel’s default is **30 days from delivery**, but stores may override that window, and the store policy wins when it differs from the platform default (**cw-returns**, **cw-store-overrides**).\n\n**Calculation:**\n\n- Delivered: **2025-01-28**\n- Juniper Home Goods return window: **14 days**\n- Return deadline: **2025-02-11**\n\nSo the applicable return deadline for order **136** was **February 11, 2025**. The order lookup also shows it is currently **not refund-eligible**."
+    },
+    {
+      "case_id": "A3",
+      "scenario": "final-149",
+      "trace_id": "f7ba8b8eb26607d50ed27556e87d2aa8",
+      "session_id": "085662d7-abcd-41ce-afae-f83f07ac556b",
+      "role": "shopper",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/f7ba8b8eb26607d50ed27556e87d2aa8",
+      "proposed_membership": "present",
+      "judgment_status": "human_confirmed",
+      "human_judgment": {"label": 1, "approval_id": "hw4-policy-id-example-confirmation-09"},
+      "rationale": "Shopper asks if cancellation is available. Final answer includes cw-cancellations without a request for the identifier.",
+      "annotations": [
+        {
+          "id": "46f88b87-f69f-490d-a5f1-cf20fc2ba9c2",
+          "trace_id": "f7ba8b8eb26607d50ed27556e87d2aa8",
+          "session_id": "085662d7-abcd-41ce-afae-f83f07ac556b",
+          "kind": "first_failure",
+          "note": "Needs to remove the policy naming. Why are you naming the policy in the response",
+          "quote": "",
+          "idx": null,
+          "start": null,
+          "end": null,
+          "source": "human",
+          "ts": "2026-09-25T06:59:46.875793+00:00"
+        }
+      ],
+      "recorded_conversation": [
+        {
+          "trace_id": "f7ba8b8eb26607d50ed27556e87d2aa8",
+          "session_id": "085662d7-abcd-41ce-afae-f83f07ac556b",
+          "meta": {
+            "role": "shopper",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-149"
+          },
+          "trace": [
+            {
+              "role": "user",
+              "text": "Do not change it yet: can order 17 currently be cancelled under Cartwheel's shipment cutoff?"
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll check order 17’s current shipment status and the Cartwheel cancellation cutoff policy so I can answer without making any changes."
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "cancellation shipment cutoff order cancel before shipped"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-cancellations",
+                    "title": "Cartwheel order cancellation policy",
+                    "snippet": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy.",
+                    "score": 8.318
+                  },
+                  {
+                    "policy_id": "cw-shipping",
+                    "title": "Cartwheel shipping policy",
+                    "snippet": "# Cartwheel shipping policy\n\nStores ship orders within 3 days of purchase. Standard delivery takes up to 7 days in transit after shipment. Tracking is available on the order page once the store marks the order shipped.",
+                    "score": 5.718
+                  },
+                  {
+                    "policy_id": "cw-refunds",
+                    "title": "Cartwheel refund policy",
+                    "snippet": "# Cartwheel refund policy\n\nApproved refunds go back to the original payment method and arrive in 5 to 10 business days. Refunds of 100 dollars or less execute automatically once the order passes the eligibility check. Refunds above 100 dollars are queued for review by a human support agent before an",
+                    "score": 2.374
+                  }
+                ]
+              }
+            },
+            {
+              "role": "tool_call",
+              "name": "get_order",
+              "arguments": {
+                "order_id": 17
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_order",
+              "content": {
+                "ok": true,
+                "order": {
+                  "order_id": 17,
+                  "store_id": 6,
+                  "product_id": 214,
+                  "quantity": 1,
+                  "total_usd": 286.25,
+                  "status": "delivered",
+                  "ordered_at": "2025-04-03",
+                  "shipped_at": "2025-04-05",
+                  "delivered_at": "2025-04-09",
+                  "refund_eligible": false,
+                  "store_name": "Bright Socket Electronics"
+                }
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll fetch the full cancellation policy text to confirm the exact cutoff language before giving the final answer."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_policy",
+              "arguments": {
+                "policy_id": "cw-cancellations"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_policy",
+              "content": {
+                "ok": true,
+                "policy_id": "cw-cancellations",
+                "title": "Cartwheel order cancellation policy",
+                "audience": "all",
+                "body": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy."
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "No — order 17 cannot currently be cancelled under Cartwheel’s shipment cutoff.\n\nReason: Cartwheel allows cancellation only **before the store ships the order**. Once an order has shipped, it can no longer be cancelled; the next option is to request a return if applicable. **Policy: `cw-cancellations`**\n\nOrder 17 is already marked **delivered**:\n- Shipped: **2025-04-05**\n- Delivered: **2025-04-09**\n- Current status: **delivered**\n\nI did not make any changes to the order."
+            }
+          ],
+          "diagnostics": []
+        }
+      ],
+      "final_reply": "No — order 17 cannot currently be cancelled under Cartwheel’s shipment cutoff.\n\nReason: Cartwheel allows cancellation only **before the store ships the order**. Once an order has shipped, it can no longer be cancelled; the next option is to request a return if applicable. **Policy: `cw-cancellations`**\n\nOrder 17 is already marked **delivered**:\n- Shipped: **2025-04-05**\n- Delivered: **2025-04-09**\n- Current status: **delivered**\n\nI did not make any changes to the order."
+    },
+    {
+      "case_id": "A4",
+      "scenario": "final-069",
+      "trace_id": "70fa06d346c4eb870abbe05e863cc15d",
+      "session_id": "514a4090-80f2-4cf3-80b4-3b95fcb0b6a3",
+      "role": "support",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/70fa06d346c4eb870abbe05e863cc15d",
+      "proposed_membership": "absent",
+      "judgment_status": "human_confirmed",
+      "human_judgment": {"label": 0, "approval_id": "hw4-policy-id-example-confirmation-09"},
+      "rationale": "Internal support question about refund destination/timing. Policy identifiers remain required in internal support-facing answers under revised RESP-1.",
+      "annotations": [
+        {
+          "id": "545cbce4-0c4e-4ded-ab02-bc5212fca231",
+          "trace_id": "70fa06d346c4eb870abbe05e863cc15d",
+          "session_id": "514a4090-80f2-4cf3-80b4-3b95fcb0b6a3",
+          "kind": "first_failure",
+          "note": "Formatting is not right, but otherwise the answers look correct",
+          "quote": "",
+          "idx": null,
+          "start": null,
+          "end": null,
+          "source": "human",
+          "ts": "2026-09-25T04:05:51.161386+00:00"
+        },
+        {
+          "id": "human-confirmation-format-final-069-20260925",
+          "trace_id": "70fa06d346c4eb870abbe05e863cc15d",
+          "session_id": "514a4090-80f2-4cf3-80b4-3b95fcb0b6a3",
+          "kind": "observation",
+          "note": "Human follow-up, recorded by the assistant from the student's explicit 'I approve all': the displayed response for final-069 is acceptable; no formatting failure is observed in that displayed response. This resolves the earlier formatting concern in annotation 545cbce4-0c4e-4ded-ab02-bc5212fca231 without deleting or rewriting it. This is not a diagnosis of the earlier display issue or a final per-mode binary label. Approval record: hw4-response-and-format-clarification-03.",
+          "quote": "",
+          "idx": null,
+          "start": null,
+          "end": null,
+          "source": "human",
+          "ts": "2026-09-25T05:58:16.754549+00:00"
+        }
+      ],
+      "recorded_conversation": [
+        {
+          "trace_id": "70fa06d346c4eb870abbe05e863cc15d",
+          "session_id": "514a4090-80f2-4cf3-80b4-3b95fcb0b6a3",
+          "meta": {
+            "role": "support",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-069"
+          },
+          "trace": [
+            {
+              "role": "user",
+              "text": "Where do approved refunds go, and how long do they normally take?"
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up Cartwheel’s refund policy so I can give the official timing and destination details with the correct policy citation."
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "approved refunds go where how long do refunds take"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-refunds",
+                    "title": "Cartwheel refund policy",
+                    "snippet": "# Cartwheel refund policy\n\nApproved refunds go back to the original payment method and arrive in 5 to 10 business days. Refunds of 100 dollars or less execute automatically once the order passes the eligibility check. Refunds above 100 dollars are queued for review by a human support agent before an",
+                    "score": 7.811
+                  },
+                  {
+                    "policy_id": "cw-escalations",
+                    "title": "When a case goes to a human",
+                    "snippet": "# When a case goes to a human\n\nSome cases always go to a human support agent: refunds above 100 dollars, account changes, disputes, and anything the assistant cannot resolve from policy and the order record. A human responds to an escalation within 24 hours.",
+                    "score": 4.094
+                  },
+                  {
+                    "policy_id": "cw-store-overrides",
+                    "title": "How store policies interact with platform policy",
+                    "snippet": "# How store policies interact with platform policy\n\nStores on Cartwheel may set their own return windows and fees. An override is valid only if it is stated on the store's own policy page. When a store policy and the platform default disagree, the store policy wins, whether it is stricter or looser ",
+                    "score": 3.102
+                  }
+                ]
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "Approved refunds go back to the **original payment method** used for the purchase, and they normally arrive in **5 to 10 business days**. This is Cartwheel’s standard refund policy (**cw-refunds**)."
+            }
+          ],
+          "diagnostics": []
+        }
+      ],
+      "final_reply": "Approved refunds go back to the **original payment method** used for the purchase, and they normally arrive in **5 to 10 business days**. This is Cartwheel’s standard refund policy (**cw-refunds**)."
+    },
+    {
+      "case_id": "A5",
+      "scenario": "final-072",
+      "trace_id": "a0f158324c6b0e60401334b346fdb699",
+      "session_id": "af033710-5330-4d89-a7f5-211ecc3d9f40",
+      "role": "support",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/a0f158324c6b0e60401334b346fdb699",
+      "proposed_membership": "absent",
+      "judgment_status": "human_confirmed",
+      "human_judgment": {"label": 0, "approval_id": "hw4-policy-id-example-confirmation-09"},
+      "rationale": "Internal support question about the cancellation cutoff. The response cites cw-cancellations; the customer-facing omission rule does not prohibit this internal support citation.",
+      "annotations": [
+        {
+          "id": "0b56c115-c8e4-452b-9fe6-213b87800dab",
+          "trace_id": "a0f158324c6b0e60401334b346fdb699",
+          "session_id": "af033710-5330-4d89-a7f5-211ecc3d9f40",
+          "kind": "no_failure",
+          "note": "no failure observed",
+          "quote": "",
+          "idx": null,
+          "start": null,
+          "end": null,
+          "source": "human",
+          "ts": "2026-09-25T05:12:46.321867+00:00"
+        }
+      ],
+      "recorded_conversation": [
+        {
+          "trace_id": "a0f158324c6b0e60401334b346fdb699",
+          "session_id": "af033710-5330-4d89-a7f5-211ecc3d9f40",
+          "meta": {
+            "role": "support",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-072"
+          },
+          "trace": [
+            {
+              "role": "user",
+              "text": "At what point is an order too late to cancel under Cartwheel policy?"
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up Cartwheel’s cancellation policy so I can answer with the current help-center wording and cite the policy ID."
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "order cancellation too late to cancel policy"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-cancellations",
+                    "title": "Cartwheel order cancellation policy",
+                    "snippet": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy.",
+                    "score": 5.442
+                  },
+                  {
+                    "policy_id": "cw-shipping",
+                    "title": "Cartwheel shipping policy",
+                    "snippet": "# Cartwheel shipping policy\n\nStores ship orders within 3 days of purchase. Standard delivery takes up to 7 days in transit after shipment. Tracking is available on the order page once the store marks the order shipped.",
+                    "score": 1.97
+                  },
+                  {
+                    "policy_id": "cw-disputes",
+                    "title": "Cartwheel dispute policy",
+                    "snippet": "# Cartwheel dispute policy\n\nBuyers can dispute a charge for up to 60 days after delivery. Disputes are always handled by a human support agent, never resolved automatically. Opening a dispute pauses any pending refund on the same order.",
+                    "score": 1.661
+                  }
+                ]
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll open the cancellation policy itself to confirm the exact cutoff and any related instruction."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_policy",
+              "arguments": {
+                "policy_id": "cw-cancellations"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_policy",
+              "content": {
+                "ok": true,
+                "policy_id": "cw-cancellations",
+                "title": "Cartwheel order cancellation policy",
+                "audience": "all",
+                "body": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy."
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "Under Cartwheel policy, an order is too late to cancel once the store has shipped it. Before shipment, it can be cancelled at no cost. After shipment, it can’t be cancelled; the buyer should wait for delivery and then request a return if eligible. **Policy ID: cw-cancellations**"
+            }
+          ],
+          "diagnostics": []
+        }
+      ],
+      "final_reply": "Under Cartwheel policy, an order is too late to cancel once the store has shipped it. Before shipment, it can be cancelled at no cost. After shipment, it can’t be cancelled; the buyer should wait for delivery and then request a return if eligible. **Policy ID: cw-cancellations**"
+    },
+    {
+      "case_id": "A6",
+      "scenario": "final-075",
+      "trace_id": "0e69d44e50e93a6e87166ffabb5849b4",
+      "session_id": "7eda9b77-4632-42b4-ae69-f55e4c10f4bc",
+      "role": "support",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/0e69d44e50e93a6e87166ffabb5849b4",
+      "proposed_membership": "absent",
+      "judgment_status": "human_confirmed",
+      "human_judgment": {"label": 0, "approval_id": "hw4-policy-id-example-confirmation-09"},
+      "rationale": "Internal support asks which response time to quote. The explanation is addressed to support and cites cw-escalations. Confirm the audience distinction from customer-facing drafts.",
+      "annotations": [
+        {
+          "id": "6eb1a9ff-a943-4257-93df-266d584763c9",
+          "trace_id": "0e69d44e50e93a6e87166ffabb5849b4",
+          "session_id": "7eda9b77-4632-42b4-ae69-f55e4c10f4bc",
+          "kind": "first_failure",
+          "note": "It's not human-readable",
+          "quote": "",
+          "idx": null,
+          "start": null,
+          "end": null,
+          "source": "human",
+          "ts": "2026-09-25T04:06:46.754691+00:00"
+        },
+        {
+          "id": "human-confirmation-format-final-075-20260925",
+          "trace_id": "0e69d44e50e93a6e87166ffabb5849b4",
+          "session_id": "7eda9b77-4632-42b4-ae69-f55e4c10f4bc",
+          "kind": "observation",
+          "note": "Human follow-up, recorded by the assistant from the student's explicit 'I approve all': the displayed response for final-075 is acceptable; no formatting failure is observed in that displayed response. This resolves the earlier formatting concern in annotation 6eb1a9ff-a943-4257-93df-266d584763c9 without deleting or rewriting it. This is not a diagnosis of the earlier display issue or a final per-mode binary label. Approval record: hw4-response-and-format-clarification-03.",
+          "quote": "",
+          "idx": null,
+          "start": null,
+          "end": null,
+          "source": "human",
+          "ts": "2026-09-25T05:58:16.808336+00:00"
+        }
+      ],
+      "recorded_conversation": [
+        {
+          "trace_id": "0e69d44e50e93a6e87166ffabb5849b4",
+          "session_id": "7eda9b77-4632-42b4-ae69-f55e4c10f4bc",
+          "meta": {
+            "role": "support",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-075"
+          },
+          "trace": [
+            {
+              "role": "user",
+              "text": "What response time should we quote after a case is escalated to a person?"
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up Cartwheel’s escalation policy so I can give the official response-time guidance and cite the policy id."
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "human escalation response time"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-escalations",
+                    "title": "When a case goes to a human",
+                    "snippet": "# When a case goes to a human\n\nSome cases always go to a human support agent: refunds above 100 dollars, account changes, disputes, and anything the assistant cannot resolve from policy and the order record. A human responds to an escalation within 24 hours.",
+                    "score": 4.476
+                  },
+                  {
+                    "policy_id": "cw-cancellations",
+                    "title": "Cartwheel order cancellation policy",
+                    "snippet": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy.",
+                    "score": 2.401
+                  },
+                  {
+                    "policy_id": "cw-disputes",
+                    "title": "Cartwheel dispute policy",
+                    "snippet": "# Cartwheel dispute policy\n\nBuyers can dispute a charge for up to 60 days after delivery. Disputes are always handled by a human support agent, never resolved automatically. Opening a dispute pauses any pending refund on the same order.",
+                    "score": 1.247
+                  }
+                ]
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "Quote **within 24 hours** for cases escalated to a human support agent.\n\nPolicy basis: **cw-escalations** — “A human responds to an escalation within 24 hours.”"
+            }
+          ],
+          "diagnostics": []
+        }
+      ],
+      "final_reply": "Quote **within 24 hours** for cases escalated to a human support agent.\n\nPolicy basis: **cw-escalations** — “A human responds to an escalation within 24 hours.”"
+    },
+    {
+      "case_id": "B1",
+      "scenario": "final-215",
+      "trace_id": "5bcc02aa2ef576b0873a738c7731feb7",
+      "session_id": "df4121e5-5510-447b-9e06-5a7a542dade7",
+      "role": "support",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/5bcc02aa2ef576b0873a738c7731feb7",
+      "proposed_membership": "unresolved",
+      "judgment_status": "human_confirmed_no_remaining_formatting_failure",
+      "human_judgment": {"formatting_failure_observed": false, "approval_id": "hw4-formatting-recheck-confirmation-10"},
+      "rationale": "Earlier concern was removal of asterisks; content was confirmed acceptable. Determine whether a presentation defect remains in Formatted text, independently of requested flags and allowed internal citations.",
+      "annotations": [
+        {
+          "id": "ff3fd332-22af-4ed3-981b-28e6fa9db790",
+          "trace_id": "5bcc02aa2ef576b0873a738c7731feb7",
+          "session_id": "df4121e5-5510-447b-9e06-5a7a542dade7",
+          "kind": "no_failure",
+          "note": "no failure observed",
+          "quote": "",
+          "idx": null,
+          "start": null,
+          "end": null,
+          "source": "human",
+          "ts": "2026-09-25T05:20:33.421318+00:00"
+        },
+        {
+          "id": "accepted-hw4-depth-15-5bcc02aa2ef576b0873a738c7731feb7",
+          "trace_id": "5bcc02aa2ef576b0873a738c7731feb7",
+          "session_id": "df4121e5-5510-447b-9e06-5a7a542dade7",
+          "kind": "observation",
+          "note": "The format is fine. Remove the asterisks.",
+          "quote": "Order 1643’s `refund_eligible: True` is consistent with the 14-day return window as of **2026-07-01**.",
+          "idx": 19,
+          "start": null,
+          "end": null,
+          "source": "accepted_suggestion",
+          "ts": "2026-09-25T05:20:48.432332+00:00"
+        }
+      ],
+      "recorded_conversation": [
+        {
+          "trace_id": "5bcc02aa2ef576b0873a738c7731feb7",
+          "session_id": "df4121e5-5510-447b-9e06-5a7a542dade7",
+          "meta": {
+            "role": "support",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-215"
+          },
+          "trace": [
+            {
+              "role": "user",
+              "text": "Reconcile order 1643's refund_eligible flag with its 2026-06-17 delivery date and the 14-day policy as of 2026-07-01."
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up order 1643 first so I can verify its delivery date and the system’s refund eligibility data before comparing it with the return policy."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_order",
+              "arguments": {
+                "order_id": 1643
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_order",
+              "content": {
+                "ok": true,
+                "order": {
+                  "order_id": 1643,
+                  "store_id": 2,
+                  "product_id": 74,
+                  "quantity": 1,
+                  "total_usd": 81.75,
+                  "status": "delivered",
+                  "ordered_at": "2026-06-12",
+                  "shipped_at": "2026-06-13",
+                  "delivered_at": "2026-06-17",
+                  "refund_eligible": true,
+                  "store_name": "Juniper Home Goods"
+                }
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up the return/refund policy so I can confirm exactly how the 14-day window is defined and cite the relevant policy id."
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "14-day return refund policy delivered date refund eligible"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-refunds",
+                    "title": "Cartwheel refund policy",
+                    "snippet": "# Cartwheel refund policy\n\nApproved refunds go back to the original payment method and arrive in 5 to 10 business days. Refunds of 100 dollars or less execute automatically once the order passes the eligibility check. Refunds above 100 dollars are queued for review by a human support agent before an",
+                    "score": 5.805
+                  },
+                  {
+                    "policy_id": "cw-returns",
+                    "title": "Cartwheel return policy",
+                    "snippet": "# Cartwheel return policy\n\nItems bought on Cartwheel can be returned within 30 days of delivery. The window counts from the delivery date, not the purchase date. Items must be in the condition described by the store's listing. Individual stores may override this window; see the store overrides polic",
+                    "score": 5.304
+                  },
+                  {
+                    "policy_id": "cw-disputes",
+                    "title": "Cartwheel dispute policy",
+                    "snippet": "# Cartwheel dispute policy\n\nBuyers can dispute a charge for up to 60 days after delivery. Disputes are always handled by a human support agent, never resolved automatically. Opening a dispute pauses any pending refund on the same order.",
+                    "score": 4.762
+                  }
+                ]
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll check Juniper Home Goods’ store settings because the help-center result says individual stores can override Cartwheel’s default return window, which may explain the 14-day policy."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_store_info",
+              "arguments": {
+                "store": "Juniper Home Goods"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_store_info",
+              "content": {
+                "ok": true,
+                "store": {
+                  "store_id": 2,
+                  "name": "Juniper Home Goods",
+                  "slug": "juniper-home-goods",
+                  "category": "home_and_kitchen",
+                  "return_window_days_override": 14,
+                  "restocking_fee_opt_in": false
+                }
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll fetch the full Cartwheel return policy to confirm the delivery-date counting rule and the store-override rule for the citation."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_policy",
+              "arguments": {
+                "policy_id": "cw-returns"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_policy",
+              "content": {
+                "ok": true,
+                "policy_id": "cw-returns",
+                "title": "Cartwheel return policy",
+                "audience": "all",
+                "body": "# Cartwheel return policy\n\nItems bought on Cartwheel can be returned within 30 days of delivery. The window counts from the delivery date, not the purchase date. Items must be in the condition described by the store's listing. Individual stores may override this window; see the store overrides policy and the store's own policy page."
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up the store-overrides policy as well so the 14-day override is supported by a policy citation, not just the store setting."
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "store overrides return window policy individual stores override return window"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-returns",
+                    "title": "Cartwheel return policy",
+                    "snippet": "# Cartwheel return policy\n\nItems bought on Cartwheel can be returned within 30 days of delivery. The window counts from the delivery date, not the purchase date. Items must be in the condition described by the store's listing. Individual stores may override this window; see the store overrides polic",
+                    "score": 12.339
+                  },
+                  {
+                    "policy_id": "cw-store-overrides",
+                    "title": "How store policies interact with platform policy",
+                    "snippet": "# How store policies interact with platform policy\n\nStores on Cartwheel may set their own return windows and fees. An override is valid only if it is stated on the store's own policy page. When a store policy and the platform default disagree, the store policy wins, whether it is stricter or looser ",
+                    "score": 5.873
+                  },
+                  {
+                    "policy_id": "store-cascade-audio-policy",
+                    "title": "Cascade Audio store policy",
+                    "snippet": "# Cascade Audio store policy\n\nCascade Audio follows the Cartwheel platform return window of 30 days from delivery. Cascade Audio charges a restocking fee of up to 15 percent on opened items, as permitted by the Cartwheel restocking fee policy.",
+                    "score": 4.342
+                  }
+                ]
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll fetch the store-overrides policy to confirm how Juniper’s 14-day override should be applied against the platform default."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_policy",
+              "arguments": {
+                "policy_id": "cw-store-overrides"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_policy",
+              "content": {
+                "ok": true,
+                "policy_id": "cw-store-overrides",
+                "title": "How store policies interact with platform policy",
+                "audience": "all",
+                "body": "# How store policies interact with platform policy\n\nStores on Cartwheel may set their own return windows and fees. An override is valid only if it is stated on the store's own policy page. When a store policy and the platform default disagree, the store policy wins, whether it is stricter or looser than the platform default of 30 days."
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "Order 1643’s `refund_eligible: True` is consistent with the 14-day return window as of **2026-07-01**.\n\nReasoning:\n\n- Order 1643 was delivered on **2026-06-17**.\n- The order’s store is **Juniper Home Goods**, which has a **14-day return window override**.\n- Cartwheel’s return policy says the return window is counted from the **delivery date**, not the purchase date, and that individual stores may override the default 30-day window (**cw-returns**).\n- The store-overrides policy says that when a valid store policy disagrees with the platform default, the store policy wins, whether stricter or looser than the 30-day default (**cw-store-overrides**).\n- Counting 14 calendar days from the 2026-06-17 delivery date lands on **2026-07-01**:\n  - Jun 18 = day 1  \n  - Jun 30 = day 13  \n  - Jul 1 = day 14  \n\nSo, as of **2026-07-01**, the order is on the **last day of the 14-day return window**, meaning the `refund_eligible` flag being **True** is expected. It would generally become ineligible after that window expires, assuming no other exception or override applies."
+            }
+          ],
+          "diagnostics": []
+        }
+      ],
+      "final_reply": "Order 1643’s `refund_eligible: True` is consistent with the 14-day return window as of **2026-07-01**.\n\nReasoning:\n\n- Order 1643 was delivered on **2026-06-17**.\n- The order’s store is **Juniper Home Goods**, which has a **14-day return window override**.\n- Cartwheel’s return policy says the return window is counted from the **delivery date**, not the purchase date, and that individual stores may override the default 30-day window (**cw-returns**).\n- The store-overrides policy says that when a valid store policy disagrees with the platform default, the store policy wins, whether stricter or looser than the 30-day default (**cw-store-overrides**).\n- Counting 14 calendar days from the 2026-06-17 delivery date lands on **2026-07-01**:\n  - Jun 18 = day 1  \n  - Jun 30 = day 13  \n  - Jul 1 = day 14  \n\nSo, as of **2026-07-01**, the order is on the **last day of the 14-day return window**, meaning the `refund_eligible` flag being **True** is expected. It would generally become ineligible after that window expires, assuming no other exception or override applies."
+    },
+    {
+      "case_id": "B2",
+      "scenario": "final-111",
+      "trace_id": "fbea98de885cdbc03acf4ecbcc4b202a",
+      "session_id": "64745ce8-15ce-4c52-b3c3-615ee271136b",
+      "role": "shopper",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/fbea98de885cdbc03acf4ecbcc4b202a",
+      "proposed_membership": "unresolved",
+      "judgment_status": "human_confirmed_no_remaining_formatting_failure",
+      "human_judgment": {"formatting_failure_observed": false, "approval_id": "hw4-formatting-recheck-confirmation-10"},
+      "rationale": "Human note mentions both excessive detail and formatting. Decide whether presentation itself materially obstructs reading, separately from length and the newly disallowed customer-facing policy IDs.",
+      "annotations": [
+        {
+          "id": "b571d869-2e71-4641-bd33-5b12a5c2475a",
+          "trace_id": "fbea98de885cdbc03acf4ecbcc4b202a",
+          "session_id": "64745ce8-15ce-4c52-b3c3-615ee271136b",
+          "kind": "first_failure",
+          "note": "too much info and the format is not easy to read for a user ... make it simple and to the point",
+          "quote": "Here’s the calculation:\n\n- The order was delivered on **2025-10-24**.\n- Cartwheel’s standard return window is **30 days from delivery**, and the window counts from the **delivery date**, not the purchase date (**cw-returns**).\n- Cartwheel policy also allows individual stores to override that return window (**cw-returns**).\n- Saltbox Pantry’s configured return-window override is **7 days**.\n- So the applicable return deadline was **2025-10-31**.",
+          "idx": 11,
+          "start": 115,
+          "end": 563,
+          "source": "human",
+          "ts": "2026-09-24T18:18:03.422778+00:00"
+        }
+      ],
+      "recorded_conversation": [
+        {
+          "trace_id": "fbea98de885cdbc03acf4ecbcc4b202a",
+          "session_id": "64745ce8-15ce-4c52-b3c3-615ee271136b",
+          "meta": {
+            "role": "shopper",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-111"
+          },
+          "trace": [
+            {
+              "role": "user",
+              "text": "For order 159 from Saltbox Pantry, delivered 2025-10-24, am I still inside the applicable return window as of 2026-07-01?"
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll look up the order, Saltbox Pantry’s store settings, and Cartwheel’s return-window policy so I can apply the right return deadline to the date you gave."
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "return window delivered return policy"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-returns",
+                    "title": "Cartwheel return policy",
+                    "snippet": "# Cartwheel return policy\n\nItems bought on Cartwheel can be returned within 30 days of delivery. The window counts from the delivery date, not the purchase date. Items must be in the condition described by the store's listing. Individual stores may override this window; see the store overrides polic",
+                    "score": 3.804
+                  },
+                  {
+                    "policy_id": "cw-cancellations",
+                    "title": "Cartwheel order cancellation policy",
+                    "snippet": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy.",
+                    "score": 3.337
+                  },
+                  {
+                    "policy_id": "store-cascade-audio-policy",
+                    "title": "Cascade Audio store policy",
+                    "snippet": "# Cascade Audio store policy\n\nCascade Audio follows the Cartwheel platform return window of 30 days from delivery. Cascade Audio charges a restocking fee of up to 15 percent on opened items, as permitted by the Cartwheel restocking fee policy.",
+                    "score": 3.167
+                  }
+                ]
+              }
+            },
+            {
+              "role": "tool_call",
+              "name": "get_store_info",
+              "arguments": {
+                "store": "Saltbox Pantry"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_store_info",
+              "content": {
+                "ok": true,
+                "store": {
+                  "store_id": 13,
+                  "name": "Saltbox Pantry",
+                  "slug": "saltbox-pantry",
+                  "category": "grocery",
+                  "return_window_days_override": 7,
+                  "restocking_fee_opt_in": false
+                }
+              }
+            },
+            {
+              "role": "tool_call",
+              "name": "get_order",
+              "arguments": {
+                "order_id": 159
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_order",
+              "content": {
+                "ok": true,
+                "order": {
+                  "order_id": 159,
+                  "store_id": 13,
+                  "product_id": 517,
+                  "quantity": 1,
+                  "total_usd": 104.25,
+                  "status": "delivered",
+                  "ordered_at": "2025-10-18",
+                  "shipped_at": "2025-10-21",
+                  "delivered_at": "2025-10-24",
+                  "refund_eligible": false,
+                  "store_name": "Saltbox Pantry"
+                }
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll fetch the full Cartwheel returns policy to confirm how store-specific return windows override the default window and to cite the exact policy."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_policy",
+              "arguments": {
+                "policy_id": "cw-returns"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_policy",
+              "content": {
+                "ok": true,
+                "policy_id": "cw-returns",
+                "title": "Cartwheel return policy",
+                "audience": "all",
+                "body": "# Cartwheel return policy\n\nItems bought on Cartwheel can be returned within 30 days of delivery. The window counts from the delivery date, not the purchase date. Items must be in the condition described by the store's listing. Individual stores may override this window; see the store overrides policy and the store's own policy page."
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "No — as of **2026-07-01**, order **159** from **Saltbox Pantry** was **not** inside the applicable return window.\n\nHere’s the calculation:\n\n- The order was delivered on **2025-10-24**.\n- Cartwheel’s standard return window is **30 days from delivery**, and the window counts from the **delivery date**, not the purchase date (**cw-returns**).\n- Cartwheel policy also allows individual stores to override that return window (**cw-returns**).\n- Saltbox Pantry’s configured return-window override is **7 days**.\n- So the applicable return deadline was **2025-10-31**.\n\nBy **2026-07-01**, that 7-day window had long passed, and the order currently shows as **not refund eligible**."
+            }
+          ],
+          "diagnostics": []
+        }
+      ],
+      "final_reply": "No — as of **2026-07-01**, order **159** from **Saltbox Pantry** was **not** inside the applicable return window.\n\nHere’s the calculation:\n\n- The order was delivered on **2025-10-24**.\n- Cartwheel’s standard return window is **30 days from delivery**, and the window counts from the **delivery date**, not the purchase date (**cw-returns**).\n- Cartwheel policy also allows individual stores to override that return window (**cw-returns**).\n- Saltbox Pantry’s configured return-window override is **7 days**.\n- So the applicable return deadline was **2025-10-31**.\n\nBy **2026-07-01**, that 7-day window had long passed, and the order currently shows as **not refund eligible**."
+    },
+    {
+      "case_id": "B3",
+      "scenario": "final-140",
+      "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+      "session_id": "9cdf80dd-d5cb-4595-9c75-0fdf6f8190fc",
+      "role": "shopper",
+      "permalink": "http://localhost:3000/project/cartwheel-dev/traces/9d3928a872f9a36f0b7beb3f546271c6",
+      "proposed_membership": "unresolved",
+      "judgment_status": "human_confirmed_no_remaining_formatting_failure",
+      "human_judgment": {"formatting_failure_observed": false, "approval_id": "hw4-formatting-recheck-confirmation-10"},
+      "rationale": "Human note mentions both excessive detail and formatting. Distinguish an actual layout problem from the raw shipped_at field, the policy ID, and the amount of detail.",
+      "annotations": [
+        {
+          "id": "57a95696-9634-4e28-8865-97c3feaeaf39",
+          "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+          "session_id": "9cdf80dd-d5cb-4595-9c75-0fdf6f8190fc",
+          "kind": "first_failure",
+          "note": "to verbose and the format isnt easy to read for a user",
+          "quote": "Yes. Order **3856** can currently be cancelled under Cartwheel’s shipment cutoff.\n\n- Current order status: **placed**\n- Shipped yet? **No** (`shipped_at: None`)\n- Cartwheel cutoff: an order can be cancelled any time **before the store ships it**; once shipped, it can’t be cancelled and would need to be handled as a return after delivery (**cw-cancellations**).\n\nI have **not** cancelled it.",
+          "idx": 9,
+          "start": 0,
+          "end": 392,
+          "source": "human",
+          "ts": "2026-09-24T18:19:33.527833+00:00"
+        }
+      ],
+      "recorded_conversation": [
+        {
+          "trace_id": "9d3928a872f9a36f0b7beb3f546271c6",
+          "session_id": "9cdf80dd-d5cb-4595-9c75-0fdf6f8190fc",
+          "meta": {
+            "role": "shopper",
+            "prompt_version": "ad366f759041",
+            "scenario_id": "final-140"
+          },
+          "trace": [
+            {
+              "role": "user",
+              "text": "Do not change it yet: can order 3856 currently be cancelled under Cartwheel's shipment cutoff?"
+            },
+            {
+              "role": "assistant",
+              "text": "I’ll check order 3856’s current shipment status and look up Cartwheel’s cancellation cutoff policy so I can answer without making any changes."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_order",
+              "arguments": {
+                "order_id": 3856
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_order",
+              "content": {
+                "ok": true,
+                "order": {
+                  "order_id": 3856,
+                  "store_id": 7,
+                  "product_id": 260,
+                  "quantity": 1,
+                  "total_usd": 69.25,
+                  "status": "placed",
+                  "ordered_at": "2026-07-01",
+                  "shipped_at": null,
+                  "delivered_at": null,
+                  "refund_eligible": false,
+                  "store_name": "Northwind Books"
+                }
+              }
+            },
+            {
+              "role": "tool_call",
+              "name": "search_help_center",
+              "arguments": {
+                "query": "Cartwheel shipment cutoff cancellation cutoff cancel order shipped"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "search_help_center",
+              "content": {
+                "ok": true,
+                "results": [
+                  {
+                    "policy_id": "cw-cancellations",
+                    "title": "Cartwheel order cancellation policy",
+                    "snippet": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy.",
+                    "score": 7.286
+                  },
+                  {
+                    "policy_id": "cw-shipping",
+                    "title": "Cartwheel shipping policy",
+                    "snippet": "# Cartwheel shipping policy\n\nStores ship orders within 3 days of purchase. Standard delivery takes up to 7 days in transit after shipment. Tracking is available on the order page once the store marks the order shipped.",
+                    "score": 6.467
+                  },
+                  {
+                    "policy_id": "cw-disputes",
+                    "title": "Cartwheel dispute policy",
+                    "snippet": "# Cartwheel dispute policy\n\nBuyers can dispute a charge for up to 60 days after delivery. Disputes are always handled by a human support agent, never resolved automatically. Opening a dispute pauses any pending refund on the same order.",
+                    "score": 1.436
+                  }
+                ]
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "I found the relevant cancellation policy summary, and I’ll fetch the full policy text to confirm the exact cutoff wording."
+            },
+            {
+              "role": "tool_call",
+              "name": "get_policy",
+              "arguments": {
+                "policy_id": "cw-cancellations"
+              }
+            },
+            {
+              "role": "tool_result",
+              "name": "get_policy",
+              "content": {
+                "ok": true,
+                "policy_id": "cw-cancellations",
+                "title": "Cartwheel order cancellation policy",
+                "audience": "all",
+                "body": "# Cartwheel order cancellation policy\n\nAn order can be cancelled at no cost any time before the store ships it. Once an order has shipped it can no longer be cancelled; the buyer should instead wait for delivery and request a return under the Cartwheel return policy."
+              }
+            },
+            {
+              "role": "assistant",
+              "text": "Yes. Order **3856** can currently be cancelled under Cartwheel’s shipment cutoff.\n\n- Current order status: **placed**\n- Shipped yet? **No** (`shipped_at: None`)\n- Cartwheel cutoff: an order can be cancelled any time **before the store ships it**; once shipped, it can’t be cancelled and would need to be handled as a return after delivery (**cw-cancellations**).\n\nI have **not** cancelled it."
+            }
+          ],
+          "diagnostics": []
+        }
+      ],
+      "final_reply": "Yes. Order **3856** can currently be cancelled under Cartwheel’s shipment cutoff.\n\n- Current order status: **placed**\n- Shipped yet? **No** (`shipped_at: None`)\n- Cartwheel cutoff: an order can be cancelled any time **before the store ships it**; once shipped, it can’t be cancelled and would need to be handled as a return after delivery (**cw-cancellations**).\n\nI have **not** cancelled it."
+    }
+  ],
+  "decisions_requested": {
+    "A": "After checking A1–A6, confirm or correct the policy-ID definition, audience boundary, proposed positives, close negatives and likely evaluator together. This is category evidence, not all-mode trace approval.",
+    "B": "Inspect B1–B3 in the review app's Formatted text view. Report each remaining layout defect, or none. Confirm/revise the proposed format boundary only if it captures your intent.",
+    "C": "No unsupported-cause finalization proposed; evidence remains thin."
+  },
+  "safeguards": {
+    "original_annotations_unchanged": true,
+    "earlier_final_modes_unchanged": true,
+    "existing_candidates_unchanged": true,
+    "labels_written": 0,
+    "score_writes": 0,
+    "sample_changes": 0,
+    "live_model_calls": 0,
+    "raindrop": "deferred"
+  }
+}

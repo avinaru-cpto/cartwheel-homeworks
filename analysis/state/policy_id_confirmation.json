@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "id": "hw4-policy-id-confirmation-result-20260925",
+  "recorded_at": "2026-09-25T22:09:12Z",
+  "approval": {
+    "id": "hw4-policy-id-example-confirmation-09",
+    "recorded_at": "2026-09-25T21:59:34Z",
+    "source": "explicit_human_review_and_clarification",
+    "human_statements": [
+      "085 Did have the policy ID's\n092 has the policy ID\n149 also has the Polcy ID\n\n069 has it perfect.\n072 has it ...good.\n079 has it",
+      "075 thats what I meant",
+      "yes"
+    ],
+    "final_confirmation_prompt": "Got it—075, not 079. Should I mark its policy citations as acceptable for an internal-support answer, like 069 and 072?",
+    "review_packet_id": "hw4-remaining-taxonomy-review-20260925-02",
+    "mode": "unsolicited_internal_policy_identifiers",
+    "scope": "The student checked the six cases for the stated policy-ID category, confirming the customer-facing/internal-support boundary. Finalize this category with three positives and three close negatives and save only these six explicit per-category judgments; do not infer other trace/mode labels.",
+    "number_correction": {
+      "original": "079",
+      "corrected": "075",
+      "scope": "No decision recorded for final-079."
+    },
+    "decisions": [
+      {
+        "case_id": "A1",
+        "scenario": "final-085",
+        "trace_id": "11ac4cc470cd4b49685a37852cecb3a9",
+        "label": 1,
+        "meaning": "present"
+      },
+      {
+        "case_id": "A2",
+        "scenario": "final-092",
+        "trace_id": "88471324f51094691b7a3f59294a32a2",
+        "label": 1,
+        "meaning": "present"
+      },
+      {
+        "case_id": "A3",
+        "scenario": "final-149",
+        "trace_id": "f7ba8b8eb26607d50ed27556e87d2aa8",
+        "label": 1,
+        "meaning": "present"
+      },
+      {
+        "case_id": "A4",
+        "scenario": "final-069",
+        "trace_id": "70fa06d346c4eb870abbe05e863cc15d",
+        "label": 0,
+        "meaning": "absent"
+      },
+      {
+        "case_id": "A5",
+        "scenario": "final-072",
+        "trace_id": "a0f158324c6b0e60401334b346fdb699",
+        "label": 0,
+        "meaning": "absent"
+      },
+      {
+        "case_id": "A6",
+        "scenario": "final-075",
+        "trace_id": "0e69d44e50e93a6e87166ffabb5849b4",
+        "label": 0,
+        "meaning": "absent"
+      }
+    ],
+    "requirement_approval_id": "hw4-policy-identifier-spec-approval-08",
+    "historical_scope": "Assessed against revised RESP-1, not a claim that the old traces violated the old visible-citation requirement.",
+    "evaluator_scope": "Likely LLM-judge type retained as a contextual recommendation; no separate evaluator implementation/validation approval is inferred.",
+    "application_status": "applied_and_synced_remote_readback_verified",
+    "raindrop": "deferred"
+  },
+  "finalized_mode": {
+    "name": "unsolicited_internal_policy_identifiers",
+    "status": "final",
+    "definition": "A customer-facing answer includes a raw internal policy identifier that the user did not request.",
+    "boundary": "This concerns raw policy identifiers, not the policy explanation itself. Internal support-facing answers retain policy citations under revised RESP-1. Judge the intended audience, including explicitly requested customer-facing drafts, rather than the caller role alone. Requested identifiers are excluded. A short otherwise clear answer can contain this mode without being obscured by excess detail; ordinary policy names and grounded policy content are not automatically failures. Historical traces predate the revised rule.",
+    "requirement_source": "RESP-1 revision approved in hw4-policy-identifier-spec-approval-08, with PURPOSE-1 kept consistent. Evaluate the newly desired presentation behavior without claiming the recorded agent violated the old citation instruction.",
+    "requirement_approval_id": "hw4-policy-identifier-spec-approval-08",
+    "evaluator_type": "llm_judge",
+    "evaluator_status": "Likely contextual LLM judge retained from the review packet; a recommendation only, not separately approved for implementation, built or validated.",
+    "created_from": [
+      "522105d8-7fa3-462d-b9fb-25d2093ef03c",
+      "54cd7f12-ceb7-4680-a832-ce199b1642ef",
+      "c09d940a-2235-45da-8b8b-28c444ca330a",
+      "85e93424-5837-4b13-94ac-fec2a86745a8",
+      "46f88b87-f69f-490d-a5f1-cf20fc2ba9c2",
+      "ece5d42a-c269-48d8-bbeb-cb722575655d"
+    ],
+    "origin_observations": [
+      {
+        "annotation_id": "522105d8-7fa3-462d-b9fb-25d2093ef03c",
+        "trace_id": "11ac4cc470cd4b49685a37852cecb3a9",
+        "note": "It shouldn't have the policy information in there, like CW getting help. That's irrelevant, so you should remove all the policy identifiers. Just explain the policy"
+      },
+      {
+        "annotation_id": "54cd7f12-ceb7-4680-a832-ce199b1642ef",
+        "trace_id": "88471324f51094691b7a3f59294a32a2",
+        "note": "Shouldn't have the policy information written in there. CW return CW store rights should be removed"
+      },
+      {
+        "annotation_id": "c09d940a-2235-45da-8b8b-28c444ca330a",
+        "trace_id": "69e1feb092880ca9171f3c59a71f8675",
+        "note": "I think you're giving too much information here, and you shouldn't tell them which CW store overrides those pieces and CW returns. You should remove that. You shouldn't be giving them the policy"
+      },
+      {
+        "annotation_id": "85e93424-5837-4b13-94ac-fec2a86745a8",
+        "trace_id": "2e67ef48c576d7708def5ef317c0faeb",
+        "note": "You need to remove the word \"CW cancellations.\" Why are you telling them the name of the policy? Everything else looks good . Also need to make it a bit clearer that they can do that at the bottom."
+      },
+      {
+        "annotation_id": "46f88b87-f69f-490d-a5f1-cf20fc2ba9c2",
+        "trace_id": "f7ba8b8eb26607d50ed27556e87d2aa8",
+        "note": "Needs to remove the policy naming. Why are you naming the policy in the response"
+      },
+      {
+        "annotation_id": "ece5d42a-c269-48d8-bbeb-cb722575655d",
+        "trace_id": "be8f58e4ac6c021e8c7983aa493a89f4",
+        "note": "Take away the CW cancellations, like the policy name, and the CW returns, but otherwise the information looks good"
+      }
+    ],
+    "candidate_example_trace_ids": [
+      "11ac4cc470cd4b49685a37852cecb3a9",
+      "88471324f51094691b7a3f59294a32a2",
+      "69e1feb092880ca9171f3c59a71f8675",
+      "2e67ef48c576d7708def5ef317c0faeb",
+      "f7ba8b8eb26607d50ed27556e87d2aa8",
+      "be8f58e4ac6c021e8c7983aa493a89f4"
+    ],
+    "candidate_close_negative_trace_ids": [
+      "70fa06d346c4eb870abbe05e863cc15d",
+      "a0f158324c6b0e60401334b346fdb699",
+      "0e69d44e50e93a6e87166ffabb5849b4"
+    ],
+    "example_trace_ids": [
+      "11ac4cc470cd4b49685a37852cecb3a9",
+      "88471324f51094691b7a3f59294a32a2",
+      "f7ba8b8eb26607d50ed27556e87d2aa8"
+    ],
+    "close_negative_trace_ids": [
+      "70fa06d346c4eb870abbe05e863cc15d",
+      "a0f158324c6b0e60401334b346fdb699",
+      "0e69d44e50e93a6e87166ffabb5849b4"
+    ],
+    "definition_approval": "Student reviewed the six cases under the stated customer-facing versus internal-support policy-ID boundary. Confirmed three customer-facing failures and three acceptable internal-support citations, explicitly correcting 079 to 075 and confirming 075 acceptable. See hw4-policy-id-example-confirmation-09.",
+    "evidence_status": "Three human-confirmed positives and three close negatives in hw4-policy-id-example-confirmation-09. Other originating observations are not automatically final labels.",
+    "review_packet_id": "hw4-remaining-taxonomy-review-20260925-02",
+    "proposed_by": "assistant",
+    "updated_at": "2026-09-25T22:01:18.531661+00:00",
+    "updated_by": "human",
+    "revision": "34fa9458870043f5",
+    "example_approval_id": "hw4-policy-id-example-confirmation-09",
+    "finalization_approval_id": "hw4-policy-id-example-confirmation-09",
+    "example_confirmations": {
+      "approval_id": "hw4-policy-id-example-confirmation-09",
+      "packet_id": "hw4-remaining-taxonomy-review-20260925-02",
+      "positive_trace_ids": [
+        "11ac4cc470cd4b49685a37852cecb3a9",
+        "88471324f51094691b7a3f59294a32a2",
+        "f7ba8b8eb26607d50ed27556e87d2aa8"
+      ],
+      "close_negative_trace_ids": [
+        "70fa06d346c4eb870abbe05e863cc15d",
+        "a0f158324c6b0e60401334b346fdb699",
+        "0e69d44e50e93a6e87166ffabb5849b4"
+      ],
+      "scope": "These six policy-ID memberships only; not whole-trace or all-mode approval."
+    }
+  },
+  "labels": [
+    {
+      "id": "e5e84d83-ab1c-4786-bc7e-ac6d6999e826",
+      "trace_id": "11ac4cc470cd4b49685a37852cecb3a9",
+      "mode": "unsolicited_internal_policy_identifiers",
+      "label": 1,
+      "source": "human",
+      "evidence": "Human-confirmed policy-ID present for final-085 in hw4-policy-id-example-confirmation-09. Student confirmed the unrequested IDs in this customer-facing answer. Recorded evidence: Shopper asks what to include in a help request, not for identifiers. Final answer includes cw-getting-help and cw-account-security. Requirement: revised RESP-1, approval hw4-policy-identifier-spec-approval-08; traces predate this revision and followed the old citation instruction. Scope: this mode only.",
+      "ts": "2026-09-25T22:01:18.558107+00:00",
+      "mode_revision": "34fa9458870043f5",
+      "supersedes": null,
+      "score_id": "3cb3ad13-1948-5ca0-acc7-1ed8807597d4",
+      "score_timestamp": "2026-09-25T22:01:18.558107+00:00",
+      "sync_status": "synced",
+      "langfuse_score_name": "unsolicited_internal_p_dcf998ce82c3",
+      "synced_at": "2026-09-25T22:07:25.186091+00:00"
+    },
+    {
+      "id": "06d49889-1071-4007-9e32-be6289e56f3e",
+      "trace_id": "88471324f51094691b7a3f59294a32a2",
+      "mode": "unsolicited_internal_policy_identifiers",
+      "label": 1,
+      "source": "human",
+      "evidence": "Human-confirmed policy-ID present for final-092 in hw4-policy-id-example-confirmation-09. Student confirmed the unrequested IDs in this customer-facing answer. Recorded evidence: Shopper asks for a return deadline, not policy identifiers. Final answer includes cw-returns and cw-store-overrides. Requirement: revised RESP-1, approval hw4-policy-identifier-spec-approval-08; traces predate this revision and followed the old citation instruction. Scope: this mode only.",
+      "ts": "2026-09-25T22:01:18.669910+00:00",
+      "mode_revision": "34fa9458870043f5",
+      "supersedes": null,
+      "score_id": "42a0f603-a613-5339-9d28-1403470b7d30",
+      "score_timestamp": "2026-09-25T22:01:18.669910+00:00",
+      "sync_status": "synced",
+      "langfuse_score_name": "unsolicited_internal_p_dcf998ce82c3",
+      "synced_at": "2026-09-25T22:07:25.197006+00:00"
+    },
+    {
+      "id": "0760e50a-b7a4-4300-9753-d913ae6e1826",
+      "trace_id": "f7ba8b8eb26607d50ed27556e87d2aa8",
+      "mode": "unsolicited_internal_policy_identifiers",
+      "label": 1,
+      "source": "human",
+      "evidence": "Human-confirmed policy-ID present for final-149 in hw4-policy-id-example-confirmation-09. Student confirmed the unrequested IDs in this customer-facing answer. Recorded evidence: Shopper asks if cancellation is available. Final answer includes cw-cancellations without a request for the identifier. Requirement: revised RESP-1, approval hw4-policy-identifier-spec-approval-08; traces predate this revision and followed the old citation instruction. Scope: this mode only.",
+      "ts": "2026-09-25T22:01:18.746060+00:00",
+      "mode_revision": "34fa9458870043f5",
+      "supersedes": null,
+      "score_id": "ae49ca70-ef4b-59ad-ba1d-b780013b3fa6",
+      "score_timestamp": "2026-09-25T22:01:18.746060+00:00",
+      "sync_status": "synced",
+      "langfuse_score_name": "unsolicited_internal_p_dcf998ce82c3",
+      "synced_at": "2026-09-25T22:07:25.206708+00:00"
+    },
+    {
+      "id": "cfc848a1-d87e-4905-9c55-60f8d6fbbf3e",
+      "trace_id": "70fa06d346c4eb870abbe05e863cc15d",
+      "mode": "unsolicited_internal_policy_identifiers",
+      "label": 0,
+      "source": "human",
+      "evidence": "Human-confirmed policy-ID absent for final-069 in hw4-policy-id-example-confirmation-09. Student described this internal-support citation as perfect/good. Recorded evidence: Internal support question about refund destination/timing. Policy identifiers remain required in internal support-facing answers under revised RESP-1. Requirement: revised RESP-1, approval hw4-policy-identifier-spec-approval-08; traces predate this revision and followed the old citation instruction. Scope: this mode only.",
+      "ts": "2026-09-25T22:01:18.843128+00:00",
+      "mode_revision": "34fa9458870043f5",
+      "supersedes": null,
+      "score_id": "c016c99d-cf1b-5f1d-b133-2ac90230c39d",
+      "score_timestamp": "2026-09-25T22:01:18.843128+00:00",
+      "sync_status": "synced",
+      "langfuse_score_name": "unsolicited_internal_p_dcf998ce82c3",
+      "synced_at": "2026-09-25T22:07:25.216013+00:00"
+    },
+    {
+      "id": "ee0e5b16-3150-42f1-90de-cc38933a4d3b",
+      "trace_id": "a0f158324c6b0e60401334b346fdb699",
+      "mode": "unsolicited_internal_policy_identifiers",
+      "label": 0,
+      "source": "human",
+      "evidence": "Human-confirmed policy-ID absent for final-072 in hw4-policy-id-example-confirmation-09. Student described this internal-support citation as perfect/good. Recorded evidence: Internal support question about the cancellation cutoff. The response cites cw-cancellations; the customer-facing omission rule does not prohibit this internal support citation. Requirement: revised RESP-1, approval hw4-policy-identifier-spec-approval-08; traces predate this revision and followed the old citation instruction. Scope: this mode only.",
+      "ts": "2026-09-25T22:01:18.962634+00:00",
+      "mode_revision": "34fa9458870043f5",
+      "supersedes": null,
+      "score_id": "4df404b6-ce41-51b8-8a46-d80eab3900e1",
+      "score_timestamp": "2026-09-25T22:01:18.962634+00:00",
+      "sync_status": "synced",
+      "langfuse_score_name": "unsolicited_internal_p_dcf998ce82c3",
+      "synced_at": "2026-09-25T22:07:25.227133+00:00"
+    },
+    {
+      "id": "f15f9f9f-cf5b-4bea-ac78-6206a45fec06",
+      "trace_id": "0e69d44e50e93a6e87166ffabb5849b4",
+      "mode": "unsolicited_internal_policy_identifiers",
+      "label": 0,
+      "source": "human",
+      "evidence": "Human-confirmed policy-ID absent for final-075 in hw4-policy-id-example-confirmation-09. Student corrected 079 to 075 and explicitly answered yes to acceptable internal-support citations. Recorded evidence: Internal support asks which response time to quote. The explanation is addressed to support and cites cw-escalations. Confirm the audience distinction from customer-facing drafts. Requirement: revised RESP-1, approval hw4-policy-identifier-spec-approval-08; traces predate this revision and followed the old citation instruction. Scope: this mode only.",
+      "ts": "2026-09-25T22:01:19.078857+00:00",
+      "mode_revision": "34fa9458870043f5",
+      "supersedes": null,
+      "score_id": "22ef97c8-f8dc-594b-9a5c-3169175853e5",
+      "score_timestamp": "2026-09-25T22:01:19.078857+00:00",
+      "sync_status": "synced",
+      "langfuse_score_name": "unsolicited_internal_p_dcf998ce82c3",
+      "synced_at": "2026-09-25T22:07:25.250388+00:00"
+    }
+  ],
+  "remote_readback": [
+    {
+      "trace_id": "11ac4cc470cd4b49685a37852cecb3a9",
+      "score_id": "3cb3ad13-1948-5ca0-acc7-1ed8807597d4",
+      "label": 1,
+      "langfuse_score_name": "unsolicited_internal_p_dcf998ce82c3",
+      "actual_value": 1,
+      "actual_name": "unsolicited_internal_p_dcf998ce82c3",
+      "verified": true
+    },
+    {
+      "trace_id": "88471324f51094691b7a3f59294a32a2",
+      "score_id": "42a0f603-a613-5339-9d28-1403470b7d30",
+      "label": 1,
+      "langfuse_score_name": "unsolicited_internal_p_dcf998ce82c3",
+      "actual_value": 1,
+      "actual_name": "unsolicited_internal_p_dcf998ce82c3",
+      "verified": true
+    },
+    {
+      "trace_id": "f7ba8b8eb26607d50ed27556e87d2aa8",
+      "score_id": "ae49ca70-ef4b-59ad-ba1d-b780013b3fa6",
+      "label": 1,
+      "langfuse_score_name": "unsolicited_internal_p_dcf998ce82c3",
+      "actual_value": 1,
+      "actual_name": "unsolicited_internal_p_dcf998ce82c3",
+      "verified": true
+    },
+    {
+      "trace_id": "70fa06d346c4eb870abbe05e863cc15d",
+      "score_id": "c016c99d-cf1b-5f1d-b133-2ac90230c39d",
+      "label": 0,
+      "langfuse_score_name": "unsolicited_internal_p_dcf998ce82c3",
+      "actual_value": 0,
+      "actual_name": "unsolicited_internal_p_dcf998ce82c3",
+      "verified": true
+    },
+    {
+      "trace_id": "a0f158324c6b0e60401334b346fdb699",
+      "score_id": "4df404b6-ce41-51b8-8a46-d80eab3900e1",
+      "label": 0,
+      "langfuse_score_name": "unsolicited_internal_p_dcf998ce82c3",
+      "actual_value": 0,
+      "actual_name": "unsolicited_internal_p_dcf998ce82c3",
+      "verified": true
+    },
+    {
+      "trace_id": "0e69d44e50e93a6e87166ffabb5849b4",
+      "score_id": "22ef97c8-f8dc-594b-9a5c-3169175853e5",
+      "label": 0,
+      "langfuse_score_name": "unsolicited_internal_p_dcf998ce82c3",
+      "actual_value": 0,
+      "actual_name": "unsolicited_internal_p_dcf998ce82c3",
+      "verified": true
+    }
+  ],
+  "source_after_restart": {
+    "kind": "langfuse",
+    "description": "Live Langfuse · final HW3 scenarios",
+    "loaded_at": "2026-09-25T22:06:57.373462+00:00"
+  },
+  "progress": {
+    "reviewed": 100,
+    "inspected": 102,
+    "sampled": 100,
+    "target": 100,
+    "final_modes": 4,
+    "decisions": 6,
+    "missing": 394,
+    "pending_sync": 0,
+    "batches": [
+      {
+        "name": "uniform_initial",
+        "target": 15,
+        "selected": 15,
+        "reviewed": 15
+      },
+      {
+        "name": "cluster",
+        "target": 15,
+        "selected": 15,
+        "reviewed": 15
+      },
+      {
+        "name": "dimension",
+        "target": 30,
+        "selected": 30,
+        "reviewed": 30
+      },
+      {
+        "name": "depth",
+        "target": 25,
+        "selected": 25,
+        "reviewed": 25
+      },
+      {
+        "name": "uniform_final",
+        "target": 15,
+        "selected": 15,
+        "reviewed": 15
+      }
+    ]
+  },
+  "sync_repair": {
+    "cause": "Langfuse rejected the 39-character canonical category name when creating a score config: HTTP 400, name maximum 35 characters.",
+    "change": "Names longer than 35 characters use the first 22 characters plus underscore plus 12-character SHA-256 prefix in Langfuse. Local canonical mode name and all label/score identities are retained; full mode appears in config description and score comment.",
+    "remote_alias": "unsolicited_internal_p_dcf998ce82c3",
+    "local_label_field": "langfuse_score_name",
+    "stable_identity_preserved": true,
+    "initial_attempt": "Six rows durably saved locally as pending; no remote config or scores observed before the repair.",
+    "final_status": "Six acknowledged writes and six independently read-back scores verified after ingestion delay."
+  },
+  "verification": {
+    "offline_full_suite": {
+      "passed": 172,
+      "skipped": 13,
+      "xfailed": 21,
+      "xpassed": 9
+    },
+    "focused_initial_run": "35 passed, 1 socket-permission failure in sandbox; full suite with loopback permission then passed.",
+    "new_regression_tests": 3,
+    "git_diff_check": "passed",
+    "original_notes_preserved": true,
+    "other_modes_preserved": true,
+    "samples_preserved": true,
+    "only_six_authorized_labels_added": true,
+    "live_model_calls": 0,
+    "langfuse_score_writes_acknowledged": 6,
+    "langfuse_score_readbacks_verified": 6
+  },
+  "remaining": {
+    "formatting_scenarios": [
+      "final-215",
+      "final-111",
+      "final-140"
+    ],
+    "cause_speculation": "candidate; one strong lexical match, not finalized",
+    "raindrop": "deferred",
+    "full_hw4_complete": false
+  }
+}

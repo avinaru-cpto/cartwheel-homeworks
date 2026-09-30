@@ -1,0 +1,36 @@
+{
+  "id": "hw4-raw-score-sync-retry-20260925-01",
+  "recorded_at": "2026-09-25T22:54:49Z",
+  "authorization": {
+    "human_statement": "yes",
+    "prompt": "May I retry sending those six scores to your local Langfuse project once access is restored?"
+  },
+  "intended_action": "Read current local review state, sync exactly the six pending raw-field scores, then verify remote read-back.",
+  "outcome": "synced_and_remote_readback_verified",
+  "completed_at": "2026-09-26T05:13:18Z",
+  "retry_note": "The full review server could not reload the trace collection because Langfuse returned HTTP 422. The authorized retry was therefore limited to the six saved score IDs through the review app's existing Langfuse bridge.",
+  "score_ids": [
+    "dca9c37b-ec64-53f4-93ee-b6a52e20860b",
+    "454cb8ba-a01d-5613-a750-d31403c765a3",
+    "49c3f345-c352-516b-acd2-5d5ac901f49f",
+    "7126973f-79fc-50cc-b6ec-38f80fea007c",
+    "5255e7f5-ba29-5d53-9c69-f636cfa40e8a",
+    "a4c4ccf9-071e-5134-9277-d49ffdf53031"
+  ],
+  "pending_count": 0,
+  "acknowledged_writes": 6,
+  "verified_readbacks": 6,
+  "local_verification": "All six local labels retain their definitions, judgments, evidence, score IDs and original score timestamps; only synchronization metadata changed from pending to synced.",
+  "preserved": "Definitions, human judgments, evidence, score IDs and original score timestamps unchanged. No credentials printed or changed.",
+  "approval_scope": "The user's approval to synchronize these same six scores is recorded. Another approval-only loop is unnecessary; authentication/execution access must be restored.",
+  "live_model_calls": 0,
+  "remote_readbacks": [
+    {"score_id": "dca9c37b-ec64-53f4-93ee-b6a52e20860b", "trace_id": "9faa1565e19d7a30a7c909373e4cb8f0", "expected_value": 1, "actual_value": 1, "actual_name": "raw_fields_to_external_audiences", "verified": true},
+    {"score_id": "454cb8ba-a01d-5613-a750-d31403c765a3", "trace_id": "b5f4aa3df97a7b05064492c6280647e3", "expected_value": 1, "actual_value": 1, "actual_name": "raw_fields_to_external_audiences", "verified": true},
+    {"score_id": "49c3f345-c352-516b-acd2-5d5ac901f49f", "trace_id": "9d3928a872f9a36f0b7beb3f546271c6", "expected_value": 1, "actual_value": 1, "actual_name": "raw_fields_to_external_audiences", "verified": true},
+    {"score_id": "7126973f-79fc-50cc-b6ec-38f80fea007c", "trace_id": "cebc9a86476fc3e12830e622dcbb981c", "expected_value": 0, "actual_value": 0, "actual_name": "raw_fields_to_external_audiences", "verified": true},
+    {"score_id": "5255e7f5-ba29-5d53-9c69-f636cfa40e8a", "trace_id": "601f0c898f4cbbba3919f39b9a8ba993", "expected_value": 0, "actual_value": 0, "actual_name": "raw_fields_to_external_audiences", "verified": true},
+    {"score_id": "a4c4ccf9-071e-5134-9277-d49ffdf53031", "trace_id": "57fd75858461ca06585e648ed7d5a119", "expected_value": 0, "actual_value": 0, "actual_name": "raw_fields_to_external_audiences", "verified": true}
+  ],
+  "raindrop": "deferred"
+}

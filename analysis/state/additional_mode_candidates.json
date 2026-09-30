@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "status": "draft_candidates_not_final",
+  "request": {
+    "id": "hw4-two-additional-candidate-request-07",
+    "recorded_at": "2026-09-25T06:39:07Z",
+    "source": "explicit_human_request",
+    "human_statement": "Lets make up the 2 extra categories from teh 2 remaining examples to move on",
+    "action": "Draft two candidate categories from the existing observations on final-177 and final-215. Do not invent example traces, confirmations, requirements in force at trace time, scores or completed homework.",
+    "scope": "Candidate grouping only. Exact definitions, requirements, evaluator types and example membership remain pending review. A/B/C final modes, original notes, existing suggestion decisions, sample selections and labels are preserved. Raindrop remains deferred.",
+    "application_status": "applied_and_read_back",
+    "saved_candidate_revisions": {
+      "unsupported_cause_speculation": "0a4685ca53d0326b",
+      "unreadable_response_format": "650f47c6ebc09ff1"
+    },
+    "verification": {
+      "prior_final_modes_unchanged": true,
+      "original_annotations_unchanged": true,
+      "suggestions_unchanged": true,
+      "manifest_unchanged": true,
+      "labels_unchanged": true,
+      "new_final_modes": 0,
+      "new_scores": 0
+    }
+  },
+  "source_snapshot": {
+    "kind": "langfuse",
+    "description": "Live Langfuse · final HW3 scenarios",
+    "loaded_at": "2026-09-18T08:19:54.101797+00:00"
+  },
+  "candidates": [
+    {
+      "name": "unsupported_cause_speculation",
+      "definition": "The assistant names a specific cause of a data inconsistency without evidence for that cause, even when presented as likely, unless the user explicitly requested possible causes.",
+      "boundary": "Distinct from excess detail: a short unsupported diagnosis could still fail, while a longer evidence-backed explanation would not. Merely identifying inconsistent dates is not a cause claim. Exclude causes established by retrieved evidence, explicitly attributed user statements, and clearly marked hypotheses when the user explicitly requested hypotheses. The meaning of an 'explain the inconsistency' request must be checked against this boundary. Final-177 uses 'likely' and is not evidence of an unhedged assertion.",
+      "requirement_source": "Proposed clarification extending RESP-3; its treatment of hedged causal speculation is not an existing explicit requirement. Precise wording and any SPEC revision must be approved before final labels. SPEC.md remains unchanged.",
+      "proposed_requirement": "When reporting a data inconsistency, describe what the record establishes. Do not suggest a specific underlying cause unless supported by evidence or explicitly requested as a hypothesis; identify any requested hypotheses as uncertain.",
+      "evaluator_type": "llm_judge",
+      "evaluator_status": "Proposed only; not approved, implemented or validated.",
+      "status": "candidate",
+      "created_from": [
+        "2e32c120-a04c-4e33-994b-0ec362865ecd"
+      ],
+      "example_trace_ids": [],
+      "close_negative_trace_ids": [],
+      "candidate_example_trace_ids": [
+        "136f589f8c579d2c5c125046bd3c9052"
+      ],
+      "origin_observations": [
+        {
+          "annotation_id": "2e32c120-a04c-4e33-994b-0ec362865ecd",
+          "trace_id": "136f589f8c579d2c5c125046bd3c9052",
+          "note": "To Vobosan, you shouldn't tell him it's a data entry issue. Just tell him you have an issue, but don't make it too specific. Just tell him you're escalating to a human, and it's going to get corrected"
+        }
+      ],
+      "example_quotes": [
+        {
+          "trace_id": "136f589f8c579d2c5c125046bd3c9052",
+          "quote": "this likely indicates a data-entry issue, tracking import/order-of-events issue, or a timeline sync problem between systems."
+        }
+      ],
+      "evidence_status": "One originating human concern; no confirmed positive or close-negative memberships under this new definition. Additional examples and requirement approval pending.",
+      "definition_approval": "Student requested drafting two categories from the two remaining observations. This exact definition and boundary are assistant proposals, not finalized human decisions.",
+      "request_id": "hw4-two-additional-candidate-request-07",
+      "requirement_status": "proposed_revision_pending_human_approval",
+      "likely_product_change": "Restrict causal explanations to supported causes or explicitly requested, clearly marked hypotheses; do not treat shortening alone as the fix.",
+      "uncertainty": "The recorded reply already hedges its causes and the support request asks to explain the inconsistency. This candidate may require revision, merger or retirement after human review."
+    },
+    {
+      "name": "unreadable_response_format",
+      "definition": "The final assistant response uses formatting or layout that materially obstructs reading the requested answer when displayed as intended in the supported interface.",
+      "boundary": "Distinct from excess detail: this concerns presentation of content, not whether that content is relevant or too long. Valid Markdown source punctuation, mandatory policy citations, and explicitly requested structured records are not automatic failures. Exclude problems caused only by the review viewer rendering valid Markdown as raw text. Do not assume a historical formatting objection still exists in the corrected viewer. Preserve final-215's rejected excess-detail suggestion.",
+      "requirement_source": "Proposed response-format clarification of RESP-5. The exact formatting boundary and correct-rendering evidence still require human approval before final labeling. SPEC.md remains unchanged.",
+      "proposed_requirement": "Use a readable presentation for the user's requested answer in the supported interface. Required policy citations and explicitly requested structured records remain permitted; distinguish response-format defects from review-tool rendering defects.",
+      "evaluator_type": "llm_judge",
+      "evaluator_status": "Proposed only; needs intended-rendering evidence, not raw Markdown alone. Not approved, implemented or validated.",
+      "status": "candidate",
+      "created_from": [
+        "accepted-hw4-depth-15-5bcc02aa2ef576b0873a738c7731feb7"
+      ],
+      "example_trace_ids": [],
+      "close_negative_trace_ids": [],
+      "candidate_example_trace_ids": [
+        "5bcc02aa2ef576b0873a738c7731feb7"
+      ],
+      "origin_observations": [
+        {
+          "annotation_id": "accepted-hw4-depth-15-5bcc02aa2ef576b0873a738c7731feb7",
+          "trace_id": "5bcc02aa2ef576b0873a738c7731feb7",
+          "note": "The format is fine. Remove the asterisks."
+        }
+      ],
+      "clarification_refs": [
+        "hw4-depth-boundary-clarification-02"
+      ],
+      "prior_human_decision": "The student confirmed that the answer was acceptable but the formatting was not good. Reject this excess-detail suggestion; preserve the formatting concern separately without assuming its cause or treating it as resolved.",
+      "evidence_status": "One historical formatting concern, preserved alongside its clarification; no confirmed positive or close-negative memberships under the new correctly-rendered definition.",
+      "definition_approval": "Student requested drafting two categories from the two remaining observations. This exact definition and boundary are assistant proposals, not finalized human decisions.",
+      "request_id": "hw4-two-additional-candidate-request-07",
+      "requirement_status": "proposed_clarification_pending_human_approval",
+      "likely_product_change": "Correct the response's presentation or choose an appropriate supported format if the defect is in the response. A viewer-only issue calls for a viewer fix, not this agent-failure mode.",
+      "uncertainty": "Final-215's raw Markdown contains asterisks, but that alone is not a failure. Whether its intended rendered reply has a defect remains unresolved; retire this candidate if the concern is entirely a viewer issue."
+    }
+  ],
+  "completion_status": {
+    "final_modes": 3,
+    "candidate_modes_added": 2,
+    "reviewed_traces": 85,
+    "final_uniform_reviewed": 0,
+    "raindrop": "deferred",
+    "hw4_complete": false
+  },
+  "next_steps": [
+    "Approve or revise the precise requirement/definition boundaries, without retroactively claiming the traces violated an explicit rule.",
+    "Retrieve possible positives and close negatives from real traces; human-review each candidate.",
+    "Finalize only with at least three confirmed positive traces per mode and three close negatives when available. If the evidence does not support a mode, revise, merge or retire it rather than padding the count."
+  ]
+}
