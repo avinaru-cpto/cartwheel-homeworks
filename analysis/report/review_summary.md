@@ -3,8 +3,8 @@
 Status: **non-deferred analysis complete**. The 100-trace review, five-mode
 taxonomy, 500 structured judgments, sample-fraction calculation, taxonomy
 revision, AgentDebug comparison, and final-batch assessment are complete. All
-500 current judgments are synchronized to Langfuse. Raindrop Workshop and the
-video remain deliberately deferred by the student; see the final status section.
+500 current judgments are synchronized to Langfuse. The now-optional Raindrop
+Workshop section was skipped by the student; only the video remains deferred.
 
 Earlier “pending” statements below are preserved as a chronological audit of
 the review. The authoritative result is in
@@ -1082,12 +1082,13 @@ Renaming the three audience/content-selection modes to a broad term such as
 price, translate an external raw field, and suppress an unrequested internal
 policy identifier. The final names and boundaries are therefore unchanged.
 
-## Explicit Workshop and video deferral
+## Optional Workshop skipped; video deferred
 
 The student asked to proceed without Raindrop Workshop and without the video.
-`analysis/report/workshop_notes.md` records that no Workshop runs were
-inspected and no Workshop suggestion was treated as evidence. The recording
-was not created. These are deliberate exclusions, not completed requirements.
+The revised official handout now marks Workshop as optional and instructs
+students who skip it to omit `analysis/report/workshop_notes.md`; that file has
+therefore been removed. No Workshop runs were inspected and no Workshop
+suggestion was treated as evidence. The recording was not created.
 
 ## Final-batch stability assessment
 
@@ -1170,7 +1171,6 @@ human confirmations, and rejected suggestions remain in the state history.
 
 The interface, sampling, annotations, taxonomy, labels, specification
 revisions, AgentDebug comparison, stability assessment, and written reports
-are complete. Raindrop Workshop was not run and the video was not recorded at
-the student's explicit request. Those two handout requirements are therefore
-**deferred, not completed or waived**. Apart from those deliberate exclusions,
-the HW4 repository work is ready for handoff.
+are complete. The optional Raindrop Workshop section was skipped. The video was
+not recorded at the student's explicit request and remains the only outstanding
+submission deliverable. The HW4 repository work is ready for handoff.
