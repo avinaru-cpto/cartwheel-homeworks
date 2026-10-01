@@ -1,0 +1,16 @@
+{
+  "versions": [
+    {
+      "judge_id": "unsolicited_internal_policy_identifiers-v0",
+      "prompt_hash": "c1ac4135560d"
+    },
+    {
+      "judge_id": "unsolicited_internal_policy_identifiers-v1",
+      "prompt_hash": "5c37fdcf6f21"
+    },
+    {
+      "judge_id": "unsolicited_internal_policy_identifiers-v2",
+      "prompt_hash": "3d931a0028a8"
+    }
+  ]
+}

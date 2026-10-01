@@ -71,38 +71,63 @@ the audience and request boundary.
 | Development | 27 | 12 | 39 | Prompt evaluation and revision |
 | Test | 27 | 12 | 39 | One final held-out evaluation |
 
-### Part C — write and refine the judge: in progress
+### Part C — write and refine the judge: complete
 
 - [x] Drafted prompt v0 with Pass/Fail rules and structured JSON output.
 - [x] Used four training-only examples: clear Pass, clear Fail, merchant Fail,
   and an internal-support boundary case.
 - [x] Verified that none of the prompt examples are in development or test.
-- [ ] Approve and run prompt v0 on the **39 development traces** using
+- [x] Approved and ran prompt v0 on the **39 development traces** using
   `gpt-4o-mini`.
-- [ ] Review every development disagreement.
-- [ ] Decide for each disagreement whether the prompt is wrong, the human label
-  needs correction, or the boundary needs clarification.
-- [ ] Make zero, one, or two prompt revisions, then explain why revision stopped.
+- [x] Reviewed the single development disagreement.
+- [x] Decided that the prompt was wrong and the human Fail label should remain
+  unchanged.
+- [x] Drafted prompt v1 with a mandatory final-reply identifier scan; the
+  development disagreement was not added as a prompt example.
+- [x] Approved and ran prompt v1 on the **39 development traces** using
+  `gpt-4o-mini`.
+- [x] Confirmed that v1 produced the same single false Pass and no new
+  disagreements; no human labels changed.
+- [x] Drafted prompt v2 as the second and final permitted revision.
+- [x] Approved and ran prompt v2 on the **39 development traces** using
+  `gpt-4o-mini`.
+- [x] Reviewed all v2 disagreements: there were none.
+- [x] Stopped after two revisions because v2 reached 39/39 development
+  agreement and fixed the known false Pass without regressions.
+- [x] Confirmed v2 as the final prompt for freezing.
 
 There is **no required numerical passing score** in the handout. We select the
 final prompt from development evidence and report the uncertainty honestly.
 
-### Part D — freeze and test: not started
+### Part D — freeze and test: complete
 
-- [ ] Choose the final prompt version using development results only.
-- [ ] Freeze that version.
-- [ ] Approve and run the judge once on the **39 held-out test traces** using
+- [x] Chose prompt v2 using development results only.
+- [x] Froze prompt v2 before opening the test results.
+- [x] Approved and ran the judge once on the **39 held-out test traces** using
   the same `gpt-4o-mini` model.
-- [ ] Save confusion counts, TPR, TNR, and 95% Wilson intervals.
-- [ ] Decide whether the judge should be used and for what purpose.
+- [x] Saved confusion counts, TPR, TNR, and 95% Wilson intervals.
+- [x] Decided to use the judge for human-reviewed screening, not autonomous
+  enforcement.
+
+Final held-out result:
+
+| Metric | Result | 95% Wilson interval |
+| --- | ---: | ---: |
+| TPR | 26/27 = 0.9630 | 0.8172–0.9934 |
+| TNR | 11/12 = 0.9167 | 0.6461–0.9851 |
+
+Confusion counts: TP 26, FN 1, TN 11, FP 1. Overall agreement was 37/39
+(0.9487). The false Pass missed `cw-returns` in the final reply; the false Fail
+incorrectly attributed earlier trace identifiers to a final reply containing
+none. The frozen prompt was not revised after seeing these results.
 
 The test predictions stay hidden until the final prompt is frozen. A weak test
 result is reported; it is not used to tune another version.
 
-### Part E — submit and record: partially complete
+### Part E — submit and record: complete except video
 
 - [x] Commit and push the preparation artifacts.
-- [ ] Commit and push the development predictions, critiques, final judge,
+- [x] Package the development predictions, critiques, final judge,
   test metrics, and final summary.
 - [ ] Record one continuous video of no more than five minutes.
 
@@ -116,18 +141,9 @@ The video must show:
 
 ## What you personally need to do
 
-The coding agent can run batches, calculate metrics, preserve artifacts, and
-commit the work. The remaining human decisions are:
-
-1. Approve each paid batch after seeing the model and trace count.
-2. Review the development disagreements and confirm the correct boundary.
-3. Choose the final prompt based on development evidence.
-4. State whether you would use the judge after seeing held-out test evidence.
-5. Record the final video.
-
-If prompt v0 performs cleanly, the minimum remaining model work is one
-39-trace development run and one 39-trace test run. Prompt revisions add
-another 39-trace development run each.
+The coding work and required human evaluation decisions are complete. The only
+remaining personal task is to record the final video. Use
+`analysis/report/hw5_video_outline.md` as the speaking guide.
 
 ## Metrics in plain English
 
@@ -151,10 +167,12 @@ look accurate while missing the rare failures.
 | Fixed inputs | `analysis/state/hw5_trace_inputs.json` | Complete; freeze at first run |
 | Fixed split | `analysis/state/splits.json` | Complete; do not reshuffle |
 | Judge runner | `analysis/run_judges.py` | Complete |
-| Prompt v0 | `analysis/prompts/unsolicited_internal_policy_identifiers-v0.txt` | Drafted; not evaluated |
-| Development judge records and metrics | `analysis/state/judges/`, `analysis/report/dev-*.json` | Pending paid run |
-| Final test metrics | `analysis/report/test-*.json` | Pending frozen test |
-| Final review summary | `analysis/report/` | Pending test evidence |
+| Prompt v0 | `analysis/prompts/unsolicited_internal_policy_identifiers-v0.txt` | Evaluated on development |
+| Prompt v1 | `analysis/prompts/unsolicited_internal_policy_identifiers-v1.txt` | Evaluated on development |
+| Prompt v2 | `analysis/prompts/unsolicited_internal_policy_identifiers-v2.txt` | Frozen final version |
+| Development judge records and metrics | `analysis/state/judges/`, `analysis/report/dev-*.json` | Complete for v0, v1, and v2 |
+| Final test metrics | `analysis/report/test-*.json` | Complete |
+| Final review summary | `analysis/report/hw5_final_report.html` | Complete |
 | Video | Student recording | Pending |
 
 ## Not required

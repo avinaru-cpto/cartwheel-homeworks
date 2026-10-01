@@ -1,0 +1,268 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "HW5 LLM Judge Evaluation",
+    "description": "Final development and held-out evaluation of the unsolicited internal policy identifier judge.",
+    "generatedAt": "2026-10-01T19:15:00Z",
+    "cards": [
+      {
+        "id": "test_tpr",
+        "description": "Share of 27 human Pass cases the frozen judge also marked Pass.",
+        "dataset": "test_summary",
+        "sourceId": "test_metrics",
+        "metrics": [
+          { "label": "Test TPR", "field": "tpr", "format": "percent" }
+        ]
+      },
+      {
+        "id": "test_tnr",
+        "description": "Share of 12 human Fail cases the frozen judge also marked Fail.",
+        "dataset": "test_summary",
+        "sourceId": "test_metrics",
+        "metrics": [
+          { "label": "Test TNR", "field": "tnr", "format": "percent" }
+        ]
+      },
+      {
+        "id": "test_agreement",
+        "description": "Share of all 39 held-out traces where judge and human labels agreed.",
+        "dataset": "test_summary",
+        "sourceId": "test_metrics",
+        "metrics": [
+          { "label": "Agreement", "field": "agreement", "format": "percent" }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "development_rates",
+        "title": "Development TPR and TNR by prompt version",
+        "subtitle": "Same 39 traces per version; v2 raised TNR without reducing TPR.",
+        "type": "bar",
+        "dataset": "development_rates",
+        "sourceId": "development_review",
+        "valueFormat": "percent",
+        "encodings": {
+          "x": { "field": "version", "type": "nominal", "label": "Prompt version" },
+          "y": { "field": "rate", "type": "quantitative", "label": "Agreement rate" },
+          "color": { "field": "metric", "type": "nominal", "label": "Metric" },
+          "tooltip": [
+            { "field": "correct", "type": "quantitative", "label": "Correct" },
+            { "field": "denominator", "type": "quantitative", "label": "Denominator" },
+            { "field": "agreements", "type": "quantitative", "label": "Overall agreements" }
+          ]
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "development_versions",
+        "title": "Development results by prompt version",
+        "subtitle": "Same 39 development traces: 27 human Pass and 12 human Fail.",
+        "dataset": "development_versions",
+        "sourceId": "development_review",
+        "defaultSort": { "field": "version", "direction": "asc" },
+        "columns": [
+          { "field": "version", "label": "Prompt", "type": "text" },
+          { "field": "tpr", "label": "TPR", "format": "percent" },
+          { "field": "tnr", "label": "TNR", "format": "percent" },
+          { "field": "agreements", "label": "Agreements", "type": "text" },
+          { "field": "disagreements", "label": "Disagreements", "type": "number" }
+        ]
+      },
+      {
+        "id": "test_confusion",
+        "title": "Held-out confusion counts",
+        "subtitle": "Pass is the positive class; the frozen v2 judge was run once on 39 test traces.",
+        "dataset": "test_confusion",
+        "sourceId": "test_metrics",
+        "defaultSort": { "field": "outcome", "direction": "asc" },
+        "columns": [
+          { "field": "outcome", "label": "Outcome", "type": "text" },
+          { "field": "count", "label": "Count", "type": "number" },
+          { "field": "meaning", "label": "Meaning", "type": "text" }
+        ]
+      },
+      {
+        "id": "test_errors",
+        "title": "The two held-out disagreements",
+        "subtitle": "Both errors concerned locating identifiers in the final answer, not the audience/request boundary.",
+        "dataset": "test_errors",
+        "sourceId": "judge_record",
+        "defaultSort": { "field": "error_type", "direction": "asc" },
+        "columns": [
+          { "field": "error_type", "label": "Error", "type": "text" },
+          { "field": "human", "label": "Human", "type": "text" },
+          { "field": "judge", "label": "Judge", "type": "text" },
+          { "field": "finding", "label": "Finding", "type": "text" }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "development_review",
+        "label": "HW5 development review",
+        "path": "analysis/report/hw5_development_review.md"
+      },
+      {
+        "id": "test_metrics",
+        "label": "Frozen v2 held-out metrics",
+        "path": "analysis/report/test-unsolicited_internal_policy_identifiers-v2.json"
+      },
+      {
+        "id": "judge_record",
+        "label": "Frozen v2 predictions and critiques",
+        "path": "analysis/state/judges/unsolicited_internal_policy_identifiers-v2.json"
+      },
+      {
+        "id": "handout",
+        "label": "Homework 5 handout",
+        "path": "homework/module-2/hw5.md"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# HW5 LLM Judge Evaluation"
+      },
+      {
+        "id": "technical_summary",
+        "type": "markdown",
+        "sourceId": "test_metrics",
+        "body": "## The frozen judge is useful for screening, not autonomous enforcement\n\nThe final `gpt-4o-mini` judge agreed with human labels on **37 of 39 held-out traces (94.87%)**. It achieved **96.30% TPR** and **91.67% TNR**. The two errors show that the model can both miss a visible identifier and incorrectly attribute earlier trace identifiers to the final answer. Use it to prioritize human review, not as the sole policy gate."
+      },
+      {
+        "id": "headline_metrics",
+        "type": "metric-strip",
+        "cardIds": ["test_tpr", "test_tnr", "test_agreement"]
+      },
+      {
+        "id": "development_heading",
+        "type": "markdown",
+        "sourceId": "development_review",
+        "body": "## A shorter evidence-first prompt fixed the development miss\n\nv0 and v1 each agreed on 38 of 39 development traces. v2 required the critique to inventory candidate identifiers from the complete last assistant block before applying the audience boundary; it reached 39 of 39 without introducing a development regression."
+      },
+      { "id": "development_chart", "type": "chart", "chartId": "development_rates" },
+      { "id": "development_table", "type": "table", "tableId": "development_versions" },
+      {
+        "id": "test_heading",
+        "type": "markdown",
+        "sourceId": "test_metrics",
+        "body": "## Held-out performance remained strong but not perfect\n\nThe frozen prompt produced 26 true Pass decisions, 11 true Fail decisions, one false Fail, and one false Pass. The exact confusion counts are more useful than accuracy alone because false Passes represent missed leaks while false Fails create unnecessary human review."
+      },
+      { "id": "test_confusion_table", "type": "table", "tableId": "test_confusion" },
+      {
+        "id": "error_heading",
+        "type": "markdown",
+        "sourceId": "judge_record",
+        "body": "## Both final errors were evidence-location failures\n\nThe false Pass overlooked `cw-returns` in a merchant-facing final reply. The false Fail claimed `cw-returns` and `cw-cancellations` appeared in a shopper-facing final reply that contained neither. The decision boundary was clear; the model failed to reliably isolate the final answer from the surrounding trace."
+      },
+      { "id": "errors_table", "type": "table", "tableId": "test_errors" },
+      {
+        "id": "definitions",
+        "type": "markdown",
+        "sourceId": "handout",
+        "body": "## Scope and metric definitions\n\nThe selected failure mode asks whether a shopper- or merchant-facing final reply exposes an unrequested raw internal policy identifier. **Pass is the positive class.** TPR is the fraction of human Pass labels reproduced as Pass; TNR is the fraction of human Fail labels reproduced as Fail. The fixed data comprised 19 training, 39 development, and 39 test conversations."
+      },
+      {
+        "id": "method",
+        "type": "markdown",
+        "sourceId": "handout",
+        "body": "## Validation design protected the test from tuning\n\nFour training-only examples shaped each prompt. Development results supported at most two revisions. v2 was selected and frozen before one held-out test run with the same model. Wilson intervals quantify uncertainty. Exact tables are used instead of a chart because three prompt versions and four confusion cells are clearer as audit-ready values than plotted marks."
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "sourceId": "test_metrics",
+        "body": "## Small Fail counts keep uncertainty material\n\nTest TPR has a 95% Wilson interval of **81.72%–99.34%** and test TNR has an interval of **64.61%–98.51%**. Only 12 human Fail cases were available in the test split, so the 91.67% TNR point estimate should not be interpreted as a precise production guarantee. The test errors also demonstrate that structured critiques can be confidently wrong."
+      },
+      {
+        "id": "next_steps",
+        "type": "markdown",
+        "body": "## Preserve v2 and keep a human in the loop\n\n- Use the judge to rank or flag traces for human review.\n- Review all flagged cases and sample judge Pass cases to catch missed leaks.\n- Revalidate after model or prompt changes.\n- For production, consider a deterministic extractor that isolates the final assistant block before the LLM applies the audience/request boundary.\n- Record the homework video using one development disagreement, the final metrics, and this use decision."
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## The remaining technical question is trace isolation\n\nWould a deterministic final-answer extractor remove both observed error types while preserving the LLM's contextual judgment about audience and explicit requests? That hybrid design is the clearest next experiment, but it is outside the required HW5 scope."
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-10-01T19:15:00Z",
+    "status": "ready",
+    "datasets": {
+      "test_summary": [
+        { "tpr": 0.963, "tnr": 0.9167, "agreement": 0.9487 }
+      ],
+      "development_versions": [
+        { "version_order": 0, "version": "v0", "tpr": 1.0, "tnr": 0.9167, "agreements": "38/39", "disagreements": 1 },
+        { "version_order": 1, "version": "v1", "tpr": 1.0, "tnr": 0.9167, "agreements": "38/39", "disagreements": 1 },
+        { "version_order": 2, "version": "v2", "tpr": 1.0, "tnr": 1.0, "agreements": "39/39", "disagreements": 0 }
+      ],
+      "development_rates": [
+        { "version": "v0", "metric": "TPR", "rate": 1.0, "correct": 27, "denominator": 27, "agreements": 38, "revision": "Initial prompt" },
+        { "version": "v0", "metric": "TNR", "rate": 0.9167, "correct": 11, "denominator": 12, "agreements": 38, "revision": "Initial prompt" },
+        { "version": "v1", "metric": "TPR", "rate": 1.0, "correct": 27, "denominator": 27, "agreements": 38, "revision": "Added inspection sequence" },
+        { "version": "v1", "metric": "TNR", "rate": 0.9167, "correct": 11, "denominator": 12, "agreements": 38, "revision": "Added inspection sequence" },
+        { "version": "v2", "metric": "TPR", "rate": 1.0, "correct": 27, "denominator": 27, "agreements": 39, "revision": "Shortened prompt and required candidate inventory" },
+        { "version": "v2", "metric": "TNR", "rate": 1.0, "correct": 12, "denominator": 12, "agreements": 39, "revision": "Shortened prompt and required candidate inventory" }
+      ],
+      "test_confusion": [
+        { "row_order": 1, "outcome": "True Pass", "count": 26, "meaning": "Human Pass and judge Pass" },
+        { "row_order": 2, "outcome": "False Fail", "count": 1, "meaning": "Human Pass but judge Fail" },
+        { "row_order": 3, "outcome": "True Fail", "count": 11, "meaning": "Human Fail and judge Fail" },
+        { "row_order": 4, "outcome": "False Pass", "count": 1, "meaning": "Human Fail but judge Pass" }
+      ],
+      "test_errors": [
+        { "row_order": 1, "error_type": "False Pass", "human": "Fail", "judge": "Pass", "finding": "Missed cw-returns in the merchant-facing final reply." },
+        { "row_order": 2, "error_type": "False Fail", "human": "Pass", "judge": "Fail", "finding": "Attributed cw-returns and cw-cancellations to a final reply containing neither." }
+      ]
+    },
+    "accessIssues": []
+  },
+  "sources": [
+    {
+      "id": "development_review",
+      "path": "analysis/report/hw5_development_review.md",
+      "description": "Saved development metrics, disagreement review, and revision decisions.",
+      "query": {
+        "engine": "duckdb",
+        "language": "sql",
+        "sql": "SELECT 'v0' AS version, tpr, tnr, agreement, tp, fn, tn, fp, n FROM read_json_auto('analysis/report/dev-unsolicited_internal_policy_identifiers-v0.json') UNION ALL SELECT 'v1' AS version, tpr, tnr, agreement, tp, fn, tn, fp, n FROM read_json_auto('analysis/report/dev-unsolicited_internal_policy_identifiers-v1.json') UNION ALL SELECT 'v2' AS version, tpr, tnr, agreement, tp, fn, tn, fp, n FROM read_json_auto('analysis/report/dev-unsolicited_internal_policy_identifiers-v2.json')",
+        "description": "Reads the saved development metrics for all three prompt versions."
+      }
+    },
+    {
+      "id": "test_metrics",
+      "path": "analysis/report/test-unsolicited_internal_policy_identifiers-v2.json",
+      "description": "Saved confusion counts, TPR, TNR, Wilson intervals, and disagreement IDs from the frozen test run.",
+      "query": {
+        "engine": "duckdb",
+        "language": "sql",
+        "sql": "SELECT judge_id, split, tpr, tnr, agreement, tp, fn, tn, fp, n, tpr_interval, tnr_interval, disagreements FROM read_json_auto('analysis/report/test-unsolicited_internal_policy_identifiers-v2.json')",
+        "description": "Reads the saved held-out metrics for the frozen v2 judge."
+      }
+    },
+    {
+      "id": "judge_record",
+      "path": "analysis/state/judges/unsolicited_internal_policy_identifiers-v2.json",
+      "description": "Frozen prompt, cached predictions, and critiques for development and test traces.",
+      "query": {
+        "engine": "duckdb",
+        "language": "sql",
+        "sql": "SELECT judge_id, status, model, prompt_hash, predictions, critiques FROM read_json_auto('analysis/state/judges/unsolicited_internal_policy_identifiers-v2.json')",
+        "description": "Reads the frozen judge record containing cached predictions and critiques."
+      }
+    },
+    {
+      "id": "handout",
+      "path": "homework/module-2/hw5.md",
+      "description": "Official assignment requirements and metric definitions."
+    }
+  ]
+}

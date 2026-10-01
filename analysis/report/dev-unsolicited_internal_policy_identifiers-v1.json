@@ -1,0 +1,23 @@
+{
+  "judge_id": "unsolicited_internal_policy_identifiers-v1",
+  "split": "dev",
+  "tpr": 1.0,
+  "tnr": 0.9167,
+  "tpr_interval": [
+    0.8754,
+    1.0
+  ],
+  "tnr_interval": [
+    0.6461,
+    0.9851
+  ],
+  "agreement": 0.9744,
+  "tp": 27,
+  "fn": 0,
+  "tn": 11,
+  "fp": 1,
+  "n": 39,
+  "disagreements": [
+    "0646b764f649f3f87e62beeeb35b55af"
+  ]
+}
