@@ -85,6 +85,9 @@ def _validate_case(
     if case_id in seen:
         raise ValueError(f"duplicate case id: {case_id}")
     seen.add(case_id)
+    case_input = case.get("input", {})
+    if case_input.get("role") == "merchant" and case_input.get("store_id") is None:
+        raise ValueError(f"{case_id}: merchant cases require input.store_id")
     kind = case.get("kind")
     if baseline:
         if kind is not None:
@@ -163,7 +166,7 @@ def _task_toml(case: dict[str, Any], judges: list[dict[str, Any]]) -> str:
         f"mode = {_toml_string(case['mode'])}",
         "",
         "[verifier]",
-        "timeout_sec = 300.0",
+        "timeout_sec = 900.0",
     ]
     keys = sorted({key for judge in judges if (key := _provider_key(judge["model"]))})
     if keys:
