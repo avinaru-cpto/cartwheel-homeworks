@@ -115,6 +115,21 @@ def test_baseline_export_accepts_only_unclassified_cases(tmp_path: Path) -> None
         export_tasks(cases_path, output, require_suite=False)
 
 
+def test_export_rejects_merchant_case_without_store_id(tmp_path: Path) -> None:
+    cases_path = tmp_path / "cases.jsonl"
+    case = {
+        "id": "e-103",
+        "mode": "response_quality",
+        "input": {"role": "merchant", "user_id": 9001, "message": "hello"},
+        "initial_state": {"world": "reseed", "fixture": None},
+        "expected": {"checks": [{"check": "reply_asks_question"}]},
+    }
+    _write_cases(cases_path, [case])
+
+    with pytest.raises(ValueError, match="merchant cases require input.store_id"):
+        export_tasks(cases_path, tmp_path / "tasks", baseline=True)
+
+
 def test_summary_blocks_regressions_but_reports_capabilities(
     tmp_path: Path, monkeypatch
 ) -> None:
@@ -204,6 +219,44 @@ def test_baseline_summary_reports_the_observed_classification(tmp_path: Path) ->
     assert passed is True
     assert '`kind: "regression"`' in markdown
     assert '`kind: "capability"`, `baseline_pass_rate: 0.6`' in markdown
+
+
+def test_summary_reads_harbor_023_trial_directories(tmp_path: Path) -> None:
+    cases_path = tmp_path / "cases.jsonl"
+    case = {
+        "id": "e-304",
+        "mode": "response_quality",
+        "input": {"role": "shopper", "user_id": 1, "message": "hello"},
+        "initial_state": {"world": "reseed", "fixture": None},
+        "expected": {"checks": [{"check": "reply_asks_question"}]},
+    }
+    _write_cases(cases_path, [case])
+    job = tmp_path / "job"
+    job.mkdir()
+    (job / "result.json").write_text(json.dumps({"stats": {"n_completed_trials": 5}}))
+    for attempt in range(5):
+        trial_dir = job / f"e-304__trial-{attempt}"
+        trial_dir.mkdir()
+        (trial_dir / "result.json").write_text(
+            json.dumps(
+                {
+                    "task_name": "cartwheel/evals__e-304",
+                    "trial_name": f"e-304__trial-{attempt}",
+                    "verifier_result": {"rewards": {"reward": 0}},
+                    "exception_info": None,
+                }
+            )
+        )
+
+    markdown, passed = summarize_job(
+        job,
+        cases_path=cases_path,
+        expected_attempts=5,
+        classify=True,
+    )
+
+    assert passed is True
+    assert '| `e-304` | 0 | 5 | `kind: "capability"`, `baseline_pass_rate: 0.0` |' in markdown
 
 
 def test_baseline_summary_does_not_classify_infrastructure_errors(
@@ -326,3 +379,36 @@ def test_capability_analysis_uses_5_10_and_15_observed_runs(
         "10",
         "15",
     }
+
+
+def test_capability_analysis_reads_harbor_023_trial_directories(
+    tmp_path: Path,
+) -> None:
+    job = tmp_path / "job"
+    job.mkdir()
+    (job / "result.json").write_text(
+        json.dumps({"stats": {"n_completed_trials": 15}})
+    )
+    for attempt in range(14, -1, -1):
+        trial_dir = job / f"e-402__trial-{attempt:02d}"
+        trial_dir.mkdir()
+        (trial_dir / "result.json").write_text(
+            json.dumps(
+                {
+                    "task_name": "cartwheel/evals__e-402",
+                    "trial_name": f"trial-{attempt:02d}",
+                    "started_at": f"2026-01-01T00:00:{attempt:02d}Z",
+                    "verifier_result": {
+                        "rewards": {"reward": 1 if attempt % 2 == 0 else 0}
+                    },
+                    "agent_info": {"model_info": {"name": "gpt-test"}},
+                    "exception_info": None,
+                }
+            )
+        )
+
+    result = analyze_capability_job(job, "e-402")
+
+    assert result["n"] == 15
+    assert result["trials"][0]["trial_name"] == "trial-00"
+    assert result["trial_order"] == "child result.json started_at order"

@@ -1,0 +1,21 @@
+{
+  "pull_request_url": "https://github.com/avinaru-cpto/cartwheel-homeworks/pull/1",
+  "case_id": "e-011",
+  "intentional_regression": {
+    "run_url": "https://github.com/avinaru-cpto/cartwheel-homeworks/actions/runs/37102535358",
+    "commit": "75f281c0ed2cb9d87bbf3d6b800689d9ce2396f7",
+    "workflow_conclusion": "failure",
+    "case_passes": 0,
+    "case_trials": 5,
+    "ci_decision": "block"
+  },
+  "after_revert": {
+    "run_url": "https://github.com/avinaru-cpto/cartwheel-homeworks/actions/runs/37103387797",
+    "commit": "5e78f64d9c6cb18dd684aa9d15d8dd3705346b4e",
+    "workflow_conclusion": "success",
+    "case_passes": 5,
+    "case_trials": 5,
+    "ci_decision": "pass"
+  },
+  "explanation": "The temporary prompt instruction told the agent never to mention the correct 24-hour escalation response time, so regression case e-011 failed all five verifier trials and blocked CI. Reverting only that instruction restored the original behavior: e-011 passed all five trials and the same pull request's next CI run succeeded."
+}

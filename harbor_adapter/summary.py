@@ -30,6 +30,26 @@ def _reward(trial: dict[str, Any]) -> float | None:
     return None
 
 
+def _trial_results(job_dir: Path, result: dict[str, Any]) -> list[dict[str, Any]]:
+    """Load trials from either the legacy aggregate or Harbor 0.23 layout."""
+    aggregate = result.get("trial_results")
+    if isinstance(aggregate, list):
+        return [trial for trial in aggregate if isinstance(trial, dict)]
+
+    trials: list[dict[str, Any]] = []
+    for path in sorted(job_dir.glob("*/result.json")):
+        trial = json.loads(path.read_text())
+        if isinstance(trial, dict):
+            trials.append(trial)
+    trials.sort(
+        key=lambda trial: (
+            str(trial.get("started_at", "")),
+            str(trial.get("trial_name", "")),
+        )
+    )
+    return trials
+
+
 def summarize_job(
     job_dir: Path,
     *,
@@ -49,7 +69,7 @@ def summarize_job(
     result = json.loads(result_path.read_text())
     trials: dict[str, list[dict[str, Any]]] = defaultdict(list)
     unknown: list[str] = []
-    for trial in result.get("trial_results", []):
+    for trial in _trial_results(job_dir, result):
         case_id = _case_id(str(trial.get("task_name", "")), set(by_id))
         if case_id is None:
             unknown.append(str(trial.get("task_name", "")))
