@@ -41,6 +41,12 @@ def _trial_results(job_dir: Path, result: dict[str, Any]) -> list[dict[str, Any]
         trial = json.loads(path.read_text())
         if isinstance(trial, dict):
             trials.append(trial)
+    trials.sort(
+        key=lambda trial: (
+            str(trial.get("started_at", "")),
+            str(trial.get("trial_name", "")),
+        )
+    )
     return trials
 
 

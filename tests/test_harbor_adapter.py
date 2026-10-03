@@ -379,3 +379,36 @@ def test_capability_analysis_uses_5_10_and_15_observed_runs(
         "10",
         "15",
     }
+
+
+def test_capability_analysis_reads_harbor_023_trial_directories(
+    tmp_path: Path,
+) -> None:
+    job = tmp_path / "job"
+    job.mkdir()
+    (job / "result.json").write_text(
+        json.dumps({"stats": {"n_completed_trials": 15}})
+    )
+    for attempt in range(14, -1, -1):
+        trial_dir = job / f"e-402__trial-{attempt:02d}"
+        trial_dir.mkdir()
+        (trial_dir / "result.json").write_text(
+            json.dumps(
+                {
+                    "task_name": "cartwheel/evals__e-402",
+                    "trial_name": f"trial-{attempt:02d}",
+                    "started_at": f"2026-01-01T00:00:{attempt:02d}Z",
+                    "verifier_result": {
+                        "rewards": {"reward": 1 if attempt % 2 == 0 else 0}
+                    },
+                    "agent_info": {"model_info": {"name": "gpt-test"}},
+                    "exception_info": None,
+                }
+            )
+        )
+
+    result = analyze_capability_job(job, "e-402")
+
+    assert result["n"] == 15
+    assert result["trials"][0]["trial_name"] == "trial-00"
+    assert result["trial_order"] == "child result.json started_at order"
